@@ -1,0 +1,13 @@
+# Vous devrez aussi intégrer en annexe une bibliographie/webographie relative à la veille que vous avez menée pour
+# concevoir ce document. On y retrouvera des ressources relatives à la conception d’architectures, aux solutions techniques
+# mais aussi des ressources autour de la gouvernance du SI et du métier de l’application à développer présentée dans le
+# contexte. Le sujet, le contenu de chaque ressource doit être brièvement et synthétiquement décrit.
+
+franchise-definition:
+  type: Web
+  title: "Titre"
+  author: "Auteur"
+  url:
+    value: "https://www.html"
+    date: 2026-09-05
+  note: "note"
