@@ -3,11 +3,29 @@
 # mais aussi des ressources autour de la gouvernance du SI et du métier de l’application à développer présentée dans le
 # contexte. Le sujet, le contenu de chaque ressource doit être brièvement et synthétiquement décrit.
 
-franchise-definition:
+systeme-d-information:
   type: Web
-  title: "Titre"
-  author: "Auteur"
+  title: "Système d'information"
+  author: "Wikipédia"
   url:
-    value: "https://www.html"
-    date: 2026-09-05
-  note: "note"
+    value: "https://fr.wikipedia.org/wiki/Syst%C3%A8me_d%27information"
+    date: 2026-09-06
+  note: "article Wikipédia définissant le SI"
+
+logiciel-pilotage-production:
+  type: Web
+  title: "Logiciel de pilotage de la production"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Logiciel_de_pilotage_de_la_production"
+    date: 2026-09-06
+  note: "article Wikipédia définissant le logiciel de pilotage de la production"
+
+gestion-cycle-de-vie-produit:
+  type: Web
+  title: "Gestion du cycle de vie (produit)"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Gestion_du_cycle_de_vie_(produit)"
+    date: 2026-09-06
+  note: "article Wikipédia définissant la gestion du cycle de vie produit"
