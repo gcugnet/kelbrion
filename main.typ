@@ -74,3 +74,6 @@
 
 #include "glossaire.typ"
 #pagebreak()
+
+#include "annexes.typ"
+#pagebreak()
