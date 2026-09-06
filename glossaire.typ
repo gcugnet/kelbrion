@@ -3,6 +3,8 @@
   numbering: none,
 )[Glossaire]
 
+#text()[*CODIR* : comité de direction]
+
 #text()[*CP* : chef de projet]
 
 #text()[*DAF* : directeur administratif et financier]
