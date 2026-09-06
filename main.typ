@@ -71,3 +71,6 @@
 
 #include "conclusion.typ"
 #pagebreak()
+
+#include "glossaire.typ"
+#pagebreak()
