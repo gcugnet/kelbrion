@@ -45,7 +45,7 @@ L’échéance est de 12 mois, elle est contractuellement fixée et correspond �
 
 #hidden-heading(level: 2)[Positionnement]
 
-Tout au long de ce document, nous nous plaçons en tant que responsable de l’animation de la nouvelle cellule PMO de l’entreprise Kelbrion. La cellule PMO a 3 objectifs principaux autour du portefeuille projets :
+Tout au long de ce document, nous nous plaçons en tant que responsable de l’animation de la nouvelle cellule PMO #footnote()[*PMO (Project Management Office)* : en français « Bureau de gestion de projets » désigne une partie de l’organisation qui centralise tout ou partie du pilotage et du support au management des projets, des programmes, et des portefeuilles de projets d’une entreprise ou organisation. @project-management-office] de l’entreprise Kelbrion. La cellule PMO a 3 objectifs principaux autour du portefeuille projets :
 
 - structuration
 - propositions argumentées d’arbitrages

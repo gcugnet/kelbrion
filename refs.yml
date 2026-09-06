@@ -29,3 +29,39 @@ gestion-cycle-de-vie-produit:
     value: "https://fr.wikipedia.org/wiki/Gestion_du_cycle_de_vie_(produit)"
     date: 2026-09-06
   note: "article Wikipédia définissant la gestion du cycle de vie produit"
+
+project-management-office:
+  type: Web
+  title: "Project management office"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Project_management_office"
+    date: 2026-09-06
+  note: "article Wikipédia définissant le PMO"
+
+project-management-institute:
+  type: Web
+  title: "Project Management Institute"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Project_Management_Institute"
+    date: 2026-09-06
+  note: "article Wikipédia sur le PMI"
+
+pmbok-guide:
+  type: Web
+  title: "PMBOK® Guide"
+  author: "Project Management Institute"
+  url:
+    value: "https://www.pmi.org/standards/process-groups"
+    date: 2026-09-06
+  note: "Référentiel PMI définissant le standard international de gestion de projets"
+
+prince2-project-management:
+  type: Web
+  title: "PRINCE2"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/PRINCE2"
+    date: 2026-09-06
+  note: "article Wikipédia détaillant la méthode de gestion de projets PRINCE2"
