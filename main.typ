@@ -26,6 +26,10 @@
   page_count_start: 4,
 )
 
+#show link: it => text(
+  fill: blue,
+)[#underline(it)]
+
 #include "introduction.typ"
 #pagebreak()
 
@@ -77,3 +81,6 @@
 
 #include "annexes.typ"
 #pagebreak()
+
+
+"En gestion de projet, nous pensons que garder les choses simples peut-être une voie intéressante à suivre : cela facilite la compréhension des équipes, les mises à jour régulières et donc la capacité à travailler avec des données « fraîches ». Nous pensons que plus le contexte est complexe, plus l’exercice de simplification est important."

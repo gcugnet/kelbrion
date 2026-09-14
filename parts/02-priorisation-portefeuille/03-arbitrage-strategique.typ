@@ -1,4 +1,5 @@
 == Abritrage stratégique
+<arbitrage-strategique>
 // ~1 page
 
 Tableau 5 — Tableau de bord du portefeuille

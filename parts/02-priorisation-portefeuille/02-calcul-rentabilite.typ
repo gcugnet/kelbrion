@@ -1,4 +1,5 @@
 == Calcul de la rentabilité
+<calcul-de-la-rentabilite>
 // ~0,5 page
 
 Tableau 6 — Classement rentabilité
