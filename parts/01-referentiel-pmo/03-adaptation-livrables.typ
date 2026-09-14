@@ -1,6 +1,8 @@
-== Adaptation des livrables par typologie de projet
+== Adaptation des documents par typologie de projet
 // ~1 page
 
-- différentes typologies de projets
+Nous venons de voir que certains documents sont facultatifs et dépendent de la nature du projet : c’est notamment le cas de ceux qui figurent dans les rubliques « Fournisseurs et contrats » et « Technique ».
 
-Matrice des 10 projets et livrables — 1 page
+
+
+#highlight()[ajouter des infos après l’analyse de portefeuille projets ?]
