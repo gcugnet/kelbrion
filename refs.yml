@@ -65,3 +65,12 @@ prince2-project-management:
     value: "https://fr.wikipedia.org/wiki/PRINCE2"
     date: 2026-09-06
   note: "article Wikipédia détaillant la méthode de gestion de projets PRINCE2"
+
+taux-journalier-moyen:
+  type: Web
+  title: "Taux journalier moyen"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Taux_journalier_moyen"
+    date: 2026-09-15
+  note: "article Wikipédia expliquant la notion de taux journalier moyen"

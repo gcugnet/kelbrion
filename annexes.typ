@@ -43,3 +43,27 @@
   ),
   caption: "Matrice utilisée pour attribuer le critère de maîtrise des risques aux projets",
 )
+
+#hidden-heading(level: 2)[Tableau d’estimation des coûts et gains projets]
+<estimation-couts-gains-projets>
+
+#figure(
+  rotate(
+    -90deg,
+    reflow: true,
+    image("assets/tableau-couts-gains-projets.png", width: 94%),
+  ),
+  caption: "Tableau utilisé pour renseigner les coûts et gains attendus par projet",
+)
+
+#hidden-heading(level: 2)[Tableau de rentabilité par projets]
+<tableau-rentabilite-projets>
+
+#figure(
+  rotate(
+    -90deg,
+    reflow: true,
+    image("assets/tableau-rentabilite-projets.png", width: 94%),
+  ),
+  caption: "Tableau indiquant la rentabilité par projet",
+)

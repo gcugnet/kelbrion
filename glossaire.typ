@@ -18,3 +18,7 @@
 #text()[*G* : Gate → point de décision / portail de gouvernance]
 
 #text()[*REX* : retour d’expérience]
+
+#text()[*ROI* : retour sur investissement]
+
+#text()[*TJM* : taux journalier moyen]
