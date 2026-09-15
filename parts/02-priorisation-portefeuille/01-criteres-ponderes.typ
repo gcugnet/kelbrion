@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Critères pondérés
+<critères-pondérés>
 // ~1 page
 
 En gestion de projet, nous pensons que garder les choses simples peut-être une voie intéressante à suivre : cela facilite la compréhension des équipes, les mises à jour régulières et donc la capacité à travailler avec des données « fraîches ». Nous pensons que plus le contexte est complexe, plus l’exercice de simplification est important. Nous proposons par conséquent de limiter le nombre de critères utilisés pour noter chaque projet.

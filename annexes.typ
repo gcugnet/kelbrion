@@ -67,3 +67,15 @@
   ),
   caption: "Tableau indiquant la rentabilité par projet",
 )
+
+#hidden-heading(level: 2)[Tableau reflétant l’alignement stratégique par projet]
+<tableau-alignement-strategique>
+
+#figure(
+  rotate(
+    -90deg,
+    reflow: true,
+    image("assets/tableau-alignement-strategique.png", width: 94%),
+  ),
+  caption: "Tableau permettant de classer les projets par alignement stratégique",
+)
