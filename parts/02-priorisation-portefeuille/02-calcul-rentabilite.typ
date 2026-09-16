@@ -66,7 +66,7 @@ Nous assumons la fragilité de ces estimations. Les coûts reposent sur des char
     )
   ],
   caption: [
-    Classement des projets du portefeuille par rentabilité, sur un horizon de 3 ans. Le délai de retour est exprimé en mois.
+    Classement des projets du portefeuille par rentabilité.
   ],
 )
 

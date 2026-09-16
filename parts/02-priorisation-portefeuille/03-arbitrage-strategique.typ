@@ -71,7 +71,7 @@ Dans le tableau ci-dessous, les 5 colonnes centrales reprennent dans l’ordre l
     )
   ],
   caption: [
-    Contribution propre de chaque projet aux 5 orientations stratégiques de Kelbrion. Le total est exprimé sur 15, la note sur 5.
+    Classement des projets du portefeuille par importance stratégique.
   ],
 )
 
@@ -82,5 +82,7 @@ Le MES (P4) et la gestion des identités (P9) suivent à 3,7. Le premier répond
 À l’inverse, le réseau (P2) et le portail collaboratif (P7) ferment la marche à 2,3. Bien que P2 soit le prérequis technique de tout le reste, sa contribution directe au plan stratégique reste modeste. Sa note est le résultat de notre règle de ne prendre en compte que les contributions directes aux objectifs, et nous l’assumons. La valeur de P2 sera révélée par le critère d’urgence, où il obtient la note maximale. Concernant P7, il s’agit d’un point d’entrée unique vers les services numériques, les documents partagés et les indicateurs d’activité. Il répond donc uniquement à l’objectif de la productivité et de l’expérience numérique.
 
 La lecture par colonne est au moins aussi instructive que la lecture par ligne, et c’est elle qui indique l’arbitrage. 8 projets sur 10 contribuent à la sécurité, à la conformité et à la résilience du SI, et 7 à la rationalisation du parc applicatif et à la maîtrise des coûts informatiques. En revanche, 4 projets seulement contribuent à la capacité de production et aux délais client, et 3 à l’innovation.
+
+Autrement dit, le portefeuille de la DSI est avant tout un portefeuille de mise à niveau : il sécurise, il rationalise, il rend le SI opérationnel dans le nouveau bâtiment. Sa contribution à la croissance de Kelbrion repose presque entièrement sur 2 projets, le MES (P4) et le PLM (P5). Nous remontons ce constat à la direction, car il a une conséquence directe sur les arbitrages à venir : reporter P4 ou P5 ne décale pas seulement un projet, cela décale la contribution de la DSI aux 2 orientations que l’entreprise place en tête de son plan.
 
 Le tableau d’alignement stratégique est disponible en annexe @tableau-alignement-strategique[] Tableau reflétant l’alignement stratégique par projet, et de manière interactive en suivant #link("https://docs.google.com/spreadsheets/d/1vOuAuyWx9WGl5-ragtGG6HYRPZ480uSp/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien], dans l’onglet « Alignement ». Cette note pèse 30% dans le score de priorité, dont nous détaillons le calcul dans la partie suivante 2.@cotation-projets[] Cotation des projets.

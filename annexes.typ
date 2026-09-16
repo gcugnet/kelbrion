@@ -79,3 +79,15 @@
   ),
   caption: "Tableau permettant de classer les projets par alignement stratégique",
 )
+
+#hidden-heading(level: 2)[Tableau de priorisation des projets]
+<tableau-priorisation-projets>
+
+#figure(
+  rotate(
+    -90deg,
+    reflow: true,
+    image("assets/tableau-priorisation-projets.png", width: 94%),
+  ),
+  caption: "Tableau utilisé pour calculer la priorité de chaque projet",
+)
