@@ -11,41 +11,41 @@ Nous avons créé ce référentiel autour de 9 rubriques, qui réunissent plusie
 
 #hidden-heading(level: 4, numbering: none)[D1 - Fiche projet]
 
-Cette rubrique contient en premier lieu la fiche projet, premier document créé (avant même que le projet ne soit validé par la direction de l’entreprise). Cette fiche doit présenter le commanditaire, la raison d’être du projet, son intérêt pour l’entreprise, et apporter de premiers éléments de chiffrage (macro-budget, cotations pour le portefeuille). Elle permet au CODIR de l’entreprise de valider chaque nouveau projet. Un exemple de fiche projet est disponible #highlight()[en annexe].
+Cette rubrique contient en premier lieu la fiche projet, premier document créé (avant même que le projet ne soit validé par la direction de l’entreprise). Cette fiche doit présenter le commanditaire, la raison d’être du projet, son intérêt pour l’entreprise, et apporter de premiers éléments de chiffrage (macro-budget, cotations pour le portefeuille). Elle permet au CODIR de l’entreprise de valider chaque nouveau projet. Un exemple de fiche projet est disponible en suivant #link("https://docs.google.com/document/d/1vPZUoCfIzTuTnrCgGkdJSF83nuHWqMZX/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 4, numbering: none)[D2 - Cahier des charges fonctionnel]
 
-Si le projet est validé, cette rubrique accueillera de nouveaux documents pour affiner la portée du projet : le cahier des charges fonctionnel / backlog (exemple #highlight()[en annexe]) et les critères d’acceptation. Ces documents sont rédigés par le maître d’ouvrage ou chef de projet, en concertation avec les métiers concernés. Ils sont validés par le commanditaire.
+Si le projet est validé, cette rubrique accueillera de nouveaux documents pour affiner la portée du projet : le cahier des charges fonctionnel / backlog (exemple disponible via #link("https://docs.google.com/document/d/1gMdBgf7ODzzfq_0xvJBSuP203AZlm5If/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien]) et les critères d’acceptation. Ces documents sont rédigés par le maître d’ouvrage ou chef de projet, en concertation avec les métiers concernés. Ils sont validés par le commanditaire.
 
 #hidden-heading(level: 3, numbering: none)[Plan de management projet]
 
 #hidden-heading(level: 4, numbering: none)[D3 - Le Plan de management projet]
 
-Le Plan de management projet est rédigé par le chef de projet après validation du projet en CODIR. Ce document informe sur les règles du projet : sa gouvernance, les tolérances à l’intérieur desquelles le projet est considéré comme sain, la gestion des risques, la communication, les principales échéances, les coûts et la qualité, et les indicateurs clés. D’une certaine manière, c’est un condensé d’autres documents que l’on retrouve dans les sections rubriques suivantes (notamment le planning et budget). Il peut être revu si besoin à la fin de chaque jalon (phases de validations). Un modèle est disponible en #highlight()[suivant ce lien].
+Le Plan de management projet est rédigé par le chef de projet après validation du projet en CODIR. Ce document informe sur les règles du projet : sa gouvernance, les tolérances à l’intérieur desquelles le projet est considéré comme sain, la gestion des risques, la communication, les principales échéances, les coûts et la qualité, et les indicateurs clés. D’une certaine manière, c’est un condensé d’autres documents que l’on retrouve dans les sections rubriques suivantes (notamment le planning et budget). Il peut être revu si besoin à la fin de chaque jalon (phases de validations). Un modèle est disponible en suivant #link("https://docs.google.com/document/d/11j44otJGuXWqlQaH8qM4JvrSlYKWh2OQ/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Pilotage et suivi]
 
 #hidden-heading(level: 4, numbering: none)[D4 - Diagramme de Gantt]
 
-Dans la rubrique dédiée au pilotage, le diagramme de Gantt est réalisé par le chef de projet. Il se présente comme un macro-planning et a pour objectif de répartir dans le temps les tâches à réaliser pour répondre aux exigences fonctionnelles. Il permet de piloter l’évolution temporelle du projet, et de vérifier que son exécution ne prend pas de retard sur le planning. Il est mis à jour chaque semaine pour informer de ce qui a été réalisé et reste encore à réaliser. #highlight()[Voir annexe.]
+Dans la rubrique dédiée au pilotage, le diagramme de Gantt est réalisé par le chef de projet. Il se présente comme un macro-planning et a pour objectif de répartir dans le temps les tâches à réaliser pour répondre aux exigences fonctionnelles. Il permet de piloter l’évolution temporelle du projet, et de vérifier que son exécution ne prend pas de retard sur le planning. Il est mis à jour chaque semaine pour informer de ce qui a été réalisé et reste encore à réaliser. Voir #link("https://docs.google.com/spreadsheets/d/1AEiNdK-rAZUR_6B7Eljg-_0OfmMZQLqW/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[lien].
 
 #hidden-heading(level: 4, numbering: none)[D5 - Budget]
 
-Le budget est le pendant financier du diagramme de Gantt : en précisant les principaux postes de dépenses du projet, il doit d’abord permettre de vérifier que l’enveloppe totale est suffisante pour le projet (prévisionnel), et ensuite vérifier que les dépenses réellement engagées n’excèdent pas les dépenses initialement prévues. Il est tenu à jour mensuellement par le chef de projet, et un exemple est disponible #highlight()[en annexe].
+Le budget est le pendant financier du diagramme de Gantt : en précisant les principaux postes de dépenses du projet, il doit d’abord permettre de vérifier que l’enveloppe totale est suffisante pour le projet (prévisionnel), et ensuite vérifier que les dépenses réellement engagées n’excèdent pas les dépenses initialement prévues. Il est tenu à jour mensuellement par le chef de projet, et un exemple est disponible via #link("https://docs.google.com/spreadsheets/d/15FEcKeLTm5XY6-dgbY32Cn5JSK7koEY3/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 4, numbering: none)[D6 - Tableau de bord]
 
-Le tableau de bord est un autre outil stratégique permettant de suivre l’évolution du projet dans le temps. Il condense les informations présentes dans le planning et dans le budget sous forme d’indicateurs clés : le projet est-il en bonne voie en ce qui concerne les délais, les coûts, la qualité ? Il est créé après la validation du projet, puis maintenu à jour chaque semaine par le chef de projet. Un modèle de tableau de bord est disponible #highlight()[via le lien].
+Le tableau de bord est un autre outil stratégique permettant de suivre l’évolution du projet dans le temps. Il condense les informations présentes dans le planning et dans le budget sous forme d’indicateurs clés : le projet est-il en bonne voie en ce qui concerne les délais, les coûts, la qualité ? Il est créé après la validation du projet, puis maintenu à jour chaque semaine par le chef de projet. Un modèle de tableau de bord est disponible via #link("https://docs.google.com/spreadsheets/d/1I9_HHDlYI17BcCTVQHyzdIDzcPzR_OTz/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Registres]
 
 #hidden-heading(level: 4, numbering: none)[D7 - Évaluation des risques (AMDEC)]
 
-L’ADMEC est une méthode permettant d’évaluer les risques pouvant affecter un projet : l’équipe projet va identifier les risques puis proposer des estimations sur leur gravité, fréquence et non-détection. Un score de criticité est ensuite calculé pour chaque risque, à partir des autres indicateurs : criticité = gravité x fréquence x non-détection. Plus ce score est élevé, plus il faut prendre des actions pour l’atténuer, le détecter ou l’éviter. Toutes ces informations peuvent se retrouver dans un même tableau, à maintenir à jour en fonction de l’évolution du projet. Il s’agit de la matrice des risques, disponible en suivant #highlight()[ce lien].
+L’ADMEC est une méthode permettant d’évaluer les risques pouvant affecter un projet : l’équipe projet va identifier les risques puis proposer des estimations sur leur gravité, fréquence et non-détection. Un score de criticité est ensuite calculé pour chaque risque, à partir des autres indicateurs : criticité = gravité x fréquence x non-détection. Plus ce score est élevé, plus il faut prendre des actions pour l’atténuer, le détecter ou l’éviter. Toutes ces informations peuvent se retrouver dans un même tableau, à maintenir à jour en fonction de l’évolution du projet. Il s’agit de la matrice des risques, disponible en suivant #link("https://docs.google.com/spreadsheets/d/1zpuNkogYicM-K8YB6WazEw9b8CTLzjDj/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 4, numbering: none)[D8 - REX]
 
-Les fiches de retour d’exérience permettent de garder un témoignage structuré de ce qui a été réalisé durant le projet. Rédigées par les membres de l’équipe projet lorsque des situations importantes et peu documentées sont rencontrées, elles incluent les erreurs, les réussites et les enseignements. Elle sont utiles pour officialiser des retours sur le déroulé d’actions passées, et justifier des évolutions dans la gestion de projet (pour éviter de reproduire des erreurs par exemple). Ces fiches forment également une base intéressante pour le bilan de projet. Nous en proposons un exemple via #highlight()[ce lien].
+Les fiches de retour d’exérience permettent de garder un témoignage structuré de ce qui a été réalisé durant le projet. Rédigées par les membres de l’équipe projet lorsque des situations importantes et peu documentées sont rencontrées, elles incluent les erreurs, les réussites et les enseignements. Elle sont utiles pour officialiser des retours sur le déroulé d’actions passées, et justifier des évolutions dans la gestion de projet (pour éviter de reproduire des erreurs par exemple). Ces fiches forment également une base intéressante pour le bilan de projet. Nous en proposons un exemple via #link("https://docs.google.com/document/d/1DyHyX9fjjEG1hREjc3HuzvrXIwKMR2ZR/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Fournisseurs et contrats]
 
@@ -59,13 +59,13 @@ Cette rubrique permet de centraliser les documents techniques produits en lien a
 
 #hidden-heading(level: 4, numbering: none)[D9 - Plan de communication]
 
-Le plan de communication est rédigé par le chef de projet, pendant la phase de démarrage. Ce document permet de répondre à ces questions : qui doit communiquer quoi, à qui, à quelle fréquence, et par quel moyen (email, téléphone, réunion, outil de chat) ? Il peut être revu sur demande. Vous en trouverez un exemple en suivant #highlight()[ce lien].
+Le plan de communication est rédigé par le chef de projet, pendant la phase de démarrage. Ce document permet de répondre à ces questions : qui doit communiquer quoi, à qui, à quelle fréquence, et par quel moyen (email, téléphone, réunion, outil de chat) ? Il peut être revu sur demande. Vous en trouverez un exemple en suivant #link("https://docs.google.com/document/d/10aUzWEHf_OjWoR1HZq3tWwbB0Q6EN1Wh/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Recette]
 
 #hidden-heading(level: 4, numbering: none)[D10 - PV de recette]
 
-Le procès verbal de recette est rédigé par le chef de projet, en concertation avec le référent métier ou le maître d’ouvrage. Il définit les critères de validation, et indique s’ils ont été atteints ou non. Il renseigne sur la validation des livrables : sans réserves, avec réserves, ou non validé, et permet aux fournisseurs d’être payés le cas échéant. Il est complété à chaque phase de recette. Un exemple est disponible via #highlight()[ce lien].
+Le procès verbal de recette est rédigé par le chef de projet, en concertation avec le référent métier ou le maître d’ouvrage. Il définit les critères de validation, et indique s’ils ont été atteints ou non. Il renseigne sur la validation des livrables : sans réserves, avec réserves, ou non validé, et permet aux fournisseurs d’être payés le cas échéant. Il est complété à chaque phase de recette. Un exemple est disponible via #link("https://docs.google.com/document/d/1SwyzXxv0gxoDMkyuJv8F5YanuGGhVTvk/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #figure(
   [#figure(
