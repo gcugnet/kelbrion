@@ -91,3 +91,17 @@
   ),
   caption: "Tableau utilisé pour calculer la priorité de chaque projet",
 )
+
+#pagebreak()
+
+#hidden-heading(level: 2)[Apperçu de la fiche projet]
+<apperçu-fiche-projet>
+
+#figure(
+  rotate(
+    0deg,
+    reflow: true,
+    image("assets/apperçu-fiche-projet.png", width: 94%),
+  ),
+  caption: "Capture écran du document « Fiche projet » complété pour P4 - déploiment du MES.",
+)
