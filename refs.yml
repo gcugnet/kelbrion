@@ -74,3 +74,13 @@ taux-journalier-moyen:
     value: "https://fr.wikipedia.org/wiki/Taux_journalier_moyen"
     date: 2026-09-15
   note: "article Wikipédia expliquant la notion de taux journalier moyen"
+
+ordre-de-fabrication:
+  type: Web
+  title: "Ordre de fabrication"
+  author: "Deltic"
+  url:
+    value: "https://deltic.fr/ordre-de-fabrication/"
+    date: 2026-09-26
+  note: "article de l’entreprise Deltic, spécialisée dans la dématérialisation
+  des documents d’entreprises"

@@ -1,4 +1,5 @@
 == Présentation du projet
+<presentation-projet>
 // ~0,5 page
 
 Le projet de déploiement d’un logiciel de gestion et de pilotage de la production (MES) nous intéresse particulièrement, car il s’agit d’un outil au cœur du métier.

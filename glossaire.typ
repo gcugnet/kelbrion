@@ -15,10 +15,16 @@
 
 #text()[*ESN* : entreprise de services du numérique]
 
-#text()[*G* : Gate → point de décision / portail de gouvernance]
+#text()[*G* : gate, point de décision ou portail de gouvernance]
+
+#text()[*OF* : ordre de fabrication]
+
+#text()[*PSSI* : politique de sécurité des systèmes d’information]
 
 #text()[*REX* : retour d’expérience]
 
 #text()[*ROI* : retour sur investissement]
 
 #text()[*TJM* : taux journalier moyen]
+
+#text()[*TRS* : taux de rendement synthétique]
