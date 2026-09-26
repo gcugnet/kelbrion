@@ -3,7 +3,11 @@
   numbering: none,
 )[Glossaire]
 
+#text()[*AMDEC* : analyse des modes de défaillance, de leurs effets et de leur criticité]
+
 #text()[*CODIR* : comité de direction]
+
+#text()[*COPIL* : comité de pilotage]
 
 #text()[*CP* : chef de projet]
 
