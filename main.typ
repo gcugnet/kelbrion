@@ -50,7 +50,7 @@
 #include "parts/03-gestion-projet/00-part.typ"
 #include "parts/03-gestion-projet/01-presentation-projet.typ"
 #include "parts/03-gestion-projet/02-cadrage.typ"
-#include "parts/03-gestion-projet/03-charte-projet.typ"
+#include "parts/03-gestion-projet/03-plan-management-projet.typ"
 #include "parts/03-gestion-projet/04-cahier-des-charges.typ"
 #include "parts/03-gestion-projet/05-planning-previsionnel.typ"
 #include "parts/03-gestion-projet/06-gestion-risques.typ"

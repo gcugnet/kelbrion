@@ -32,6 +32,8 @@
   caption: "Matrice (tronquée) utilisée pour attribuer le critère d’urgence aux projets",
 )
 
+#pagebreak()
+
 #hidden-heading(level: 2)[Matrice des risques projets]
 <matrice-risques-projets>
 
@@ -43,6 +45,8 @@
   ),
   caption: "Matrice utilisée pour attribuer le critère de maîtrise des risques aux projets",
 )
+
+#pagebreak()
 
 #hidden-heading(level: 2)[Tableau d’estimation des coûts et gains projets]
 <estimation-couts-gains-projets>
@@ -56,6 +60,8 @@
   caption: "Tableau utilisé pour renseigner les coûts et gains attendus par projet",
 )
 
+#pagebreak()
+
 #hidden-heading(level: 2)[Tableau de rentabilité par projets]
 <tableau-rentabilite-projets>
 
@@ -68,6 +74,8 @@
   caption: "Tableau indiquant la rentabilité par projet",
 )
 
+#pagebreak()
+
 #hidden-heading(level: 2)[Tableau reflétant l’alignement stratégique par projet]
 <tableau-alignement-strategique>
 
@@ -79,6 +87,8 @@
   ),
   caption: "Tableau permettant de classer les projets par alignement stratégique",
 )
+
+#pagebreak()
 
 #hidden-heading(level: 2)[Tableau de priorisation des projets]
 <tableau-priorisation-projets>
@@ -94,7 +104,7 @@
 
 #pagebreak()
 
-#hidden-heading(level: 2)[Apperçu de la fiche projet]
+#hidden-heading(level: 2)[Apperçu de la fiche projet P4]
 <apperçu-fiche-projet>
 
 #figure(
@@ -105,3 +115,33 @@
   ),
   caption: "Capture écran du document « Fiche projet » complété pour P4 - déploiment du MES.",
 )
+
+#pagebreak()
+
+#hidden-heading(level: 2)[Tableau des resources du projet P4]
+<tableau-ressources-p4>
+
+#figure(
+  rotate(
+    0deg,
+    reflow: true,
+    image("assets/tableau-ressources-p4.png", width: 100%),
+  ),
+  caption: "Tableau détaillant les différentes ressources du projet P4 « Déploiment du MES » avec indication sur la charge en jours homme et la période d’occupation.",
+)
+
+~
+
+#hidden-heading(level: 2)[Tableau des fournisseurs du projet P4]
+<tableau-fournisseurs-p4>
+
+#figure(
+  rotate(
+    0deg,
+    reflow: true,
+    image("assets/tableau-fournisseurs-p4.png", width: 100%),
+  ),
+  caption: "Tableau détaillant les différents fournisseurs du projet P4 « Déploiment du MES » avec indication du montant et du mode de pilotage.",
+)
+
+#pagebreak()

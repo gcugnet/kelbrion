@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Cadrage
+<cadrage>
 // ~1,5 page
 
 Cette sous-partie est dédiée au cadrage du projet MES. La plupart de ces informations sont également disponibles dans la fiche projet, disponible via #link("https://docs.google.com/document/d/1IvHjzKAY22Y-gvHSMOLsYFlj-VZOt0XF/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien], et vous en trouverez un apperçu en annexe @apperçu-fiche-projet[] Apperçu de la fiche projet.
