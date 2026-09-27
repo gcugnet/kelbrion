@@ -3,7 +3,7 @@
 == Cahier des charges fonctionnel
 // ~1 page
 
-Le cahier des charges fonctionnel décrit en détail les fonctionnalités du MES et do son intégration.
+Le cahier des charges fonctionnel décrit en détail les fonctionnalités du MES et de son intégration.
 
 Le document complet est consultable en suivant #link("https://docs.google.com/document/d/1_5XFqgkKJ0YyGJbmMH3VkhOW8pIuRGYb/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
@@ -11,14 +11,14 @@ Le document complet est consultable en suivant #link("https://docs.google.com/do
 
 Le MES sera utilisé par des profils variés :
 - 3 exploitants de la DSI en charge des sauvegardes et de la supervision (garants du bon fonctionnement)
-- 2 ordonnanceurs, qui plafinient les ordres de fabrication et gèrent la nomenclature des produits
+- 2 ordonnanceurs, qui planifient les ordres de fabrication et gèrent la nomenclature des produits
 - 6 chefs d’équipe qui lancent les ordres de fabrication et suivent les cadences
-- 40 opérateurs répartis en 3 équipes (3x8), qui suivent les fabrications, déclarent les quantités, les rebuts, et gèrent la déplacement les lots produits
+- 40 opérateurs répartis en 3 équipes (3x8), qui suivent les fabrications, déclarent les quantités, les rebuts, et gèrent le déplacement des lots produits
 - 3 personnes de la qualité qui effectuent des contrôles sur la conformité et s’assurent de la bonne traçabilité
 - 4 techniciens de maintenance qui consultent les erreurs et prennent les actions nécessaires
 - le référent ERP de Kelbrion qui gère l’interfaçage avec l’ERP et établit les nomenclatures conjointement avec les ordonnanceurs
 
-La typologie d’utilisateur les plus nombreux sont les opérateurs. Ce sont également eux qui ont le moins de temps à consacrer à l’outil. Ils ont été consultés pour la partie liée à l’ergonomie des interfaces sur les terminaux mobiles. Les chefs d’équipes et ordonnanceurs ont émis leurs souhaits sur l’interface du logiciel via ordinateur, et dans l’ERP.
+Les utilisateurs les plus nombreux sont les opérateurs. Ce sont également eux qui ont le moins de temps à consacrer à l’outil. Ils ont été consultés pour la partie liée à l’ergonomie des interfaces sur les terminaux mobiles. Les chefs d’équipes et ordonnanceurs ont émis leurs souhaits sur l’interface du logiciel via ordinateur, et dans l’ERP.
 
 #hidden-heading(level: 3, numbering: none)[Exigences fonctionnelles]
 
@@ -111,7 +111,7 @@ On y retrouve notamment des chiffres concernant la performance, la disponibilit�
       [*Traçabilité*], [Traçabilité des lots conservée dix ans, sans modification possible],
       [*Ergonomie*], [Terminaux tactiles utilisables avec des gants, parcours opérateur limité à 3 écrans au maximum.],
       [*Exploitabilité*],
-      [Supervision (intégré à l’outil global dans exigences du projet P10), sauvegarde quotidienne, remise en service en moins de 4 heures.],
+      [Supervision (intégrée à l’outil global prévu par le projet P10), sauvegarde quotidienne, remise en service en moins de 4 heures.],
     )],
   caption: [
     Exigences non fonctionnelles du projet P4 « Déploiement d’un MES ».
@@ -126,7 +126,7 @@ La nomenclature est déjà présente dans l’ERP, il faudra cependant la synchr
 
 #hidden-heading(level: 3, numbering: none)[Critères d’acceptation globaux]
 
-Pour finir, le cahier des charges définit des critères d’acceptation, utilisés pour valider la pleine livraison du MES. On retrouve dans ces critères le fait que toutes les exigences Must doivent être implémentées dans l’outil, et qu’au moins de 90 % des autres exigences à implémenter (Should et Could) lont également présentes dans l’outil.
+Pour finir, le cahier des charges définit des critères d’acceptation, utilisés pour valider la pleine livraison du MES. On retrouve dans ces critères le fait que toutes les exigences Must doivent être implémentées dans l’outil, et qu’au moins 90 % des autres exigences à implémenter (Should et Could) sont également présentes dans l’outil.
 
 Les exigences non fonctionnelles feront l’objet d’une vérification particulière en recette technique, puis d’un suivi régulier dans le temps.
 

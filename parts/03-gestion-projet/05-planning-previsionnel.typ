@@ -3,7 +3,7 @@
 == Planning prévisionnel
 // ~1 page
 
-Le planning prévisionnel nous donne une répartition dans le temps des missions à réaliser pour répondre au plan de management et au cahier des charges. Il est mis à jour chaque semaine pour suivre l’évolution du projet. Les durées y sont exprimées en jours ouvrés  (hors jours fériés et périodes de fermeture de l’entreprise).
+Le planning prévisionnel nous donne une répartition dans le temps des missions à réaliser pour répondre au plan de management et au cahier des charges. Il est mis à jour chaque semaine pour suivre l’évolution du projet. Les durées y sont exprimées en jours ouvrés (hors jours fériés et périodes de fermeture de l’entreprise).
 
 #hidden-heading(level: 3, numbering: none)[Démarrage]
 
@@ -12,7 +12,7 @@ L’ensemble des projets du portefeuille sont validés en même temps par la dir
 1. le déploiement du réseau (P2)
 2. la conception de l’architecture cible (P3)
 
-Son kick-off est donc fixé au 11/01/2027, et sa clôture, environ 28 semaines plus tard, au 23/07/2027. La mise en service intervient suffisamment en amont de l’ouverture du site en septembre 2027, ce qui devrait permettre au projet P10 dédié à la supervision de se connecter au MES pour en récupérer des metrics.
+Son kick-off est donc fixé au 11/01/2027, et sa clôture, environ 28 semaines plus tard, au 23/07/2027. La mise en service intervient suffisamment en amont de l’ouverture du site en septembre 2027, ce qui devrait permettre au projet P10 dédié à la supervision de se connecter au MES pour en récupérer des métriques.
 
 // #figure(
 //   image("../../assets/gantt-p4.png", width: 100%),
@@ -69,7 +69,7 @@ La réalisation est la phase la plus longue (environ 3 mois). C’est aussi cell
 
 #hidden-heading(level: 3, numbering: none)[Jalons]
 
-Le projet est divisé en 6 jalons, et chacun est validé ou non au cours réunion dédiée :
+Le projet est divisé en 6 jalons, et chacun est validé ou non au cours d’une réunion dédiée :
 
 - G0 le 22/09/2026 : validation de la fiche projet en CODIR
 - G1 le 29/01/2027 : validation du cadrage par le Directeur de la production et le DSI
@@ -78,25 +78,27 @@ Le projet est divisé en 6 jalons, et chacun est validé ou non au cours réunio
 - G4 le 25/06/2027 : signature du PV par le Directeur de la production et go pour la mise en service
 - clôture, le 23/07/2027 : présentation du bilan de projet en CODIR
 
+Entre G4 et la clôture, la bascule en production a lieu le 28/06/2027. Elle est suivie d’environ 2 semaines d’accompagnement au démarrage, jusqu’à la fin opérationnelle du projet prévue le 08/07/2027.
+
 Ces jalons correspondent aux réunions du COPIL prévues dans le plan de management. Le chef de projet DSI avance librement entre 2 jalons, tant qu’aucun seuil d’alerte n’est franchi.
 
-Vous trouverez ci-dessous un apperçu simplifiée et tronquée du Diagramme de Gantt du projet (en bleu foncé les tâches planifiées, en bleu clair l’indicateur d’avancement, et en orange les jalons, « instantannés » dans le temps) :
+Vous trouverez ci-dessous un aperçu simplifié et tronqué du diagramme de Gantt du projet (en bleu foncé les tâches planifiées, en bleu clair l’indicateur d’avancement, et en orange les jalons, « instantanés » dans le temps) :
 
 #figure(
   rotate(
     reflow: true,
     image("../../assets/gantt-raccourci.png", width: 100%),
   ),
-  caption: "Diagramme de Gantt tronqué du projet P4 « Déploiment d’un MES »",
+  caption: "Diagramme de Gantt tronqué du projet P4 « Déploiement d’un MES »",
 )
 
 Vous pouvez retrouver la version complète et interactive de ce diagramme en suivant #link("https://docs.google.com/spreadsheets/d/1jGbTjYVkqXgt-2_57qTqi7UHspG3DhIw/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Dépendances]
 
-Chaque tâche du planning est rattachée à une ou plusieurs dépendances, qui doivent être terminées avant qu’elle ne puisse commencer. La chaîne la plus tendue est celle des interfaçages avec l’ERP : les informations techniques livrées par l’éditeur permettent le développment de la réception des OF puis la remontée des informations sur la production réelle. Il est prévu que les tests d’intégration se terminent seulement 2 jours ouvrés avant la fin jalon G3, ce qui laisse très peu de marge de manœuvre.
+Chaque tâche du planning est rattachée à une ou plusieurs dépendances, qui doivent être terminées avant qu’elle ne puisse commencer. La chaîne la plus tendue est celle des interfaçages avec l’ERP : les informations techniques livrées par l’éditeur permettent le développement de la réception des OF puis la remontée des informations sur la production réelle. Il est prévu que les tests d’intégration se terminent seulement 2 jours ouvrés avant la fin du jalon G3, ce qui laisse très peu de marge de manœuvre.
 
-Para ailleurs, nous avons déjà évoqué les dépendances amont et aval de P4 avec 4 autres projets du portefeuille :
+Par ailleurs, nous avons déjà évoqué les dépendances amont et aval de P4 avec 4 autres projets du portefeuille :
 - le déploiement du réseau (P2), prérequis au démarrage et à l’installation des terminaux en atelier
 - l’architecture cible (P3) dont les règles s’appliquent au dossier d’architecture
 - l’authentification unique (P9), à intégrer pendant la réalisation

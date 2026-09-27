@@ -7,9 +7,9 @@ Le procès-verbal de recette (D10) est le document contractuel qui acte le résu
 
 #hidden-heading(level: 3, numbering: none)[Modèle générique]
 
-Le modèle générique applicable à tous les projets du portefeuille, quelle que soit leur nature : un PV est rédigé pour chaque lot de recette, qu’il s’agisse d’une recette en usine chez le fournisseur, d’une recette technique, d’une recette fonctionnelle ou de la vérification de service régulier après la mise en production. Il est rédigé par le chef de projet avec le référent métier, et signé par le commanditaire.
+Le modèle générique s’applique à tous les projets du portefeuille, quelle que soit leur nature : un PV est rédigé pour chaque lot de recette, qu’il s’agisse d’une recette en usine chez le fournisseur, d’une recette technique, d’une recette fonctionnelle ou de la vérification de service régulier après la mise en production. Il est rédigé par le chef de projet avec le référent métier, et signé par le commanditaire.
 
-Les exigences sont toujours reliées au cahier des charges, et les cas de test toujours reliés au cahier de recette, ce qui permet de corréler chaque résultat à une exigence précise. Les réserves sont classées selon leur gravité (bloquante |  majeure | mineure). Une action corrective est précisiée pour chaque réserve, ainsi qu’un responsable et une échéance pour les résoudre. Une réserve bloquante interdit la validation.
+Les exigences sont toujours reliées au cahier des charges, et les cas de test toujours reliés au cahier de recette, ce qui permet de corréler chaque résultat à une exigence précise. Les réserves sont classées selon leur gravité (bloquante, majeure ou mineure). Une action corrective est précisée pour chaque réserve, ainsi qu’un responsable et une échéance pour les résoudre. Une réserve bloquante interdit la validation.
 
 #hidden-heading(level: 3, numbering: none)[Ébauche du projet P4]
 
@@ -17,11 +17,11 @@ Pour le projet P4, la recette donne lieu à deux procès-verbaux. Le premier cl�
 
 L’objet, le périmètre, les participants, les documents de référence et les critères de validation y sont renseignés. Chaque exigence est indiquée comme « non testée », jusqu’au jour de la recette. Les résultats, les réserves seront complétés à l’issue de la session, avant la signature du Directeur de production.
 
-La décision a des conséquences directes sur la suite du projet : une recette prononcée sans réserve permet de franchir le jalon G4 à temps (par rapport au planning prévisionnel) et de payer le restant-dû au fournisseur.
+La décision a des conséquences directes sur la suite du projet : une recette prononcée sans réserve permet de franchir le jalon G4 à temps (par rapport au planning prévisionnel) et de payer le restant dû au fournisseur.
 
 Une recette prononcée avec réserves autorise la bascule du 28/06, à condition que ces réserves soient levées d’ici là. Le paiement du fournisseur est reporté jusqu’à la levée de toutes les réserves.
 
-Un refus entraîne une nouvelle session de recette, et menace directement la mise en production, et potentiellement l’ouverture du site, comme P4 est critique pour l’ouverture.
+Un refus entraîne une nouvelle session de recette, et menace directement la mise en production, et potentiellement l’ouverture du site, puisque P4 est critique pour l’ouverture.
 
 Le tableau suivant présente les rubriques du modèle de PV de recette et la manière dont elles sont renseignées dans l’ébauche du projet P4.
 
@@ -39,7 +39,7 @@ Le tableau suivant présente les rubriques du modèle de PV de recette et la man
 
           [#strong[1. Objet et périmètre]],
           [Livrables soumis à la recette, version livrée, périmètre couvert et éléments exclus de la session],
-          [MES paramétré en version 1, interfaces avec l’ERP, données reprises et 45 terminaux ; exigences EF-01 à EF-11. Hors session : recette technique, formation, exigence EF-12],
+          [MES paramétré en version 1, interfaces avec l’ERP, données reprises et 45 postes (30 terminaux mobiles et 15 postes fixes) ; exigences EF-01 à EF-11. Hors session : recette technique, formation, exigence EF-12],
 
           [#strong[2. Participants]],
           [Nom, rôle, entité et présence de chaque participant],

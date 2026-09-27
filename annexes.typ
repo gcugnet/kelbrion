@@ -104,7 +104,7 @@
 
 #pagebreak()
 
-#hidden-heading(level: 2)[Apperçu de la fiche projet P4]
+#hidden-heading(level: 2)[Aperçu de la fiche projet P4]
 <apperçu-fiche-projet>
 
 #figure(

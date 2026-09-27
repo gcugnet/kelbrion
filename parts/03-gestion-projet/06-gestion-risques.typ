@@ -4,13 +4,13 @@
 <gestion-risques>
 // ~1 page
 
-Dans la partie 2, nous avons évalué la maîtrise des risques de chaque projet à l’aide d’une matrice simplifiée, en précisant que chaque risque noté à 3 devrait faire l’objet d’une évaluation plus poussée, et surtout d’une proposition de réponse, via une matrice AMDEC par projet. Concernant la maîtrise des risques, projet P4 a obtenu la note de 1,8/5. Il s’agit du projet avec les risques les moins maîtrisés du portefeuille, à égalité avec la migration des applications métiers. Cela justifie un suivi particulièrement poussé.
+Dans la partie 2, nous avons évalué la maîtrise des risques de chaque projet à l’aide d’une matrice simplifiée, en précisant que chaque risque noté à 3 devrait faire l’objet d’une évaluation plus poussée, et surtout d’une proposition de réponse, via une matrice AMDEC par projet. Concernant la maîtrise des risques, le projet P4 a obtenu la note de 1,8/5. Il s’agit du projet avec les risques les moins maîtrisés du portefeuille, à égalité avec la migration des applications métiers. Cela justifie un suivi particulièrement poussé.
 
 #hidden-heading(level: 3, numbering: none)[Méthode de cotation]
 
 Nous utilisons la méthode AMDEC (analyse des modes de défaillance, de leurs effets et de leur criticité), largement répandue dans l’industrie, pour évaluer les risques. @iec-60812 Cette méthode évalue non seulement la probabilité et l’impact de chaque risque identifié, mais également la capacité de l’organisation à le détecter avant qu’il ne survienne.
 
-Ce troisième critère vient du fait que plus un risque est découvert tard, plus il a le temps d’avoir un impact fort, car étiré dans le temps, et plus il sera difficile de palier à ses conséquences réelles.
+Ce troisième critère vient du fait que plus un risque est découvert tard, plus il a le temps d’avoir un impact fort, car étiré dans le temps, et plus il sera difficile de pallier ses conséquences réelles.
 
 Chaque risque est évalué de 1 à 4 selon les 3 critères que nous venons d’évoquer :
 - la gravité = l’impact sur le projet si le risque survient
@@ -19,7 +19,7 @@ Chaque risque est évalué de 1 à 4 selon les 3 critères que nous venons d’�
 
 #hidden-heading(level: 4, numbering: none)[Échelle de gravité]
 
-L’échelle de gravité est (la note de 1 à 4) est corrélée aux seuils d’alerte du plan de management :
+L’échelle de gravité (note de 1 à 4) est corrélée aux seuils d’alerte du plan de management :
 - 1 = faible gravité, impact absorbé dans les tolérances (par exemple une journée de retard sur une tâche hors chemin critique)
 - 2 = gravité modérée, l’impact équivaut à un seuil d’alerte, soit une semaine de retard sur un jalon ou 5 % de surcoût
 - 3 = gravité majeure, les tolérances sont dépassées et le COPIL doit être saisi
@@ -31,26 +31,26 @@ Le critère de fréquence note une probabilité de survenance du risque : rare
 
 #hidden-heading(level: 4, numbering: none)[Échelle de non-détection]
 
-Nous définissions la non-détection d’après les mécanismes en place qui pourraient permettre de détecter le risque :
+Nous définissons la non-détection d’après les mécanismes en place qui pourraient permettre de détecter le risque :
 - 1 = les tests automatisés
-- 2 = la revue COPIL hebdomadaire
+- 2 = la revue hebdomadaire du vendredi
 - 3 = une réunion de fin de jalon
-- 4 = aucun des mécanismes prévus ne garantiraient une détection du risque avant qu’il ne survienne en production
+- 4 = aucun des mécanismes prévus ne garantirait une détection du risque avant qu’il ne survienne en production
 
 #hidden-heading(level: 4, numbering: none)[Criticité]
 
 La criticité d’un risque est calculée en réalisant le produit des 3 notes qui lui ont été attribuées : `gravité x fréquence x non-détection = criticité`.
 
-Le score de criticité maximal est donc `4 x 4 x 4 = 64`.à chaque le produit des 3 notes, et varie donc de 1 à 64. De cette manière, une note très basse sur un seul critère suffit à fortement baisser la criticité d’un risque, alors que 3 notes moyennes indiquent une criticité importante.
+Le score de criticité varie donc de 1 à 64 (`4 x 4 x 4 = 64`). De cette manière, une note très basse sur un seul critère suffit à fortement baisser la criticité d’un risque, alors que 3 notes moyennes indiquent une criticité importante.
 
 Nous avons ensuite séparé les résultats en 3 catégories, en fonction du score de criticité calculé :
 - score <= 9 : risque faible, surveillance à chaque jalon
 - 9 < score <= 26 : risque modérée, nécessite de formuler une réponse + un suivi hebdomadaire
 - score > 26 : risque fort, nécessite de formuler un plan de réponse et un suivi accru par les équipes et le COPIL
 
-Le risque ayant été identifié comme le plus critique sur le projet est la complexité de l’interfaçage entre le MES et l’ERP (R01). Nous lui avons attribué un score de 4 en ce qui concerne gravité, car des données incohérentes entre les 2 systèmes pourrait causer des problèmes dans la chaîne de production, donc impacter directement la création de valeur de l’entreprise, en même tempps que sa réputation (si elle venait à ne pas honorer ses commandes en temps et en heure, ou que des produits étaient défectueux du fait de mauvaises valeurs transmises aux machines). Nous lui avons attribué une note de 3 en ce qui concerne la fréquence, car l’ERP du groupe est préexistant et ancien, et que l’éditeur ne fournit pas une documentation claire sur les API. Pour finir, nous lui avons attribué un score de 3 en ce qui concerne la non-détection, car il est difficile de tester tous les scénarios de communication entre les systèmes, et que les tests automatisés n’interviendront dans tous les cas qu’à la fin du jalon G3, et laisseront peu de temps pour apporter d’éventuelles corrections. Sa criticité atteint donc un score cumulé de `4 x 3 x 3 = 36`, ce qui correspond à un risque « fort ».
+Le risque ayant été identifié comme le plus critique sur le projet est la complexité de l’interfaçage entre le MES et l’ERP (R01). Nous lui avons attribué un score de 4 en ce qui concerne gravité, car des données incohérentes entre les 2 systèmes pourraient causer des problèmes dans la chaîne de production, donc impacter directement la création de valeur de l’entreprise, en même temps que sa réputation (si elle venait à ne pas honorer ses commandes en temps et en heure, ou que des produits étaient défectueux du fait de mauvaises valeurs transmises aux machines). Nous lui avons attribué une note de 3 en ce qui concerne la fréquence, car l’ERP du groupe est préexistant et ancien, et que l’éditeur ne fournit pas une documentation claire sur les API. Pour finir, nous lui avons attribué un score de 3 en ce qui concerne la non-détection, car il est difficile de tester tous les scénarios de communication entre les systèmes, et que les tests automatisés n’interviendront dans tous les cas qu’à la fin du jalon G3, et laisseront peu de temps pour apporter d’éventuelles corrections. Sa criticité atteint donc un score cumulé de `4 x 3 x 3 = 36`, ce qui correspond à un risque « fort ».
 
-En parallèle, la comparaison des risques « Retard sur le réseau du bâtiment » R06 et « Segmentation réseau insuffisante » R11 montre l’intérêt du critère de non-détection. Ces deux risques ont une gravité maximale (4) et une fréquence moyenne (2), mais un retard du réseau serait visible immédiatement en amont même du projet P4 (P2 étant une dépendance) d’où uu critère de non-détection évalué à 1, et une criticité totale qui plafonne alors à 8. Une segmentation réseau insuffisante entre les machines de l’atelier et le reste du SI peut en revanche rester invisible jusqu’à une attaque, à moins d’un audit de sécurité assez poussé. @anssi-systemes-industriels Nous avons donc attribué un score de 3 au critère de non-détection sur le risque R11, ce qui augmente sa criticité à 24 (risque moyen).
+En parallèle, la comparaison des risques « Retard sur le réseau du bâtiment » R06 et « Segmentation réseau insuffisante » R11 montre l’intérêt du critère de non-détection. Ces deux risques ont une gravité maximale (4) et une fréquence moyenne (2), mais un retard du réseau serait visible immédiatement en amont même du projet P4 (P2 étant une dépendance) d’où un critère de non-détection évalué à 1, et une criticité totale qui plafonne alors à 8. Une segmentation réseau insuffisante entre les machines de l’atelier et le reste du SI peut en revanche rester invisible jusqu’à une attaque, à moins d’un audit de sécurité assez poussé. @anssi-systemes-industriels Nous avons donc attribué un score de 3 au critère de non-détection sur le risque R11, ce qui augmente sa criticité à 24 (risque moyen).
 
 #hidden-heading(level: 3, numbering: none)[Registre des risques]
 
@@ -62,7 +62,7 @@ Au total, 12 risques ont été identifiés. Le tableau suivant présente leur co
 
 #let crit(g, f, d) = {
   let c = g * f * d
-  let color = if c >= 27 { rouge } else if c >= 9 { jaune } else { vert }
+  let color = if c >= 27 { rouge } else if c > 9 { jaune } else { vert }
   table.cell(fill: color, [#strong[#c]])
 }
 
@@ -228,23 +228,23 @@ Au total, 12 risques ont été identifiés. Le tableau suivant présente leur co
 
 Pour chaque risque moyen ou fort, une stratégie de réponse est choisie parmi 4 possibilités. @pmbok-guide
 
-#hidden-heading(level: 4, numbering: none)[Réduction de la probabilité ou de l’impact]
+#hidden-heading(level: 4, numbering: none)[Réduire la probabilité ou l’impact]
 
-Dans la majorité des cas , la réponse proposée vise à éduire la probabilité ou l’impact du risque. Exemple pour R01 : un prototype d’interface est testé sur un vrai OF dès la conception. Le référent ERP est effectue des vérifications 2 jours par semaine Des tests d’intégration ont lieu chaque semaine.
+Dans la majorité des cas, la réponse proposée vise à réduire la probabilité ou l’impact du risque. Exemple pour R01 : un prototype d’interface est testé sur un vrai OF dès la conception. Le référent ERP effectue des vérifications 2 jours par semaine. Des tests d’intégration ont lieu chaque semaine.
 
-#hidden-heading(level: 4, numbering: none)[Changer la manière de faire]
+#hidden-heading(level: 4, numbering: none)[Éviter le risque]
 
 Il est parfois possible d’éviter un risque en réalisant une tâche d’une autre manière que celle initialement prévue. Exemple pour R10 : la bascule des interfaces se fait le week-end, hors production, plutôt qu’en semaine. On peut également prévoir une sauvegarde des messages en attente, avec rollback possible.
 
-#hidden-heading(level: 4, numbering: none)[Transfert de la responsabilité]
+#hidden-heading(level: 4, numbering: none)[Transférer la responsabilité]
 
-Une autre stratégie vise à transférer la responsabilité d’une misison à un tiers, en incluant des pénalités dans le contrat en cas de survenance du risque (ex : pénalités de retard pour le prestataire, applicables au R2).
+Une autre stratégie vise à transférer la responsabilité d’une mission à un tiers, en incluant des pénalités dans le contrat en cas de survenance du risque (ex : pénalités de retard pour le prestataire, applicables au R02).
 
-#hidden-heading(level: 4, numbering: none)[Assumer le risque]
+#hidden-heading(level: 4, numbering: none)[Accepter le risque]
 
 Il est également possible d’accepter et assumer le risque lorsqu’aucun contournement moins coûteux ne permet de le réduire. C’est notamment le cas du R06 : il est possible de se rabattre sur le réseau du site principal pour vérifier les fonctionnalités du MES et procéder à la recette. Cela peut aussi se traduire par une provision pour risque.
 
-La saturation des développeurs (R05) mérite une attention particulière. Avec un profil chargé à 134 % de sa capacité, il serait irresponsable de ne prévoir aucun renfort. Le plan de réponse prévoit un renfort de 20 jours homme par un prestataire, ou à défaut le report du projet P7 (le portail collaboratif). Le responsable PMO abritrera cette décision qui peut concerner l’évolution du portefeuille.
+La saturation des développeurs (R05) mérite une attention particulière. Avec un profil chargé à 134 % de sa capacité, il serait irresponsable de ne prévoir aucun renfort. Le plan de réponse prévoit un renfort de 20 jours homme par un prestataire, ou à défaut le report du projet P7 (le portail collaboratif). Le responsable PMO arbitrera cette décision qui peut concerner l’évolution du portefeuille.
 
 Après le plan d’action proposé, plus aucun risque n’atteint le niveau élevé (> 26). 4 risques demeurent moyens (R01, R03, R04 et R05). Ils seront suivis chaque semaine. Si l’un d’eux survient, il fera l’objet d’une fiche de retour d’expérience. Le tableau de bord permettra également de suivre le nombre de risques forts sans plan de réponse, car il s’agit d’un seuil d’alerte d’après la définition du plan de management.
 

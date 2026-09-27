@@ -9,9 +9,9 @@ Le plan de management projet nous renseigne sur la manière de conduire le proje
 
 Il comporte une matrice RACI précisant le rôle des principales parties prenantes dans les différentes phases et actions à mener. @raci
 
-On y voit notamment que le Chef de projet DSI est un élément central dans l’organisation du projet en amont puis en aval de sa réalisation : c’est lui qui va rédiger l’ensemble des documents projets demandés par la cellule PMO (de la fiche de projet jusqu’au bilan final). Il inverviendra également dans le choix du prestatire. Durant la phase de réalisation, c’est lui qui validera les différentes étapes : déploiement, paramétrage, reprise des données et formation.
+On y voit notamment que le Chef de projet DSI est un élément central dans l’organisation du projet en amont puis en aval de sa réalisation : c’est lui qui va rédiger l’ensemble des documents projets demandés par la cellule PMO (de la fiche de projet jusqu’au bilan final). Il interviendra également dans le choix du prestataire. Durant la phase de réalisation, c’est lui qui validera les différentes étapes : déploiement, paramétrage, reprise des données et formation.
 
-Les parties prenantes les plus actives durant l’étape de réalisation sont sans surprise l’équipe DSI, conjointement avec l’éditeur du logiciel MES sélectionné. Les référents métiers interviennent sont consultés en amont, puis interviennent surtout sur les dernières phases : la reprise des données, la formation et la validation en situation réelle à l’étape du PV de recette.
+Les parties prenantes les plus actives durant l’étape de réalisation sont sans surprise l’équipe DSI, conjointement avec l’éditeur du logiciel MES sélectionné. Les référents métiers sont consultés en amont, puis interviennent surtout sur les dernières phases : la reprise des données, la formation et la validation en situation réelle à l’étape du PV de recette.
 
 #let raci(cell) = {
   let color = if cell == "R" {
@@ -148,7 +148,7 @@ Les parties prenantes les plus actives durant l’étape de réalisation sont sa
         raci(""),
         // Éditeur MES
 
-        // Choix du prestataire
+        // Déploiement sur site
         [Déploiement sur site],
         raci("I"),
         // Dir. prod.
@@ -237,11 +237,11 @@ Les parties prenantes les plus actives durant l’étape de réalisation sont sa
   ],
 )
 
-Le directeur de la production approuve quant à lui les principaux documents de cadrage global, ainsi que le choix du prestataire et valide la fin du projet. La cellule PMO approuve la bonne tenue des documents plus techniques : le planning, le budget, le tableau de pord et la matrice des risques.
+Le directeur de la production approuve quant à lui les principaux documents de cadrage global, ainsi que le choix du prestataire et valide la fin du projet. La cellule PMO approuve la bonne tenue des documents plus techniques : le planning, le budget, le tableau de bord et la matrice des risques.
 
 #hidden-heading(level: 3, numbering: none)[Organigramme]
 
-Le plan de management nous informe également de l’organigramme à l’échelle du projet. On y retrouve le Chef de projet DSI comme élément central, qui traduit le besoin aux équipes techniques, consulte le DSI et informe le commanditaire des les choix stratégiques, et rend des comptes à la PMO sur l’organisation du projet.
+Le plan de management nous informe également de l’organigramme à l’échelle du projet. On y retrouve le Chef de projet DSI comme élément central, qui traduit le besoin aux équipes techniques, consulte le DSI et informe le commanditaire des choix stratégiques, et rend des comptes à la PMO sur l’organisation du projet.
 
 #figure(
   rotate(
@@ -256,16 +256,16 @@ Le plan de management nous informe également de l’organigramme à l’échell
 
 La méthodologie projet est également décrite dans le plan de management. C’est le cycle en V qui a été retenu, car les contraintes sont connues à l’avance, et l’attendu final lui aussi est bien défini. @cycle-en-v
 
-Au total, 5 jalons sont clairement définis :
+Au total, 5 phases sont clairement définies :
 - le cadrage
 - la conception (inclut le choix du prestataire)
 - la réalisation
 - la recette et déploiement
 - la clôture
 
-Pour éviter les allers-retours à chaque changements mineurs dans l’organisation du projet, nous préférons adopter une méthode de  management prédictif par phases, avec gestion des exceptions. @prince2-project-management
+Pour éviter les allers-retours à chaque changement mineur dans l’organisation du projet, nous préférons adopter une méthode de management prédictif par phases, avec gestion des exceptions. @prince2-project-management
 
-Plus clairement, cela signifie que des réunions du COPIL (commité de pilotage projet), incluant le Directeur de production, le DSI, le responsable PMO et le chef de projet DSI, ont lieu après chaque jalon, pour valider ce qui a été fait et confirmer ce qui sera fait ensuite. Entre ces réunions de COPIL, le chef de projet DSI dispose d’une liberté de manœuvre pour faire avancer le projet dans la bonne direction.
+Plus clairement, cela signifie que des réunions du COPIL (comité de pilotage projet), incluant le Directeur de production, le DSI, le responsable PMO et le chef de projet DSI, ont lieu après chaque jalon, pour valider ce qui a été fait et confirmer ce qui sera fait ensuite. Entre ces réunions de COPIL, le chef de projet DSI dispose d’une liberté de manœuvre pour faire avancer le projet dans la bonne direction.
 
 En revanche, des seuils d’alerte sont fixés (les exceptions) et leur dépassement doit faire l’objet de nouvelles réunions COPIL pour évaluer les conséquences et éventuellement modifier la trajectoire du projet voire du portefeuille.
 
@@ -299,11 +299,11 @@ Ces seuils d’alerte sont définis dans le tableau ci-dessous.
 
 #hidden-heading(level: 3, numbering: none)[Allocation des ressources]
 
-Les ressources allouées au projet sont également précisées dans le plan de management. En y retrouve le chef de projet DSI, accompagné par une équpe DSI composée de 2 developpeurs (150 jours homme) pour assurer l’intégration, les interfaçages et la reprise des données, 2 administrateurs systèmes et réseaux (30 jours homme) pour gérer et adapter l’infrastructure, 1 ingénieurs DevOps pour assurer la mise en place des environnements (30 jours homme), ainsi que 3 référents métiers pour 40 jours homme cumulés, mais dont la charge n’est pas comptabilisée dans le budget DSI. Vous trouverez en annexe @tableau-ressources-p4[] « Tableau des ressources du projet P4 » le détail de cette répartition, avec la période d’occupation.
+Les ressources allouées au projet sont également précisées dans le plan de management. On y retrouve le chef de projet DSI, accompagné par une équipe DSI composée de 2 développeurs (150 jours homme) pour assurer l’intégration, les interfaçages et la reprise des données, 2 administrateurs systèmes et réseaux (30 jours homme) pour gérer et adapter l’infrastructure, 1 ingénieur DevOps pour assurer la mise en place des environnements (30 jours homme), ainsi que 3 référents métiers pour 40 jours homme cumulés, mais dont la charge n’est pas comptabilisée dans le budget DSI. Vous trouverez en annexe @tableau-ressources-p4[] « Tableau des ressources du projet P4 » le détail de cette répartition, avec la période d’occupation.
 
 Deux fournisseurs sont également nécessaires à la réalisation de ce projet : l’un pour les licences du MES, une partie de l’intégration et la formation des équipes Kelbrion. L’autre pour les terminaux mobiles nécessaires sur le nouveau site de production, et qui seront directement reliés au MES. Vous trouverez en annexe @tableau-fournisseurs-p4[] « Tableau des fournisseurs du projet P4 » le détail de cette répartition, avec les coûts et mode de pilotage des contrats.
 
 #hidden-heading(level: 3, numbering: none)[Clôture]
 <clo>
 
-Le plan de management projet prévoit jusqu’à la date de clôture du projet, initialement prévue le 23/07/2027, ce qui est cohérent par rapport à la contrainte de date fixée dans la partie 3.@cadrage[] Cadrage (section « Contraintes »). Vous pouvez retrouver l’ensemble de ce document en suivant #link("https://docs.google.com/document/d/1JWMBCmfpd55fSXqBE7fkEMX5NTvgN-I7/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+Le plan de management projet fixe la date de clôture du projet au 23/07/2027, ce qui est cohérent avec la contrainte de date fixée dans la partie 3.@cadrage[] Cadrage (section « Contraintes »). Vous pouvez retrouver l’ensemble de ce document en suivant #link("https://docs.google.com/document/d/1JWMBCmfpd55fSXqBE7fkEMX5NTvgN-I7/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].

@@ -4,7 +4,7 @@
 <plan-recette>
 // ~2 pages
 
-La recette doit permettre de vérifie que le MES répond bien au cahier des charges, avant son utilisation en production. Elle bloque le franchissement du dernier jalon du projet (mise en service approuvée par le Directeur de la production) ainsi que le paiement des 30 % restants au fournisseur. @test-d-acceptation
+La recette doit permettre de vérifier que le MES répond bien au cahier des charges, avant son utilisation en production. Elle bloque le franchissement du dernier jalon du projet (mise en service approuvée par le Directeur de la production) ainsi que le paiement des 30 % restants au fournisseur. @test-d-acceptation
 
 La phase de recette se déroule en 2 temps, pour couvrir tous les éléments du cahier des charges :
 1. une recette technique pour vérifier les exigences non fonctionnelles
@@ -13,10 +13,10 @@ La phase de recette se déroule en 2 temps, pour couvrir tous les éléments du 
 #hidden-heading(level: 3, numbering: none)[Organisation]
 
 Le cahier de recette compte 62 cas de test : 14 cas techniques et 48 cas fonctionnels. Chaque test est relié à une exigence du cahier des charges. Les rôles sont répartis de la manière suivante :
-- l’ingénieur DevOps pilote la recette technique, avec les aministrateurs systèmes
+- l’ingénieur DevOps pilote la recette technique, avec les administrateurs systèmes
 - le responsable de l’atelier pilote la recette fonctionnelle, avec l’ordonnanceur, le responsable qualité, deux chefs d’équipe et le référent ERP du groupe
 - le fournisseur du MES et les développeurs de la DSI corrigent les anomalies et livrent les correctifs
-- le chef de projet DSI coordonne l’ensemble et consigne dans un l’exécution des tests dans un journal
+- le chef de projet DSI coordonne l’ensemble et consigne l’exécution des tests dans un journal
 - le Directeur de la production prend connaissance des résultats et signe le PV de recette
 
 Les tests sont menés sur un environnement calqué sur la production (mais bien séparé). Il est constitué des données de l’ERP et des fichiers du service production.
@@ -25,7 +25,7 @@ Le planning prévoit la recette technique du 31/05 au 09/06/2027, la formation d
 
 #hidden-heading(level: 3, numbering: none)[Recette technique]
 
-La recette technique vérifie les 7 exigences non fonctionnelles du cahier des charges, au moyen de 14 cas de test (CT-T01 à CT-T14). La charge de l’atelier est simulée par autant de terminaux mobiles que pourra en accueillir l’atelier, pour mesurer les temps de réponse et le comportement du réseau. Elle comprend aussi une revue de sécurité, un test de restauration (sauvegardes), et un test de bascule complet, qui inclut le retour arrière des interfaces avec l’ERP. Aucune mise en production n’est autorisée tant que le retour en arrière n’a pas été validé. La recette technique donne lieu à un PV distinct, préalable à la recette fonctionnelle.
+La recette technique vérifie les 7 exigences non fonctionnelles du cahier des charges, au moyen de 14 cas de test (CT-T01 à CT-T14). La charge de l’atelier est simulée sur les 45 postes prévus (30 terminaux mobiles et 15 postes fixes), pour mesurer les temps de réponse et le comportement du réseau. Elle comprend aussi une revue de sécurité, un test de restauration (sauvegardes), et un test de bascule complet, qui inclut le retour arrière des interfaces avec l’ERP. Aucune mise en production n’est autorisée tant que le retour en arrière n’a pas été validé. La recette technique donne lieu à un PV distinct, préalable à la recette fonctionnelle.
 
 Le tableau suivant présente le plan des tests techniques. Aucune exigence ne peut être écartée pour que la recette soit validée.
 
@@ -44,7 +44,7 @@ Le tableau suivant présente le plan des tests techniques. Aucune exigence ne pe
           [ENF-01],
           [Performance],
           [CT-T01 à T03],
-          [Écran opérateur en moins de 2 secondes et échange avec l’ERP en moins de 15 minutes, avec 45 terminaux simulés],
+          [Écran opérateur en moins de 2 secondes et échange avec l’ERP en moins de 15 minutes, avec 45 postes simulés],
 
           [ENF-02],
           [Disponibilité et continuité],
@@ -165,7 +165,7 @@ Le tableau suivant présente le plan des tests techniques. Aucune exigence ne pe
   ],
 )
 
-La recette fonctionnelle vérifie les exigences fonctionnelles du cahier des charges, au moyen de 48 cas de test métiers. L’exigence EF-12 (classée Won’t) est hors périmètre et donc non incluse. Les tests sont réalisés sur les 45 terminaux de l’atelier, dans le nouveau site, par des « key users » sélectionnés parmi les futurs utilisateurs. Les scénarios suivent le workflow complet : de la libération d’un ordre de fabrication, depuis l’ERP jusqu’à sa déclaration de production, qui revient à l’ERP.
+La recette fonctionnelle vérifie les exigences fonctionnelles du cahier des charges, au moyen de 48 cas de test métiers. L’exigence EF-12 (classée Won’t) est hors périmètre et donc non incluse. Les tests sont réalisés sur les 45 postes de l’atelier (30 terminaux mobiles et 15 postes fixes), dans le nouveau site, par des « key users » sélectionnés parmi les futurs utilisateurs. Les scénarios suivent le workflow complet : de la libération d’un ordre de fabrication, depuis l’ERP jusqu’à sa déclaration de production, qui revient à l’ERP.
 
 Le tableau précédent présente le plan des tests fonctionnels, avec la priorité de chaque exigence. Comme pour la recette technique, les résultats obtenus feront l’objet d’un PV dédié, qui sera ensuite repris dans le PV de recette.
 
@@ -181,7 +181,7 @@ Le plan de management fixe les délais de correction :
 
 Chaque correctif livré par l’éditeur est accompagné d’un test de non-régression sur les cas de test déjà validés. @test-de-regression
 
-La recette est également suivie dans le tableau de bord du projet : le nombre d’anomalies bloquantes est relevé chaque semaine. La part des fonctionnalités « Must » déjà testés et validées alimente l’indicateur « Spécifications implémentées ».
+La recette est également suivie dans le tableau de bord du projet : le nombre d’anomalies bloquantes est relevé chaque semaine. La part des fonctionnalités « Must » déjà testées et validées alimente l’indicateur « Spécifications implémentées ».
 
 #hidden-heading(level: 3, numbering: none)[Critères de prononcé]
 
@@ -189,8 +189,8 @@ La recette est validée lorsque les critères d’acceptation du cahier des char
 - toutes les exigences « Must » conformes
 - aucune réserve bloquante n’est ouverte
 - au moins 90 % des cas de test « Should » et « Could » sont conformes
-- le PV de recette techniques est lui aussi validé (exigences non fonnctionnelles)
-- la documentation d’exploitation ainsi et les supports de formation sont livrés
+- le PV de recette technique est lui aussi validé (exigences non fonctionnelles)
+- la documentation d’exploitation ainsi que les supports de formation sont livrés
 
 Trois décisions sont alors possibles :
 - une recette prononcée sans réserve, qui permet de franchir le jalon G4 et de payer le fournisseur
@@ -205,4 +205,4 @@ Dans les scénarios « favorable » et « intermédiaire », la recette 
 
 Dans le scénario défavorable, la recette technique est resserrée et les tests de charge supprimés pour tenir la date : trois anomalies bloquantes apparaissent alors en recette fonctionnelle, et le jalon G4 est prononcé avec réserves et seulement 93 % des cas « Must » conformes.
 
-Le scénario de tensions est encore plus parlant : la bascule des interfaces échoue le 09/07, et elle ne peut être annulée proprement en l’absence de procédure de retour arrière. C’est pour cette raison nous demandons un plan de retour en arrière fonctionnel avant toute bascule. Il faut retenir que la recette technique ne doit jamais servir de variable d’ajustement du planning.
+Le scénario de tensions est encore plus parlant : la bascule des interfaces échoue le 09/07, et elle ne peut être annulée proprement en l’absence de procédure de retour arrière. C’est pour cette raison que nous demandons un plan de retour en arrière fonctionnel avant toute bascule. Il faut retenir que la recette technique ne doit jamais servir de variable d’ajustement du planning.

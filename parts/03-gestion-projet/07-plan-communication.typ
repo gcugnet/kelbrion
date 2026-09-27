@@ -39,7 +39,7 @@ Le tableau ci-dessous précise, pour chaque public, l’information transmise, l
 
           [Équipe projet DSI \ + éditeur],
           [Avancement, actions, points bloquants],
-          [Réunion COPIL de 30 min \ + compte rendu dans l’outil collaboratif],
+          [Réunion d’équipe de 30 min \ + compte rendu dans l’outil collaboratif],
           [Chaque lundi],
           [CP DSI],
 
@@ -54,7 +54,7 @@ Le tableau ci-dessous précise, pour chaque public, l’information transmise, l
           [COPIL + CODIR],
           [Bilan de phase et décision de passage à la suivante],
           [Réunion et procès-verbal de jalon],
-          [À chaque jalon (G0 -> clôture)],
+          [À chaque jalon (de G0 à la clôture)],
           [CP DSI],
 
           [Directeur production \ + DSI + PMO],
@@ -96,6 +96,6 @@ Le tableau ci-dessous précise, pour chaque public, l’information transmise, l
   ],
 )
 
-Le chef de projet DSI est responsable de la plupart des communications, comme il l’est dans l’organisation du projet. L’information des chefs d’équipes de la production sont déléguées au responsable d’atelier, qui connait mieux ces interlocuteurs. La partie liée aux données personnelles est également confiée au délégué à la protection des données, qui maîtrise bien la partie juridique.
+Le chef de projet DSI est responsable de la plupart des communications, comme il l’est dans l’organisation du projet. L’information des chefs d’équipe de la production est déléguée au responsable d’atelier, qui connaît mieux ces interlocuteurs. La partie liée aux données personnelles est également confiée au délégué à la protection des données, qui maîtrise bien la partie juridique.
 
 Le plan de communication complet est disponible en suivant #link("https://docs.google.com/document/d/1Dcf04AeJCWGLe6d5UtBP5RSqoswkR9jd/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].

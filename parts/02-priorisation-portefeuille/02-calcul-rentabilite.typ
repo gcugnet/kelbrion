@@ -11,9 +11,9 @@ Le coût total d’un projet correspond à la somme de 3 postes :
 
 Nous avons ensuite estimé, projet par projet, ce que sa réalisation ferait gagner ou économiser à l’entreprise chaque année. Ces gains annuels sont valorisés sur un horizon de 3 ans (durée du plan stratégique de l’entreprise).
 
-Le ROI se calcule alors ainsi : ```(gains sur l'horizon - cout total) / cout total```. Nous y ajoutons le délai de retour, c’est-à-dire le nombre de mois nécessaires pour que les gains couvrent le coût du projet. Cet indicateur n’entre pas dans le calcul de la note, mais il rend le classement plus lisible : un projet peut afficher un ROI positif à 3 ans tout en ne commençant réellement à rapporter qu’au bout de 2 ans.
+Le ROI se calcule alors ainsi : ```(gains sur l'horizon - coût total) / coût total```. Nous y ajoutons le délai de retour, c’est-à-dire le nombre de mois nécessaires pour que les gains couvrent le coût du projet. Cet indicateur n’entre pas dans le calcul de la note, mais il rend le classement plus lisible : un projet peut afficher un ROI positif à 3 ans tout en ne commençant réellement à rapporter qu’au bout de 2 ans.
 
-Nous assumons la fragilité de ces estimations. Les coûts reposent sur des charges que nous avons grossièrement estimées, et les gains sur des hypothèses métier que seule la direction et le temps pourront confirmer. C’est d’ailleurs l’une des raisons pour lesquelles la rentabilité ne pèse que 20% dans la note finale, comme nous le verrons dans la partie 2.@cotation-projets[] Cotation des projets. Ces chiffres devront être ajustés au fur et à mesure de l’évolution de la maturité du portefeuille projets.
+Nous assumons la fragilité de ces estimations. Les coûts reposent sur des charges que nous avons grossièrement estimées, et les gains sur des hypothèses métier que seuls la direction et le temps pourront confirmer. C’est d’ailleurs l’une des raisons pour lesquelles la rentabilité ne pèse que 20% dans la note finale, comme nous le verrons dans la partie 2.@cotation-projets[] Cotation des projets. Ces chiffres devront être ajustés au fur et à mesure de l’évolution de la maturité du portefeuille projets.
 
 #figure(
   [#figure(
@@ -29,12 +29,12 @@ Nous assumons la fragilité de ces estimations. Les coûts reposent sur des char
           [#strong[Gains / an]],
           [#strong[Gains 3 ans]],
           [#strong[ROI]],
-          [#strong[Retour]],
+          [#strong[Retour (mois)]],
           [#strong[Note]],
 
           [1], [P4 : déploiement MES], [425 500 €], [300 000 €], [900 000 €], [111,5%], [17], [5],
 
-          [2], [P5 : déploiement PLM], [283 000 €], [180 000 €], [540 000 €], [90,8%], [18], [4],
+          [2], [P5 : déploiement PLM], [283 000 €], [180 000 €], [540 000 €], [90,8%], [19], [4],
 
           [3], [P7 : portail collaboratif], [95 000 €], [60 000 €], [180 000 €], [89,5%], [19], [4],
 
@@ -76,4 +76,4 @@ Les 3 derniers ressortent avec un ROI négatif à 3 ans : la migration des appli
 
 À l’échelle du portefeuille, les 10 projets représentent 1 957 500 € de coût prévisionnel pour 2 640 000 € de gains cumulés sur 3 ans, soit un ROI global de 34,9%.
 
-Le détail des coûts et gains estimés par projet est disponible en annexe @estimation-couts-gains-projets[] Tableau d’estimation des coûts et gains projets, ainsi que via #link("https://docs.google.com/spreadsheets/d/1vOuAuyWx9WGl5-ragtGG6HYRPZ480uSp/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien] dans l’onglet « Projets ».  Le tableau du calcul et classement de rentabilité par projet est quant à lui disponible en annexe @tableau-rentabilite-projets[]Tableau de rentabilité par projets, ou en suivant #link("https://docs.google.com/spreadsheets/d/1vOuAuyWx9WGl5-ragtGG6HYRPZ480uSp/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien], dans l’onglet « Rentabilite ».
+Le détail des coûts et gains estimés par projet est disponible en annexe @estimation-couts-gains-projets[] Tableau d’estimation des coûts et gains projets, ainsi que via #link("https://docs.google.com/spreadsheets/d/1vOuAuyWx9WGl5-ragtGG6HYRPZ480uSp/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien] dans l’onglet « Projets ». Le tableau du calcul et classement de rentabilité par projet est quant à lui disponible en annexe @tableau-rentabilite-projets[] Tableau de rentabilité par projets, ou en suivant #link("https://docs.google.com/spreadsheets/d/1vOuAuyWx9WGl5-ragtGG6HYRPZ480uSp/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien], dans l’onglet « Rentabilite ».

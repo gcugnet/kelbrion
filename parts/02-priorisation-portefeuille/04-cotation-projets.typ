@@ -12,9 +12,9 @@ Nous avons retenu la pondération suivante :
 - rentabilité : 20 %
 - maîtrise des risques : 20 %
 
-L’alignement stratégique nous semble très important pour répondre aux attentes de la direction sur les 3 prochaines années. Néanmoins, il nous semble pareillement important de respecter l’échéance de 12 mois fixée pour l’ouverture du nouveau site, sans quoi l’entreprise perdra en capacité de production et en salaires par rapport à ce qui a été planifié. Pour cette raison, ces 2 premiers critères constituent un peu plus de la moitié du score total.
+L’alignement stratégique nous semble très important pour répondre aux attentes de la direction sur les 3 prochaines années. Néanmoins, il nous semble pareillement important de respecter l’échéance de 12 mois fixée pour l’ouverture du nouveau site, sans quoi l’entreprise perdra en capacité de production et en salaires par rapport à ce qui a été planifié. Pour cette raison, ces 2 premiers critères représentent 60 % du score total.
 
-Nous avons placé le critère de la rentabilité et de la maîtrise des riques au même niveau : il nous semble aussi important de privilégier les projets rentables que les projets dont le risque est déjà maîtrisé. Cela encourage également à gérer le risque des projets en amont pour les faire remonter dans la hiérarchie du portefeuille.
+Nous avons placé le critère de la rentabilité et de la maîtrise des risques au même niveau : il nous semble aussi important de privilégier les projets rentables que les projets dont le risque est déjà maîtrisé. Cela encourage également à gérer le risque des projets en amont pour les faire remonter dans la hiérarchie du portefeuille.
 
 Le score de priorité correspond au total des 4 notes, multipliées par leur pondération. Nous en déduisons un niveau de priorité :
 - priorité 1 à partir de 3,5 : à lancer immédiatement
@@ -76,15 +76,15 @@ Les projets les moins prioritaires (priorité 3) sont la supervision (jugée tr�
 
 #hidden-heading(level: 3, numbering: none)[Arbitrages budgétaires]
 
-Ce classement permet potentiellement de réaliser des choix budgétaires. Les 10 projets représentent 1 957 500 € de coût prévisionnel. En y ajoutant une provision pour risques de 5%, le budget total engagé atteint 2 055 375 €. Le portefeuille dépasse donc l’enveloppe initiale qui était fixée à 2 000 000€. Ce dépassement reste faible (environ 2,8%), mais s’il venait à empirer, nous disposerons d’éléments tangibles pour prendre des décisions.
+Ce classement permet potentiellement de réaliser des choix budgétaires. Les 10 projets représentent 1 957 500 € de coût prévisionnel. En y ajoutant une provision pour risques de 5%, le budget total engagé atteint 2 055 375 €. Le portefeuille dépasse donc l’enveloppe initiale qui était fixée à 2 000 000 €. Ce dépassement reste faible (environ 2,8%), mais s’il venait à empirer, nous disposerons d’éléments tangibles pour prendre des décisions.
 
 Trois leviers permettent de revenir à l’équilibre budgétaire :
-- reporter un projet : le seul candidat crédible est le portail collaboratif (P7), qui n’est pas bloquant au jour 1. Son report permettrait d’écomiser 95 000 € mais entraînerait également le report d’une partie de la supervision applicative (P10), qui en dépend
+- reporter un projet : le seul candidat crédible est le portail collaboratif (P7), qui n’est pas bloquant au jour 1. Son report permettrait d’économiser 95 000 € mais entraînerait également le report d’une partie de la supervision applicative (P10), qui en dépend
 - réduire un périmètre : livrer des projets dans une version réduite
 - diminuer le recours aux prestataires : le TJM interne étant plus bas que celui de prestataires, il pourrait être intéressant de recruter en interne, surtout si l’entreprise prévoit une croissance de son SI sur les années à venir (un CDD peut aussi permettre de combler un manque de main d’œuvre plus momentané)
 
 
-#hidden-heading(level: 3, numbering: none)[Resources disponibles]
+#hidden-heading(level: 3, numbering: none)[Ressources disponibles]
 
 La charge interne planifiée représente 1 700 jours homme pour une capacité réelle de 3 580 jours homme sur l’ensemble du programme, soit un taux d’occupation global de 47 %. Néanmoins, le profil « Développeurs » est chargé à 134 % de sa capacité sur le programme, avec un pic à plus de 450 % au mois de mai. Le recours à des prestataires sur ce profil est donc difficilement évitable, à moins de rapidement prévoir des recrutements.
 

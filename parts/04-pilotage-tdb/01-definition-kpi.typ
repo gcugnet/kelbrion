@@ -15,11 +15,11 @@ Nous pensons que la simplicité prévaut sur l’exhaustivité. Pour cette raiso
 - les risques
 - les ressources
 
-Chaque indicateur est calculé à partir d’un document tenu à jour par le chef de projet DSI, lors des COPIL hebdomadaires, mensuels, ou encore des livraisons de jalons.
+Chaque indicateur est calculé à partir d’un document tenu à jour par le chef de projet DSI, lors de la revue hebdomadaire du vendredi, du COPIL mensuel ou des jalons.
 
 Nous avons également fixé des bornes pour chaque indicateur : elles correspondent aux seuils d’alerte exposés dans le plan de management.
 
-En cas de dépassemement des bornes, deux niveaux de gravité sont fixés pour chaque indicateur. Un dépassement problématique mais qui ne met pas directement en péril le projet est considéré comme le seuil d’alerte. Un dépassement encore significativement au-delà du seuil d’alerte est considéré comme critique. La réponse aux éventuels dépasseemnt des bornes dépend de leur criticité. Le seuil d’alerte nécessite d’informer le Directeur de production et le DSI sous 48h, et de prendre une décision au plus tard au prochain COPIL. Le seuil critique nécessite une information dans les plus brefs délais (maximum 4h) du Directeur de production et du DSI, et de la mise en place d’une cellule de crise avec la PMO et si besoin le CODIR pour valider les décisions.
+En cas de dépassement des bornes, deux niveaux de gravité sont fixés pour chaque indicateur. Un dépassement problématique mais qui ne met pas directement en péril le projet est considéré comme le seuil d’alerte. Un dépassement encore significativement au-delà du seuil d’alerte est considéré comme critique. La réponse aux éventuels dépassements des bornes dépend de leur criticité. Le seuil d’alerte nécessite d’informer le Directeur de production et le DSI sous 48h, et de prendre une décision au plus tard au prochain COPIL. Le seuil critique nécessite une information dans les plus brefs délais (maximum 4h) du Directeur de production et du DSI, et la mise en place d’une cellule de crise avec la PMO et si besoin le CODIR pour valider les décisions.
 
 Nous avons choisi de ne pas retenir d’indicateur de satisfaction utilisateurs, car elle ne pourra être mesurée qu’après la fin du projet (déploiement et mise en service). Néanmoins, cet aspect pourra être traité dans le bilan de projet.
 
@@ -101,7 +101,7 @@ Le tableau en page suivante récapitule les différents indicateurs, leur source
           [2],
 
           [Risques],
-          [#strong[Risques sans réponse] : risques de niveau fort (> 26 AMDEC) sans plan de réponse],
+          [#strong[Risques sans réponse] : risques de niveau fort (criticité AMDEC supérieure à 26) sans plan de réponse],
           [AMDEC],
           [0],
           [1],

@@ -3,15 +3,15 @@
 == Budget prévisionnel
 // ~0,5 page
 
-Le budget prévisionnel est le pendant financier du planning. Il détaille les dépenses du projet, les compare à l’enveloppe allouée, et permet de suivre l’absence ou la présence de dérives dans le temps. C’est un document crucial pour repérer les fuites financières et prendre des décisions rapidement, puisqu’il est revu chaque mois en COPIL.
+Le budget prévisionnel est le pendant financier du planning. Il détaille les dépenses du projet, les compare à l’enveloppe allouée, et permet de suivre l’absence ou la présence de dérives dans le temps. C’est un document crucial pour repérer les fuites financières et prendre des décisions rapidement, puisqu’il est revu chaque semaine, lors de la revue du vendredi.
 
 #hidden-heading(level: 3, numbering: none)[Hypothèses]
 
-Nous reprenons les hypothèses déjà utilisées pour le calcul de rentabilité du portefeuille : les resources internes sont valorisées à un TJM moyen de 450 € (charges comprises), et les prestataires à 850 €.
+Nous reprenons les hypothèses déjà utilisées pour le calcul de rentabilité du portefeuille : les ressources internes sont valorisées à un TJM moyen de 450 € (charges comprises), et les prestataires à 850 €.
 
 Une provision pour risques de 5 % du coût prévisionnel est ajoutée.
 
-Comme nous l’avons évoqué dans le plan de management, nous ne comptabilisons pas ici le temps de travail des référents métiers, qui sont membres de l’équipe produit (le commanditaire). Il s’agit d’une limite de notre calcul des coûts, mais nous ne voulons volontairement pas charger le budget de la DSI avec ces salaires.
+Comme nous l’avons évoqué dans le plan de management, nous ne comptabilisons pas ici le temps de travail des référents métiers, qui dépendent de la direction de la production (le commanditaire). Il s’agit d’une limite de notre calcul des coûts, mais nous ne voulons volontairement pas charger le budget de la DSI avec ces salaires.
 
 #hidden-heading(level: 3, numbering: none)[Répartition par poste]
 
@@ -49,7 +49,7 @@ Le tableau ci-dessous propose une répartition par poste, qui est détaillée da
 
           [Licences et logiciels],
           [
-            - 45 licences MES pour le serveur \
+            - 45 licences MES (30 terminaux mobiles et 15 postes fixes) \
             - maintenance de la première année incluse
           ],
           [110 000 €],
@@ -93,7 +93,7 @@ Le tableau ci-dessous propose une répartition par poste, qui est détaillée da
   ],
 )
 
-Près des trois quarts du coût prévisionnel (313 000 €) correspondent à des dépenses externes : licences, prestations de l’éditeur et matériel.
+Près des trois quarts du coût prévisionnel (313 000 €) correspondent à des dépenses externes : licences, prestations de l’éditeur, formation et matériel.
 
 Pour limiter le risque lié à l’éditeur, sa prestation de paramétrage est payée en 3 fois. Chaque versement est rattaché à un jalon projet, et donc soumis à validation du COPIL :
 - 30 % à la commande
@@ -110,4 +110,4 @@ Par conséquent, il n’est pas raisonnable d’anticiper des rallonges financi�
 
 #hidden-heading(level: 3, numbering: none)[Suivi]
 
-Le chef de projet DSI met à jour, mensuellement le montant engagé (réel) pour chaque poste. au-delà de 5 % d’écart, le seuil d’alerte du plan de management est franchi et le chef de projet DSI prévient le Directeur de la production (commanditaire) et le DSI. Une réunion COPIL évaluera les conséquences et validera les mesures à prendre.
+Le chef de projet DSI met à jour chaque semaine le montant engagé (réel) pour chaque poste. Au-delà de 5 % d’écart, le seuil d’alerte du plan de management est franchi et le chef de projet DSI prévient le Directeur de la production (commanditaire) et le DSI. Une réunion COPIL évaluera les conséquences et validera les mesures à prendre.

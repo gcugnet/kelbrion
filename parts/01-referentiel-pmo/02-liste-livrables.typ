@@ -5,7 +5,7 @@
 
 Pour répondre aux objectifs évoqués dans la partie précédente, le référentiel PMO doit imposer un certain nombre de documents à adapter à chaque projet.
 
-Nous avons créé ce référentiel autour de 9 rubriques, qui réunissent plusieurs documents. Nous allons présenter chacune de ces rubriques, et leurs documents principaux (que nous allons lister de D1 à D10, et pour lesquels nous proposerons des exemples).
+Nous avons créé ce référentiel autour de 9 rubriques, qui réunissent plusieurs documents. Nous allons présenter chacune de ces rubriques, et leurs documents principaux (que nous allons lister de D1 à D11, et pour la plupart desquels nous proposerons des exemples).
 
 #hidden-heading(level: 3, numbering: none)[Cadrage et besoins]
 
@@ -21,7 +21,7 @@ Si le projet est validé, cette rubrique accueillera de nouveaux documents pour 
 
 #hidden-heading(level: 4, numbering: none)[D3 - Le Plan de management projet]
 
-Le Plan de management projet est rédigé par le chef de projet après validation du projet en CODIR. Ce document informe sur les règles du projet : sa gouvernance, les tolérances à l’intérieur desquelles le projet est considéré comme sain, la gestion des risques, la communication, les principales échéances, les coûts et la qualité, et les indicateurs clés. D’une certaine manière, c’est un condensé d’autres documents que l’on retrouve dans les sections rubriques suivantes (notamment le planning et budget). Il peut être revu si besoin à la fin de chaque jalon (phases de validations). Un modèle est disponible en suivant #link("https://docs.google.com/document/d/11j44otJGuXWqlQaH8qM4JvrSlYKWh2OQ/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+Le Plan de management projet est rédigé par le chef de projet après validation du projet en CODIR. Ce document informe sur les règles du projet : sa gouvernance, les tolérances à l’intérieur desquelles le projet est considéré comme sain, la gestion des risques, la communication, les principales échéances, les coûts et la qualité, et les indicateurs clés. D’une certaine manière, c’est un condensé d’autres documents que l’on retrouve dans les rubriques suivantes (notamment le planning et budget). Il peut être revu si besoin à la fin de chaque jalon (phases de validations). Un modèle est disponible en suivant #link("https://docs.google.com/document/d/11j44otJGuXWqlQaH8qM4JvrSlYKWh2OQ/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Pilotage et suivi]
 
@@ -31,7 +31,7 @@ Dans la rubrique dédiée au pilotage, le diagramme de Gantt est réalisé par l
 
 #hidden-heading(level: 4, numbering: none)[D5 - Budget]
 
-Le budget est le pendant financier du diagramme de Gantt : en précisant les principaux postes de dépenses du projet, il doit d’abord permettre de vérifier que l’enveloppe totale est suffisante pour le projet (prévisionnel), et ensuite vérifier que les dépenses réellement engagées n’excèdent pas les dépenses initialement prévues. Il est tenu à jour mensuellement par le chef de projet, et un exemple est disponible via #link("https://docs.google.com/spreadsheets/d/15FEcKeLTm5XY6-dgbY32Cn5JSK7koEY3/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+Le budget est le pendant financier du diagramme de Gantt : en précisant les principaux postes de dépenses du projet, il doit d’abord permettre de vérifier que l’enveloppe totale est suffisante pour le projet (prévisionnel), et ensuite vérifier que les dépenses réellement engagées n’excèdent pas les dépenses initialement prévues. Il est tenu à jour chaque semaine par le chef de projet, et un exemple est disponible via #link("https://docs.google.com/spreadsheets/d/15FEcKeLTm5XY6-dgbY32Cn5JSK7koEY3/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 4, numbering: none)[D6 - Tableau de bord]
 
@@ -41,11 +41,11 @@ Le tableau de bord est un autre outil stratégique permettant de suivre l’évo
 
 #hidden-heading(level: 4, numbering: none)[D7 - Évaluation des risques (AMDEC)]
 
-L’ADMEC est une méthode permettant d’évaluer les risques pouvant affecter un projet : l’équipe projet va identifier les risques puis proposer des estimations sur leur gravité, fréquence et non-détection. Un score de criticité est ensuite calculé pour chaque risque, à partir des autres indicateurs : criticité = gravité x fréquence x non-détection. @amdec Plus ce score est élevé, plus il faut prendre des actions pour l’atténuer, le détecter ou l’éviter. Toutes ces informations peuvent se retrouver dans un même tableau, à maintenir à jour en fonction de l’évolution du projet. Il s’agit de la matrice des risques, disponible en suivant #link("https://docs.google.com/spreadsheets/d/1zpuNkogYicM-K8YB6WazEw9b8CTLzjDj/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+L’AMDEC est une méthode permettant d’évaluer les risques pouvant affecter un projet : l’équipe projet va identifier les risques puis proposer des estimations sur leur gravité, fréquence et non-détection. Un score de criticité est ensuite calculé pour chaque risque, à partir des autres indicateurs : criticité = gravité x fréquence x non-détection. @amdec Plus ce score est élevé, plus il faut prendre des actions pour l’atténuer, le détecter ou l’éviter. Toutes ces informations peuvent se retrouver dans un même tableau, à maintenir à jour en fonction de l’évolution du projet. Il s’agit de la matrice des risques, disponible en suivant #link("https://docs.google.com/spreadsheets/d/1zpuNkogYicM-K8YB6WazEw9b8CTLzjDj/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 4, numbering: none)[D8 - REX]
 
-Les fiches de retour d’exérience permettent de garder un témoignage structuré de ce qui a été réalisé durant le projet. Rédigées par les membres de l’équipe projet lorsque des situations importantes et peu documentées sont rencontrées, elles incluent les erreurs, les réussites et les enseignements. @retour-d-experience Elle sont utiles pour officialiser des retours sur le déroulé d’actions passées, et justifier des évolutions dans la gestion de projet (pour éviter de reproduire des erreurs par exemple). Ces fiches forment également une base intéressante pour le bilan de projet. Nous en proposons un exemple via #link("https://docs.google.com/document/d/1DyHyX9fjjEG1hREjc3HuzvrXIwKMR2ZR/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+Les fiches de retour d’expérience permettent de garder un témoignage structuré de ce qui a été réalisé durant le projet. Rédigées par les membres de l’équipe projet lorsque des situations importantes et peu documentées sont rencontrées, elles incluent les erreurs, les réussites et les enseignements. @retour-d-experience Elles sont utiles pour officialiser des retours sur le déroulé d’actions passées, et justifier des évolutions dans la gestion de projet (pour éviter de reproduire des erreurs par exemple). Ces fiches forment également une base intéressante pour le bilan de projet. Nous en proposons un exemple via #link("https://docs.google.com/document/d/1DyHyX9fjjEG1hREjc3HuzvrXIwKMR2ZR/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Fournisseurs et contrats]
 
@@ -53,9 +53,9 @@ Les documents relatifs aux consultations de fournisseurs (présentations, propos
 
 #hidden-heading(level: 3, numbering: none)[Technique]
 
-Cette rubrique permet de centraliser les documents techniques produits en lien avec le projet : document d’architecture technique (DAT), décisions d’architecture (ADR) @architecture-decision-records, dossiers d’installation, de paramétrage, de sécurité sur les équipements, etc. Cette rubrique peut parfois être vide également, pour de petits projets dont les réalisations ne recquièrent pas la rédaction de documents supplémentaires par rapport à la fiche projet et au cahier des charges fonctionnel pour bien comprendre ce qui a été produit.
+Cette rubrique permet de centraliser les documents techniques produits en lien avec le projet : document d’architecture technique (DAT), décisions d’architecture (ADR) @architecture-decision-records, dossiers d’installation, de paramétrage, de sécurité sur les équipements, etc. Cette rubrique peut parfois être vide également, pour de petits projets dont les réalisations ne requièrent pas la rédaction de documents supplémentaires par rapport à la fiche projet et au cahier des charges fonctionnel pour bien comprendre ce qui a été produit.
 
-#hidden-heading(level: 3, numbering: none)[6 - Communication]
+#hidden-heading(level: 3, numbering: none)[Communication]
 
 #hidden-heading(level: 4, numbering: none)[D9 - Plan de communication]
 
@@ -65,7 +65,7 @@ Le plan de communication est rédigé par le chef de projet, pendant la phase de
 
 #hidden-heading(level: 4, numbering: none)[D10 - PV de recette]
 
-Le procès verbal de recette est rédigé par le chef de projet, en concertation avec le référent métier ou le maître d’ouvrage. Il définit les critères de validation, et indique s’ils ont été atteints ou non. Il renseigne sur la validation des livrables : sans réserves, avec réserves, ou non validé, et permet aux fournisseurs d’être payés le cas échéant. Il est complété à chaque phase de recette. Un exemple est disponible via #link("https://docs.google.com/document/d/1SwyzXxv0gxoDMkyuJv8F5YanuGGhVTvk/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+Le procès-verbal de recette est rédigé par le chef de projet, en concertation avec le référent métier ou le maître d’ouvrage. Il définit les critères de validation, et indique s’ils ont été atteints ou non. Il renseigne sur la validation des livrables : sans réserves, avec réserves, ou non validé, et permet aux fournisseurs d’être payés le cas échéant. Il est complété à chaque phase de recette. Un exemple est disponible via #link("https://docs.google.com/document/d/1SwyzXxv0gxoDMkyuJv8F5YanuGGhVTvk/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #figure(
   [#figure(
@@ -179,5 +179,7 @@ Le procès verbal de recette est rédigé par le chef de projet, en concertation
 )
 
 #hidden-heading(level: 3, numbering: none)[Clôture]
+
+#hidden-heading(level: 4, numbering: none)[D11 - Bilan de projet]
 
 Le chef de projet est en charge de rédiger un bilan de projet à la fin du jalon final. Ce document prend la forme d’une synthèse générale qui informe sur la conformité des résultats obtenus, analyse les éventuels écarts, la communication, aborde la gestion des risques, condense les expériences acquises (fiches REX) et évalue la satisfaction des parties prenantes à l’égard du projet.
