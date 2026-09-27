@@ -31,6 +31,8 @@ jobs:
       - name: Rafraîchir la copie de secours depuis Google Sheets
         run: python3 .github/scripts/refresh_snapshot.py
         continue-on-error: true
+      - name: Versionner les ressources (évite de mélanger une page neuve avec un script en cache)
+        run: sed -i "s/?v=dev/?v=${GITHUB_SHA::7}/g" site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

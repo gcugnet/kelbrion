@@ -6,45 +6,40 @@
   <title>Tableau de bord P4 MES</title>
   <meta name="description" content="Tableau de bord du projet P4 (déploiement d'un système MES) relié en direct au classeur D6 : indicateurs, historique et quatre scénarios de résilience.">
   <link rel="icon" href="logo-kelbrion.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css?v=dev">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=dev" defer></script>
 </head>
 <body>
-  <header class="masthead">
-    <div class="wrap masthead-inner">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
       <div class="brand">
-        <span class="logo-chip"><img src="logo-kelbrion.png" alt="Kelbrion" width="120" height="37"></span>
-        <div>
-          <p class="eyebrow">Référentiel PMO · D6 · Tableau de bord</p>
-          <h1>Projet P4 · Déploiement d'un système MES</h1>
-        </div>
+        <span class="logo-chip"><img src="logo-kelbrion.png" alt="Kelbrion" width="96" height="29"></span>
+        <span class="path">PMO <b>›</b> D6 <b>›</b> P4</span>
+        <h1>DÉPLOIEMENT MES</h1>
       </div>
-      <div class="masthead-side">
-        <p id="source" class="source" role="status">Lecture du classeur…</p>
-        <button id="theme" class="ghost" type="button" aria-label="Changer de thème">Thème : auto</button>
+      <div class="topbar-side">
+        <span id="source" class="source" role="status">CHARGEMENT…</span>
+        <button id="theme" class="key key-dark" type="button" aria-label="Changer de thème">CLAIR</button>
       </div>
     </div>
   </header>
 
   <nav class="controls" aria-label="Scénario et date de situation">
     <div class="wrap controls-inner">
-      <div class="control">
-        <span class="control-label" id="lbl-scen">Scénario</span>
-        <div id="scenarios" class="segmented" role="radiogroup" aria-labelledby="lbl-scen"></div>
-      </div>
-      <div class="control control-date">
-        <label class="control-label" for="date">Date de situation</label>
-        <div class="date-row">
-          <button id="play" class="ghost icon" type="button" aria-label="Rejouer le projet semaine après semaine">▶</button>
-          <input id="date" type="range" min="0" max="0" step="1" value="0">
-          <output id="date-out" for="date"></output>
-          <button id="reset-date" class="ghost" type="button">Date du classeur</button>
-        </div>
+      <div id="scenarios" class="segmented" role="radiogroup" aria-label="Scénario"></div>
+      <div class="date-row">
+        <button id="play" class="key icon" type="button" aria-label="Rejouer le projet semaine après semaine">▶</button>
+        <input id="date" type="range" min="0" max="0" step="1" value="0" aria-label="Date de situation">
+        <output id="date-out" for="date"></output>
+        <button id="reset-date" class="key" type="button" title="Revenir à la date de situation du classeur">RÉF.</button>
       </div>
       <div class="tabs" role="tablist" aria-label="Vues">
-        <button role="tab" id="tab-situation" aria-selected="true" aria-controls="view-situation">Situation</button>
-        <button role="tab" id="tab-scenarios" aria-selected="false" aria-controls="view-scenarios">Scénarios et résilience</button>
+        <button role="tab" id="tab-situation" aria-selected="true" aria-controls="view-situation">SITUATION</button>
+        <button role="tab" id="tab-scenarios" aria-selected="false" aria-controls="view-scenarios">SCÉNARIOS</button>
       </div>
     </div>
   </nav>
@@ -54,131 +49,62 @@
 
     <!-- Vue Situation ------------------------------------------------------ -->
     <section id="view-situation" role="tabpanel" aria-labelledby="tab-situation">
-      <div class="hero card">
-        <div class="hero-status">
-          <p class="kicker">Statut global</p>
-          <p id="global" class="hero-value"></p>
-          <p id="global-note" class="note"></p>
-        </div>
-        <ul id="meteo" class="meteo" aria-label="Météo par domaine"></ul>
-      </div>
-
+      <ul id="meteo" class="meteo" aria-label="Statut global et météo par domaine"></ul>
       <div id="tiles" class="tiles"></div>
 
       <div class="grid-2">
-        <article class="card">
-          <h2>Avancement réel et planifié</h2>
-          <p class="sub">Relevé chaque vendredi en comité projet, comparé au planning de référence validé au jalon G1.</p>
-          <div id="chart-avancement" class="chart"></div>
-        </article>
-        <article class="card">
-          <h2>Coûts : consommé et prévision à fin</h2>
-          <p class="sub">Budget relevé chaque semaine. Repères : coût prévisionnel hors provision et enveloppe provision comprise.</p>
-          <div id="chart-budget" class="chart"></div>
-        </article>
+        <article class="panel"><header><h2>AVANCEMENT</h2><span class="hint">RÉEL / PLANIFIÉ</span></header><div id="chart-avancement" class="chart"></div></article>
+        <article class="panel"><header><h2>COÛTS</h2><span class="hint">CONSOMMÉ / PRÉVISION À FIN</span></header><div id="chart-budget" class="chart"></div></article>
       </div>
 
-      <article class="card">
-        <h2>Météo semaine après semaine</h2>
-        <p class="sub">Statut de chaque domaine à chaque vendredi, recalculé depuis les relevés : pire statut des indicateurs du domaine. Survoler une case pour lire le fait marquant de la semaine.</p>
-        <div id="chart-frise" class="chart chart-frise"></div>
-        <ul class="legend" id="legend-status"></ul>
-      </article>
+      <article class="panel"><header><h2>MÉTÉO HEBDOMADAIRE</h2><span class="hint" id="legend-status"></span></header><div id="chart-frise" class="chart chart-frise"></div></article>
 
-      <h2 class="section-title">Les 10 indicateurs clés</h2>
-      <p class="sub">Valeur du dernier relevé à la date de situation, comparée au relevé précédent. Les bandes colorées des courbes marquent les seuils d'alerte et critique du plan de management.</p>
-      <div id="kpis" class="kpis"></div>
+      <article class="panel"><header><h2>INDICATEURS CLÉS</h2><span class="hint">DERNIER RELEVÉ · BANDES = SEUILS</span></header><div id="kpis" class="kpis"></div></article>
 
       <div class="grid-2">
-        <article class="card">
-          <h2>Occupation du profil Développeurs</h2>
-          <p class="sub">Charge affectée sur capacité. Cible 80 %, alerte à 100 %, critique à 120 %.</p>
-          <div id="chart-occupation" class="chart chart-sm"></div>
-        </article>
-        <article class="card">
-          <h2>Criticité cumulée des risques ouverts</h2>
-          <p class="sub">Somme des criticités AMDEC du registre D7, relevée chaque semaine.</p>
-          <div id="chart-risques" class="chart chart-sm"></div>
-        </article>
+        <article class="panel"><header><h2>OCCUPATION DÉV.</h2><span class="hint">CIBLE 80 · ALERTE 100 · CRIT. 120 %</span></header><div id="chart-occupation" class="chart chart-sm"></div></article>
+        <article class="panel"><header><h2>CRITICITÉ RISQUES</h2><span class="hint">SOMME AMDEC · D7</span></header><div id="chart-risques" class="chart chart-sm"></div></article>
       </div>
 
-      <article class="card">
-        <h2>Calendrier des relevés</h2>
-        <p class="sub">Chaque point est un relevé daté, coloré selon son statut : budget, risques, périmètre, qualité et ressources chaque semaine ; planning au moins chaque mois et à chaque jalon.</p>
-        <div id="chart-calendrier" class="chart chart-cal"></div>
-        <ul class="legend" id="legend-occasions"></ul>
-      </article>
+      <article class="panel"><header><h2>CALENDRIER DES RELEVÉS</h2><span class="hint" id="legend-occasions"></span></header><div id="chart-calendrier" class="chart chart-cal"></div></article>
 
       <div class="grid-2">
-        <article class="card">
-          <h2>Journal du scénario</h2>
-          <p class="sub">Faits marquants et décisions jusqu'à la date de situation, du plus récent au plus ancien.</p>
-          <ol id="journal" class="journal"></ol>
-        </article>
-        <article class="card">
-          <h2>Saisi en comité (onglet Synthese)</h2>
-          <p class="sub" id="synth-note"></p>
-          <h3>Points d'attention</h3>
-          <ul id="attention" class="plain"></ul>
-          <h3>Principaux risques</h3>
-          <div class="table-wrap"><table id="risques"><thead><tr><th scope="col">Risque</th><th scope="col">Criticité</th><th scope="col">Réponse en cours</th></tr></thead><tbody></tbody></table></div>
-          <h3>Décisions et actions</h3>
-          <div class="table-wrap"><table id="actions"><thead><tr><th scope="col">Échéance</th><th scope="col">Statut</th><th scope="col">Action</th></tr></thead><tbody></tbody></table></div>
+        <article class="panel"><header><h2>JOURNAL</h2><span class="hint">FAITS · DÉCISIONS</span></header><ol id="journal" class="journal"></ol></article>
+        <article class="panel"><header><h2>COMITÉ</h2><span class="hint" id="synth-note"></span></header>
+          <div class="panel-body">
+            <h3>POINTS D'ATTENTION</h3>
+            <ul id="attention" class="plain"></ul>
+            <h3>PRINCIPAUX RISQUES</h3>
+            <div class="table-wrap"><table id="risques"><thead><tr><th scope="col">Risque</th><th scope="col" class="num">Crit.</th><th scope="col">Réponse</th></tr></thead><tbody></tbody></table></div>
+            <h3>ACTIONS</h3>
+            <div class="table-wrap"><table id="actions"><thead><tr><th scope="col">Échéance</th><th scope="col">Statut</th><th scope="col">Action</th></tr></thead><tbody></tbody></table></div>
+          </div>
         </article>
       </div>
 
-      <details class="card data-table">
-        <summary>Tableau des relevés du scénario jusqu'à la date de situation</summary>
-        <div class="table-wrap"><table id="releves"><thead><tr><th scope="col">Date</th><th scope="col">Occasion</th><th scope="col">Indicateur</th><th scope="col">Valeur</th><th scope="col">Statut</th><th scope="col">Commentaire</th></tr></thead><tbody></tbody></table></div>
+      <details class="panel data-table">
+        <summary>RELEVÉS DU SCÉNARIO</summary>
+        <div class="table-wrap"><table id="releves"><thead><tr><th scope="col">Date</th><th scope="col">Occasion</th><th scope="col">Indicateur</th><th scope="col" class="num">Valeur</th><th scope="col">Statut</th><th scope="col">Commentaire</th></tr></thead><tbody></tbody></table></div>
       </details>
     </section>
 
     <!-- Vue Scénarios ------------------------------------------------------- -->
     <section id="view-scenarios" role="tabpanel" aria-labelledby="tab-scenarios" hidden>
-      <article class="card">
-        <h2>Quatre trajectoires pour éprouver la résilience</h2>
-        <p class="sub">Chaque scénario est un historique complet du projet, du lancement à la clôture, avec ses chocs et les leviers engagés. Les issues ci-dessous sont celles du classeur ; semaines en rouge et délai de réaction sont recalculés à partir des relevés.</p>
-        <div class="table-wrap"><table id="issues" class="issues"></table></div>
-      </article>
+      <article class="panel"><header><h2>ISSUES DES SCÉNARIOS</h2><span class="hint">RECALCULÉES DEPUIS LES RELEVÉS</span></header><div class="table-wrap"><table id="issues" class="issues"></table></div></article>
 
       <div class="grid-2">
-        <article class="card">
-          <h2>Avancement réel selon le scénario</h2>
-          <p class="sub">La courbe grise est le planning de référence commun aux quatre scénarios.</p>
-          <div id="chart-fan-av" class="chart"></div>
-        </article>
-        <article class="card">
-          <h2>Prévision à fin selon le scénario</h2>
-          <p class="sub">Au-delà de l'enveloppe, le projet consomme plus que sa provision pour risques.</p>
-          <div id="chart-fan-eac" class="chart"></div>
-        </article>
+        <article class="panel"><header><h2>AVANCEMENT RÉEL</h2><span class="hint">GRIS = RÉFÉRENCE</span></header><div id="chart-fan-av" class="chart"></div></article>
+        <article class="panel"><header><h2>PRÉVISION À FIN</h2><span class="hint">ENVELOPPE 446 775 €</span></header><div id="chart-fan-eac" class="chart"></div></article>
       </div>
 
-      <article class="card">
-        <h2>Statut global semaine après semaine</h2>
-        <p class="sub">Une ligne par scénario : la frise montre quand l'alerte se déclenche et combien de temps les leviers mettent à ramener le projet dans les tolérances.</p>
-        <div id="chart-frises" class="chart chart-frises"></div>
-      </article>
-
-      <article class="card">
-        <h2>Indice de tension : domaines au rouge chaque semaine</h2>
-        <p class="sub">Nombre de domaines (sur 6) au-delà de leur seuil critique. Un pic signale des chocs qui se cumulent au lieu d'être absorbés : c'est là que la planification montre ses limites.</p>
-        <div id="chart-tension" class="chart chart-sm"></div>
-      </article>
-
-      <article class="card">
-        <h2>Chocs subis et leviers engagés</h2>
-        <p class="sub">Triangles : chocs. Ronds : leviers, d'autant plus gros que leur montant est élevé (économie ou dépense). Survoler un point pour lire l'effet.</p>
-        <div id="chart-leviers" class="chart chart-leviers"></div>
-        <ul class="legend" id="legend-leviers"></ul>
-      </article>
+      <article class="panel"><header><h2>STATUT GLOBAL</h2><span class="hint">PAR SEMAINE</span></header><div id="chart-frises" class="chart chart-frises"></div></article>
+      <article class="panel"><header><h2>INDICE DE TENSION</h2><span class="hint">DOMAINES AU ROUGE / 6</span></header><div id="chart-tension" class="chart chart-sm"></div></article>
+      <article class="panel"><header><h2>CHOCS ET LEVIERS</h2><span class="hint" id="legend-leviers"></span></header><div id="chart-leviers" class="chart chart-leviers"></div></article>
 
       <div id="recits" class="recits"></div>
     </section>
   </main>
 
-  <footer class="wrap footer">
-    <p>Données : classeur D6 « Tableau de bord projet » du référentiel PMO Kelbrion, lu à chaque ouverture par l'API de visualisation de Google Sheets. Cas d'étude fictif, rôles uniquement.</p>
-  </footer>
+  <footer class="wrap footer">SOURCE : CLASSEUR D6 · RÉFÉRENTIEL PMO KELBRION · API GOOGLE SHEETS · CAS D'ÉTUDE FICTIF</footer>
 </body>
 </html>

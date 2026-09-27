@@ -9,6 +9,7 @@ const RANK = { Vert: 1, Orange: 2, Rouge: 3 };
 const HIGH = "Plus haut est mieux";
 const RUBRIQUES = ["Récit", "Vulnérabilité", "Choc", "Levier", "Jalon", "Issue"];
 const DAY = 86400000;
+const FONT = '"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace';
 
 const state = { model: null, scenario: "Intermédiaire", dayIndex: 0, view: "situation", charts: {}, playing: null };
 
@@ -186,7 +187,8 @@ const ICONS = {
   none: '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 8h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>',
 };
 const statusHTML = s => `<span class="status ${statusClass(s)}">${ICONS[s] || ICONS.none}${esc(s || "Non mesuré")}</span>`;
-const trendArrow = t => ({ "En amélioration": "↗ en amélioration", "En dégradation": "↘ en dégradation", Stable: "→ stable" }[t] || "");
+const chipHTML = s => `<span class="chip ${statusClass(s)}">${esc(s || "N/M")}</span>`;
+const trendArrow = t => ({ "En amélioration": "▲ amélioration", "En dégradation": "▼ dégradation", Stable: "■ stable" }[t] || "");
 const heat = s => css({ Vert: "--heat-vert", Orange: "--heat-orange", Rouge: "--heat-rouge" }[s] || "--heat-none");
 const stColor = s => css({ Vert: "--st-vert", Orange: "--st-orange", Rouge: "--st-rouge" }[s] || "--muted");
 
@@ -203,18 +205,18 @@ function base() {
   const ink2 = css("--ink-2"), muted = css("--muted"), grid = css("--grid"), axis = css("--axis");
   return {
     animationDuration: 300,
-    textStyle: { fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif", color: ink2 },
-    grid: { left: 8, right: 16, top: 28, bottom: 8, containLabel: true },
+    textStyle: { fontFamily: FONT, color: ink2, fontSize: 10 },
+    grid: { left: 8, right: 16, top: 26, bottom: 6, containLabel: true },
     tooltip: {
-      trigger: "axis", confine: true, backgroundColor: css("--surface"), borderColor: css("--border"),
-      textStyle: { color: css("--ink"), fontSize: 12 }, extraCssText: "box-shadow: 0 4px 16px rgba(0,0,0,.12); border-radius: 8px;",
+      trigger: "axis", confine: true, backgroundColor: css("--surface"), borderColor: css("--bar"), borderWidth: 1, padding: [6, 8],
+      textStyle: { color: css("--ink"), fontSize: 11, fontFamily: FONT }, extraCssText: "border-radius: 0; box-shadow: 0 2px 8px rgba(0,0,0,.15);",
     },
     xAxisTime: {
       type: "time", axisLine: { lineStyle: { color: axis } }, axisTick: { show: false },
-      axisLabel: { color: muted, hideOverlap: true, formatter: v => fshort(v / DAY) }, splitLine: { show: false },
+      axisLabel: { color: muted, hideOverlap: true, fontSize: 10, formatter: v => fshort(v / DAY) }, splitLine: { show: false },
     },
-    yAxis: { axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: muted }, splitLine: { lineStyle: { color: grid } } },
-    legend: { top: 0, left: 0, icon: "roundRect", itemWidth: 12, itemHeight: 4, textStyle: { color: ink2, fontSize: 12 } },
+    yAxis: { axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: muted, fontSize: 10 }, splitLine: { lineStyle: { color: grid } } },
+    legend: { top: 2, left: 0, icon: "rect", itemWidth: 10, itemHeight: 3, textStyle: { color: ink2, fontSize: 10, fontFamily: FONT } },
   };
 }
 const ms = d => d * DAY;
@@ -225,7 +227,7 @@ const lineSeries = (name, data, color, extra = {}) => ({
 function situationLine(d) {
   return {
     silent: true, symbol: "none", lineStyle: { color: css("--ink-2"), width: 1, type: "solid" },
-    label: { formatter: "Situation", color: css("--ink-2"), fontSize: 11, position: "insideEndTop" },
+    label: { formatter: "SITUATION", color: css("--ink-2"), fontSize: 9, position: "insideEndTop" },
     data: [{ xAxis: ms(d) }],
   };
 }
@@ -251,13 +253,11 @@ function renderSituation() {
   const st = situation(m, sc, d);
   const closed = d > sc.end;
 
-  document.getElementById("global").innerHTML = statusHTML(st.global);
   const nbAlert = Object.values(st.doms).filter(x => x === "Orange" || x === "Rouge").length;
-  document.getElementById("global-note").textContent = closed
-    ? `Projet clôturé le ${fdate(sc.end)} dans ce scénario : statut à la clôture.`
-    : `${nbAlert ? `${nbAlert} domaine${nbAlert > 1 ? "s" : ""} hors tolérance` : "Tous les domaines dans les tolérances"} au ${fdate(d)}.`;
-  document.getElementById("meteo").innerHTML = DOMAINS.map(dom =>
-    `<li class="${statusClass(st.doms[dom])}"><span class="dom-name">${dom}</span>${statusHTML(st.doms[dom])}<span class="trend">${trendArrow(st.domTrend[dom])}</span></li>`).join("");
+  const note = closed ? `Clôturé le ${fshort(sc.end)}` : `${nbAlert}/6 hors tolérance`;
+  document.getElementById("meteo").innerHTML =
+    `<li class="global ${statusClass(st.global)}"><span class="dom-name">Statut global</span><span class="dom-state">${esc(st.global || "N/M")}</span><span class="trend">${note}</span></li>` +
+    DOMAINS.map(dom => `<li class="${statusClass(st.doms[dom])}"><span class="dom-name">${dom}</span><span class="dom-state">${esc(st.doms[dom] || "N/M")}</span><span class="trend">${trendArrow(st.domTrend[dom]) || "&nbsp;"}</span></li>`).join("");
 
   renderTiles(m, sc, d, st);
   renderAvancement(m, sc, d);
@@ -279,20 +279,20 @@ function renderTiles(m, sc, d, st) {
   const jal = sc.hyp.filter(h => h.rub === "Jalon" && h.date != null && h.date > d).sort((a, b) => a.date - b.date)[0];
   const prevu = jal ? m.jalons.find(j => j.code === jal.code) : null;
   const deltaClass = s => ({ Rouge: "bad", Orange: "warn", Vert: "good" }[s] || "");
+  const av = avr != null && avp != null ? Math.round((avr - avp) * 100) : null;
   const tiles = [
-    { label: "Avancement réel", value: avr == null ? "" : pf0.format(avr),
-      detail: avp == null ? "" : `pour ${pf0.format(avp)} planifiés`, delta: avr != null && avp != null ? `${fval("DEL-AV", Math.round((avr - avp) * 100))}` : "", cls: avr != null && avp != null ? deltaClass(kpiStatus(st.kp["DEL-AV"].k, Math.round((avr - avp) * 100))) : "" },
-    { label: "Prévision à fin", value: keur(eac), detail: `pour ${eur(m.cost)} prévus, enveloppe ${eur(m.budget)}`,
-      delta: eca == null ? "" : fval("COU-ECA", eca), cls: deltaClass(st.kp["COU-ECA"].status) },
-    { label: "Date de fin re-prévue", value: fin == null ? "" : fdate(m.finRef + 7 * fin),
-      detail: `référence G1 : ${fdate(m.finRef)}`, delta: fin == null ? "" : fval("DEL-FIN", fin), cls: deltaClass(st.kp["DEL-FIN"].status) },
-    { label: "Prochain jalon", value: jal ? jal.code : "Aucun", detail: jal ? `${fdate(jal.date)}${prevu && prevu.prevu !== jal.date ? `, prévu le ${fdate(prevu.prevu)}` : ""}` : "Tous les jalons sont franchis",
-      delta: jal ? `dans ${Math.round((jal.date - d) / 7)} sem.` : "", cls: "" },
-    { label: "Occupation des développeurs", value: occ == null ? "" : pf0.format(occ), detail: "cible 80 %, critique 120 %",
-      delta: st.kp["RES-OCC"].trend ? trendArrow(st.kp["RES-OCC"].trend) : "", cls: deltaClass(st.kp["RES-OCC"].status) },
+    { label: "Avancement", value: avr == null ? "" : pf0.format(avr), delta: av == null ? "" : fval("DEL-AV", av),
+      detail: avp == null ? "" : `plan ${pf0.format(avp)}`, st: av == null ? null : kpiStatus(st.kp["DEL-AV"].k, av) },
+    { label: "Prévision à fin", value: keur(eac), delta: eca == null ? "" : fval("COU-ECA", eca), detail: `budget ${keur(m.cost)}`, st: st.kp["COU-ECA"].status },
+    { label: "Fin re-prévue", value: fin == null ? "" : fdate(m.finRef + 7 * fin), delta: fin == null ? "" : fval("DEL-FIN", fin),
+      detail: `réf. ${fdate(m.finRef)}`, st: st.kp["DEL-FIN"].status },
+    { label: "Prochain jalon", value: jal ? `${jal.code} ${fshort(jal.date)}` : "—", delta: jal ? `J-${Math.round(jal.date - d)}` : "",
+      detail: jal && prevu && prevu.prevu !== jal.date ? `prévu ${fshort(prevu.prevu)}` : jal ? "à l'heure" : "tous franchis", st: null },
+    { label: "Occupation dév.", value: occ == null ? "" : pf0.format(occ), delta: st.kp["RES-OCC"].trend ? trendArrow(st.kp["RES-OCC"].trend).split(" ")[0] : "",
+      detail: "cible 80 %", st: st.kp["RES-OCC"].status },
   ];
   document.getElementById("tiles").innerHTML = tiles.map(t =>
-    `<div class="tile"><p class="label">${esc(t.label)}</p><p class="value">${esc(t.value)}</p><p class="detail"><span class="delta ${t.cls}">${esc(t.delta)}</span>${t.delta ? " · " : ""}${esc(t.detail)}</p></div>`).join("");
+    `<div class="tile ${statusClass(t.st)}"><p class="label">${esc(t.label)}</p><p class="value">${esc(t.value)}</p><p class="detail"><span class="delta ${deltaClass(t.st)}">${esc(t.delta)}</span>${t.delta ? " · " : ""}${esc(t.detail)}</p></div>`).join("");
 }
 
 function series(sc, code, until) {
@@ -318,7 +318,7 @@ function renderAvancement(m, sc, d) {
           data: m.jalons.filter(j => j.prevu >= m.weeks[0]).map(j => [{ xAxis: ms(j.prevu) - DAY / 2, name: j.code, label: { color: css("--muted"), fontSize: 10, position: "insideTop" } }, { xAxis: ms(j.prevu) + DAY / 2 }]) } }),
       { name: "Jalon franchi", type: "scatter", symbol: "diamond", symbolSize: 12, z: 5,
         itemStyle: { color: col, borderColor: css("--surface"), borderWidth: 2 },
-        label: { show: true, position: "top", formatter: p => p.data.name, color: css("--ink"), fontSize: 11, fontWeight: 600 },
+        label: { show: true, position: "top", formatter: p => p.data.name, color: css("--ink"), fontSize: 10, fontWeight: 600 },
         tooltip: { trigger: "item", formatter: p => `Jalon ${esc(p.data.name)} franchi le ${fdate(p.value[0] / DAY)}${p.data.late ? " (en retard)" : " (à l'heure)"}` },
         data: jalReels },
     ],
@@ -357,7 +357,7 @@ function renderFrise(m, sc, d) {
   const data = [];
   cells.forEach((c, x) => rows.forEach((r, y) => {
     const s = c.st ? (y === 0 ? c.st.global : c.st.doms[r]) : undefined;
-    data.push({ value: [x, rows.length - 1 - y, RANK[s] || 0], status: s || "", itemStyle: { color: c.st ? heat(s) : css("--heat-future"), borderColor: css("--surface"), borderWidth: 2, borderRadius: 3 } });
+    data.push({ value: [x, rows.length - 1 - y, RANK[s] || 0], status: s || "", itemStyle: { color: c.st ? heat(s) : css("--heat-future"), borderColor: css("--surface"), borderWidth: 1, borderRadius: 0 } });
   }));
   chart("chart-frise").setOption({
     ...b, grid: { left: 104, right: 8, top: 8, bottom: 24, containLabel: false },
@@ -370,12 +370,12 @@ function renderFrise(m, sc, d) {
     xAxis: { type: "category", data: cells.map(c => isoWeek(c.w)), axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: false },
       axisLabel: { color: css("--muted"), fontSize: 10, interval: "auto", hideOverlap: true } },
     yAxis: { type: "category", data: [...rows].reverse(), axisLine: { show: false }, axisTick: { show: false },
-      axisLabel: { color: css("--ink-2"), fontSize: 12, width: 96, overflow: "truncate" } },
+      axisLabel: { color: css("--ink-2"), fontSize: 10, width: 96, overflow: "truncate" } },
     series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } } }],
   }, true);
   document.getElementById("legend-status").innerHTML = ["Vert", "Orange", "Rouge"].map(s =>
-    `<li><span class="key" style="background:${heat(s)}"></span>${s}</li>`).join("") +
-    `<li><span class="key" style="background:${css("--heat-none")}"></span>Non mesuré</li><li><span class="key" style="background:${css("--heat-future")};box-shadow:inset 0 0 0 1px ${css("--grid")}"></span>À venir</li>`;
+    `<span><span class="key-sw" style="background:${heat(s)}"></span>${s}</span>`).join("") +
+    `<span><span class="key-sw" style="background:${css("--heat-none")}"></span>N/M</span>`;
 }
 
 function lastFridayOfMonth(y, mo) { let x = Date.UTC(y, mo + 1, 0) / DAY; while (new Date(x * DAY).getUTCDay() !== 5) x--; return x; }
@@ -420,20 +420,20 @@ function renderKpis(m, sc, d, st) {
     const s = st.kp[k.code], last = s.last;
     const pts = (sc.byCode[k.code] || []).filter(r => r.date <= d);
     let meta;
-    if (!last) meta = `<p class="meta">${k.code === "PER-EXI" ? "Mesuré à partir de la recette" : "Pas encore de relevé"} · ${esc(k.freq || "")}</p>`;
+    if (!last) meta = `<p class="meta">${k.code === "PER-EXI" ? "Mesuré en recette" : "Aucun relevé"}</p>`;
     else {
       const nxt = d <= sc.end ? nextExpected(m, sc, k, last) : null;
       const late = nxt != null && d > nxt;
-      meta = `<p class="meta${late ? " late" : ""}">Relevé du ${fdate(last.date)} (${esc(last.occ.toLowerCase())})${nxt ? ` · ${late ? "relevé en retard, attendu le" : "prochain relevé"} ${fdate(nxt)}` : ""}</p>`;
+      meta = `<p class="meta${late ? " late" : ""}">MAJ ${fshort(last.date)}${nxt ? ` · ${late ? "EN RETARD" : "PROCH."} ${fshort(nxt)}` : ""}</p>`;
     }
-    const thr = k.sens === HIGH ? `alerte ≤ ${fval(k.code, k.alerte)} · critique ≤ ${fval(k.code, k.critique)}` : `alerte ≥ ${fval(k.code, k.alerte)} · critique ≥ ${fval(k.code, k.critique)}`;
-    return `<article class="kpi" aria-label="${esc(k.name)}">
-      <div class="kpi-head"><span class="kpi-name">${esc(k.name.replace(/ \((%|points|semaines)\)$/, ""))}</span></div><span class="kpi-code">${esc(k.domaine)} · ${esc(k.code)} · ${esc(k.freq || "")}</span>
-      <div class="kpi-value"><span class="big">${last ? esc(fval(k.code, last.val)) : "–"}</span>${statusHTML(s.status)}</div><p class="meta">${s.trend ? `${trendArrow(s.trend)} · ` : ""}${s.prev ? `relevé précédent ${esc(fval(k.code, s.prev.val))} le ${fshort(s.prev.date)}` : "premier relevé"}</p>
+    const prev = s.prev ? `<span class="trend">${esc(trendArrow(s.trend).split(" ")[0] || "")} ${esc(fval(k.code, s.prev.val))}</span>` : "";
+    const title = [k.def, last && last.com].filter(Boolean).join(" · ");
+    return `<article class="kpi" title="${esc(title)}">
+      <div class="kpi-head"><span class="kpi-code">${esc(k.code)}</span>${chipHTML(s.status)}</div>
+      <span class="kpi-name">${esc(k.name.replace(/ \((%|points|semaines)\)$/, ""))}</span>
+      <div class="kpi-value"><span class="big">${last ? esc(fval(k.code, last.val)) : "—"}</span>${prev}</div>
       ${spark(k, pts, col)}
-      <p class="thresholds">Cible ${esc(fval(k.code, k.cible))} · ${esc(thr)}</p>
       ${meta}
-      ${last && last.com ? `<p class="comment">${esc(last.com)}</p>` : ""}
     </article>`;
   }).join("");
 }
@@ -461,11 +461,11 @@ function renderBand(id, sc, code, cut, m, fmt) {
 }
 
 const OCC_SYMBOL = [
-  ["Revue hebdomadaire", "circle", "Revue hebdomadaire"],
-  ["Revue mensuelle du planning", "rect", "Revue mensuelle du planning"],
-  ["Relevé exceptionnel", "triangle", "Relevé exceptionnel"],
-  ["Jalon", "diamond", "Jalon (tous les indicateurs)"],
-  ["Relevé de lancement", "pin", "Relevé de lancement"],
+  ["Revue hebdomadaire", "circle", "Hebdo"],
+  ["Revue mensuelle du planning", "rect", "Mensuel"],
+  ["Relevé exceptionnel", "triangle", "Exceptionnel"],
+  ["Jalon", "diamond", "Jalon"],
+  ["Relevé de lancement", "pin", "Lancement"],
   ["Recette", "roundRect", "Recette"],
 ];
 const occSymbol = occ => (OCC_SYMBOL.find(([p]) => occ.startsWith(p)) || OCC_SYMBOL[0])[1];
@@ -495,19 +495,18 @@ function renderCalendrier(m, sc, d) {
   const shape = { circle: '<circle cx="7" cy="7" r="4.5"/>', rect: '<rect x="2.5" y="2.5" width="9" height="9"/>', triangle: '<path d="M7 1.5l6 11H1z"/>',
     diamond: '<path d="M7 1l6 6-6 6-6-6z"/>', pin: '<path d="M7 1a4.5 4.5 0 0 1 4.5 4.5C11.5 9 7 13 7 13S2.5 9 2.5 5.5A4.5 4.5 0 0 1 7 1z"/>', roundRect: '<rect x="2" y="3.5" width="10" height="7" rx="2.5"/>' };
   document.getElementById("legend-occasions").innerHTML = OCC_SYMBOL.map(([, sym, label]) =>
-    `<li><svg viewBox="0 0 14 14" aria-hidden="true" fill="${css("--ink-2")}">${shape[sym]}</svg>${label}</li>`).join("") +
-    ["Vert", "Orange", "Rouge"].map(s => `<li><span class="key" style="background:${stColor(s)};border-radius:50%"></span>${s}</li>`).join("");
+    `<span><svg viewBox="0 0 14 14" aria-hidden="true" fill="${css("--bar-hint")}">${shape[sym]}</svg>${label.replace(" (tous les indicateurs)", "")}</span>`).join("");
 }
 
 function renderJournal(sc, d) {
   const items = sc.jour.filter(j => j.date <= d).slice().reverse();
   document.getElementById("journal").innerHTML = items.map(j =>
-    `<li><time datetime="${new Date(j.date * DAY).toISOString().slice(0, 10)}">${fdate(j.date)}</time><div><span class="dom">${esc(j.dom)}</span>${esc(j.fait)}${j.dec ? `<span class="dec">${esc(j.dec)}</span>` : ""}</div></li>`).join("")
+    `<li><time datetime="${new Date(j.date * DAY).toISOString().slice(0, 10)}">${fshort(j.date)}</time><div><span class="dom">${esc(j.dom)}</span>${esc(j.fait)}${j.dec ? `<span class="dec">${esc(j.dec)}</span>` : ""}</div></li>`).join("")
     || `<li><span></span><div>Aucun fait marquant à cette date.</div></li>`;
 }
 
 function renderSynthese(m) {
-  document.getElementById("synth-note").textContent = `Blocs saisis par le chef de projet pour le comité du ${fdate(m.situation)} (scénario ${m.active}). Ils ne changent pas avec le curseur.`;
+  document.getElementById("synth-note").textContent = `SAISI AU ${fdate(m.situation)} · ${m.active.toUpperCase()}`;
   document.getElementById("attention").innerHTML = m.synth.attention.map(a => `<li>${esc(a)}</li>`).join("");
   document.querySelector("#risques tbody").innerHTML = m.synth.risques.map(r =>
     `<tr><td><b>${esc(r.id)}</b> ${esc(r.risque)}</td><td class="num">${esc(r.crit)} · ${esc(r.niveau)}</td><td>${esc(r.action)}</td></tr>`).join("");
@@ -549,27 +548,25 @@ function renderScenarios() {
   const stats = Object.fromEntries(SCENARIOS.map(s => [s, scenarioStats(m, m.scen[s])]));
   const dot = s => `<span class="swatch" style="background:${scenColor(s)}"></span>`;
   const rows = [
-    ["Mise en service", s => { const i = stats[s].issue.MES; return i ? `${fdate(i.date)}<br><span class="note">${esc(i.effet || "")}</span>` : ""; }],
-    ["Fin du projet", s => { const i = stats[s].issue.FIN; return i ? `${fdate(i.date)}<br><span class="note">${esc(i.effet || "")}</span>` : ""; }],
-    ["Coût final", s => { const i = stats[s].issue.COUT; return i ? `${eur(i.montant)}<br><span class="note">${esc(i.effet || "")}</span>` : ""; }],
-    ["Statut à la clôture", s => { const i = stats[s].issue.STAT; return i ? `${statusHTML(i.lib)}<br><span class="note">${esc(i.effet || "")}</span>` : ""; }],
-    ["Semaines en rouge", s => `${stats[s].reds} sur ${stats[s].weeks}`],
-    ["Pic de tension", s => stats[s].peak ? `${stats[s].peak} domaine${stats[s].peak > 1 ? "s" : ""} sur 6 au rouge<br><span class="note">le ${fdate(stats[s].peakWeek)}</span>` : "Aucun domaine au rouge"],
-    ["Vulnérabilités révélées", s => stats[s].vulns.length ? `<b>${stats[s].vulns.length}</b><br><span class="note">${stats[s].vulns.slice(0, 3).map(v => esc(v.lib)).join(" ; ")}${stats[s].vulns.length > 3 ? " ; …" : ""}</span>` : "Aucune"],
-    ["Délai de réaction", s => {
-      const st = stats[s];
-      if (st.firstAlert == null) return "Aucune alerte";
-      return `Première alerte le ${fdate(st.firstAlert)}${st.firstLever ? `<br><span class="note">premier levier ${Math.round((st.firstLever.date - st.firstAlert) / 7)} sem. plus tard : ${esc(st.firstLever.lib)}</span>` : ""}`;
-    }],
-    ["Solde des leviers", s => `${stats[s].leverCost > 0 ? "+" : ""}${eur(stats[s].leverCost)}<br><span class="note">${stats[s].leviers.length} leviers</span>`],
+    ["Mise en service", s => { const i = stats[s].issue.MES; return i ? fdate(i.date) : ""; }],
+    ["Fin du projet", s => { const i = stats[s].issue.FIN, w = i ? Math.round((i.date - m.finRef) / 7) : null; return i ? `${fdate(i.date)} <span class="delta ${w >= 4 ? "bad" : w >= 1 ? "warn" : "good"}">${w > 0 ? `+${w} SEM.` : "À L'HEURE"}</span>` : ""; }],
+    ["Coût final", s => { const i = stats[s].issue.COUT; if (!i) return ""; const e = (i.montant - m.cost) / m.cost;
+      return `${keur(i.montant)} <span class="delta ${e >= 0.1 ? "bad" : e >= 0.05 ? "warn" : "good"}">${fval("COU-ECA", e)}</span>`; }],
+    ["Statut clôture", s => { const i = stats[s].issue.STAT; return i ? chipHTML(i.lib) : ""; }],
+    ["Semaines rouges", s => `<b class="big">${stats[s].reds}</b> / ${stats[s].weeks}`],
+    ["Pic de tension", s => stats[s].peak ? `<b class="big">${stats[s].peak}</b>/6 <span class="note">${fshort(stats[s].peakWeek)}</span>` : "0/6"],
+    ["Vulnérabilités", s => `<b class="big">${stats[s].vulns.length}</b>`],
+    ["Réaction", s => { const st = stats[s]; if (st.firstAlert == null) return "—";
+      return `alerte ${fshort(st.firstAlert)}${st.firstLever ? ` → levier +${Math.round((st.firstLever.date - st.firstAlert) / 7)} sem.` : ""}`; }],
+    ["Solde leviers", s => `${stats[s].leverCost > 0 ? "+" : ""}${keur(stats[s].leverCost)} <span class="note">${stats[s].leviers.length} lev.</span>`],
   ];
   document.getElementById("issues").innerHTML =
-    `<thead><tr><th scope="col"></th>${SCENARIOS.map(s => `<th scope="col"><span class="scen">${dot(s)}${esc(s)}</span></th>`).join("")}</tr></thead>` +
+    `<thead><tr><th scope="col"></th>${SCENARIOS.map(s => `<th scope="col"><span class="scen">${dot(s)}${esc(s.toUpperCase())}</span></th>`).join("")}</tr></thead>` +
     `<tbody>${rows.map(([label, f]) => `<tr><th scope="row">${label}</th>${SCENARIOS.map(s => `<td>${f(s)}</td>`).join("")}</tr>`).join("")}</tbody>`;
 
   const b = base(), end = Math.max(...SCENARIOS.map(s => m.scen[s].end));
   const fan = (id, code, fmt, extra) => chart(id).setOption({
-    ...b, grid: { ...b.grid, right: extra.endLabels === false ? 16 : 96 },
+    ...b, grid: { ...b.grid, right: extra.endLabels === false ? 16 : 128 },
     xAxis: { ...b.xAxisTime, min: ms(m.weeks[0]), max: ms(end) },
     yAxis: { ...b.yAxis, type: "value", ...(extra.y || {}), axisLabel: { ...b.yAxis.axisLabel, formatter: v => fmt(v) } },
     tooltip: { ...b.tooltip, formatter: axisTooltip(v => fmt(v)) },
@@ -600,7 +597,7 @@ function renderScenarios() {
   SCENARIOS.forEach((s, y) => cols.forEach((w, x) => {
     const sc = m.scen[s];
     const g = w <= sc.end ? situation(m, sc, w).global : null;
-    data.push({ value: [x, SCENARIOS.length - 1 - y, RANK[g] || 0], status: g || "", itemStyle: { color: w <= sc.end ? heat(g) : css("--heat-future"), borderColor: css("--surface"), borderWidth: 2, borderRadius: 3 } });
+    data.push({ value: [x, SCENARIOS.length - 1 - y, RANK[g] || 0], status: g || "", itemStyle: { color: w <= sc.end ? heat(g) : css("--heat-future"), borderColor: css("--surface"), borderWidth: 1, borderRadius: 0 } });
   }));
   chart("chart-frises").setOption({
     ...b, grid: { left: 104, right: 8, top: 8, bottom: 24, containLabel: false },
@@ -611,7 +608,7 @@ function renderScenarios() {
       return `<div style="max-width:300px;white-space:normal"><div style="color:${css("--muted")}">${isoWeek(w)} · ${fdate(w)}</div><b>${esc(s)} : ${esc(p.data.status || "Non mesuré")}</b>${fact ? `<div style="margin-top:4px">${fact}</div>` : ""}</div>`;
     } },
     xAxis: { type: "category", data: cols.map(isoWeek), axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: css("--muted"), fontSize: 10, hideOverlap: true } },
-    yAxis: { type: "category", data: [...SCENARIOS].reverse(), axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: css("--ink-2"), fontSize: 12, width: 96, overflow: "truncate" } },
+    yAxis: { type: "category", data: [...SCENARIOS].reverse(), axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: css("--ink-2"), fontSize: 10, width: 96, overflow: "truncate" } },
     series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } } }],
   }, true);
 
@@ -645,7 +642,7 @@ function renderScenarios() {
       return `<div style="max-width:300px;white-space:normal"><div style="color:${css("--muted")}">${esc(s)} · ${fdate(h.date)} · ${esc(h.rub)}${h.code ? ` ${esc(h.code)}` : ""}</div><b>${esc(h.lib)}</b>${h.montant ? `<div>Montant : ${h.montant > 0 ? "+" : ""}${eur(h.montant)}</div>` : ""}${h.effet ? `<div>${esc(h.effet)}</div>` : ""}</div>`;
     } },
     xAxis: { ...b.xAxisTime, min: ms(m.weeks[0]), max: ms(end) },
-    yAxis: { type: "category", data: [...SCENARIOS].reverse(), axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: true, lineStyle: { color: css("--grid") } }, axisLabel: { color: css("--ink-2"), fontSize: 12, width: 96, overflow: "truncate" } },
+    yAxis: { type: "category", data: [...SCENARIOS].reverse(), axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: true, lineStyle: { color: css("--grid") } }, axisLabel: { color: css("--ink-2"), fontSize: 10, width: 96, overflow: "truncate" } },
     series: [
       { name: "Choc", type: "scatter", symbol: "triangle", data: pts("Choc"), itemStyle: { color: css("--choc"), borderColor: css("--surface"), borderWidth: 2 } },
       { name: "Levier", type: "scatter", symbol: "circle", data: pts("Levier"), itemStyle: { color: css("--levier"), opacity: 0.85, borderColor: css("--surface"), borderWidth: 2 } },
@@ -653,16 +650,16 @@ function renderScenarios() {
     ],
   }, true);
   document.getElementById("legend-leviers").innerHTML =
-    `<li><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5l6 11H1z" fill="${css("--choc")}"/></svg>Choc subi</li>` +
-    `<li><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="${css("--levier")}"/></svg>Levier engagé (taille selon le montant)</li>`;
+    `<span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M7 1.5l6 11H1z" fill="${css("--choc")}"/></svg>Choc</span>` +
+    `<span><svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="5" fill="${css("--levier")}"/></svg>Levier (taille = montant)</span>`;
 
   document.getElementById("recits").innerHTML = SCENARIOS.map(s => {
     const sc = m.scen[s], recit = sc.hyp.find(h => h.rub === "Récit");
-    const items = sc.hyp.filter(h => h.rub === "Levier").map(h => `<li>${fdate(h.date)} : ${esc(h.lib)}${h.montant ? ` (${h.montant > 0 ? "+" : ""}${eur(h.montant)})` : ""}</li>`).join("");
-    const vulns = sc.hyp.filter(h => h.rub === "Vulnérabilité").map(h => `<li><b>${esc(h.lib)}</b>${h.effet ? `<br><span class="note">${esc(h.effet)}</span>` : ""}</li>`).join("");
-    return `<article class="recit" style="--c:${scenColor(s)}"><p class="tag">Scénario</p><h3>${esc(s)}</h3><p>${esc(recit ? recit.lib : "")}</p>
-      ${vulns ? `<p class="tag vuln">Vulnérabilités révélées</p><ul class="vulns">${vulns}</ul>` : `<p class="tag">Aucune vulnérabilité révélée</p>`}
-      <p class="tag">Leviers engagés</p><ul>${items}</ul></article>`;
+    const items = sc.hyp.filter(h => h.rub === "Levier").map(h => `<li title="${esc(h.effet || "")}">${fshort(h.date)} ${esc(h.lib)}${h.montant ? ` <b>${h.montant > 0 ? "+" : ""}${keur(h.montant)}</b>` : ""}</li>`).join("");
+    const vulns = sc.hyp.filter(h => h.rub === "Vulnérabilité").map(h => `<li title="${esc(h.effet || "")}">${esc(h.lib)}</li>`).join("");
+    return `<article class="recit" style="--c:${scenColor(s)}"><h3>${esc(s.toUpperCase())}</h3><p>${esc(recit ? recit.lib : "")}</p>
+      ${vulns ? `<p class="tag vuln">Vulnérabilités · ${sc.hyp.filter(h => h.rub === "Vulnérabilité").length}</p><ul>${vulns}</ul>` : `<p class="tag">Aucune vulnérabilité révélée</p>`}
+      <p class="tag">Leviers</p><ul>${items}</ul></article>`;
   }).join("");
 }
 
@@ -713,22 +710,21 @@ function setupControls() {
 }
 
 function setupTheme() {
-  const btn = document.getElementById("theme"), modes = ["auto", "light", "dark"], labels = { auto: "auto", light: "clair", dark: "sombre" };
-  let mode = "auto";
-  try { mode = localStorage.getItem("tdb-theme") || "auto"; } catch (e) { /* stockage indisponible */ }
+  const btn = document.getElementById("theme"), labels = { light: "CLAIR", dark: "SOMBRE" };
+  let mode = "light";
+  try { mode = localStorage.getItem("tdb-theme") === "dark" ? "dark" : "light"; } catch (e) { /* stockage indisponible */ }
   const forced = new URLSearchParams(location.search).get("theme");
-  if (modes.includes(forced)) mode = forced;
+  if (forced in labels) mode = forced;
   const apply = () => {
-    if (mode === "auto") document.documentElement.removeAttribute("data-theme"); else document.documentElement.setAttribute("data-theme", mode);
-    btn.textContent = `Thème : ${labels[mode]}`;
+    document.documentElement.setAttribute("data-theme", mode);
+    btn.textContent = labels[mode];
     if (state.model) render();
   };
   btn.addEventListener("click", () => {
-    mode = modes[(modes.indexOf(mode) + 1) % modes.length];
+    mode = mode === "light" ? "dark" : "light";
     try { localStorage.setItem("tdb-theme", mode); } catch (e) { /* stockage indisponible */ }
     apply();
   });
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { if (mode === "auto" && state.model) render(); });
   apply();
 }
 
@@ -748,14 +744,14 @@ async function main() {
     const res = await fetchLive(sources);
     state.model = buildModel(res);
     source.className = "source live";
-    source.innerHTML = `Lu en direct dans le <a href="${sheetUrl}" target="_blank" rel="noopener">classeur D6</a> le ${new Date().toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" })}`;
+    source.innerHTML = `EN DIRECT · <a href="${sheetUrl}" target="_blank" rel="noopener">D6</a> · ${new Date().toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" })}`;
   } catch (live) {
     console.warn("Lecture en direct impossible, copie de secours utilisée :", live);
     try {
       const snap = await fetch("data/snapshot.json", { cache: "no-store" }).then(r => r.json());
       state.model = buildModel(snap.responses);
       source.className = "source snapshot";
-      source.innerHTML = `Copie du <a href="${sheetUrl}" target="_blank" rel="noopener">classeur D6</a> du ${new Date(snap.generated).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" })} · lecture en direct indisponible`;
+      source.innerHTML = `COPIE · <a href="${sheetUrl}" target="_blank" rel="noopener">D6</a> · ${new Date(snap.generated).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" })}`;
       source.title = live.message;
     } catch (e) {
       document.getElementById("error").hidden = false;
