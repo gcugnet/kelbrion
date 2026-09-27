@@ -3,16 +3,32 @@
 == Définition des KPI
 // ~0,5 page
 
-Les indicateurs clés de performance (KPI) condensent en quelques chiffres les informations du planning, du budget, du registre des risques et de la recette. Ils doivent permettre de répondre rapidement à une question simple : le projet est-il en bonne voie ?
+Les indicateurs de performance clés (KPI) résument en quelques chiffres les informations les plus pertinentes du diagramme de Gantt, du budget et de la matrice AMDEC. Ils permettent d’évaluer rapidement la bonne direction et évolution du projet.
 
 #hidden-heading(level: 3, numbering: none)[Choix des indicateurs]
 
-Nous avons retenu 10 indicateurs, répartis sur les 6 domaines pour lesquels le plan de management fixe un seuil d’alerte : les délais, les coûts, le périmètre, la qualité, les risques et les ressources. Chaque indicateur est calculé à partir d’un document déjà tenu à jour par l’équipe projet, ce qui évite toute saisie supplémentaire.
+Nous pensons que la simplicité prévaut sur l’exhaustivité. Pour cette raison, nous avons limité le nombre d’indicateurs à 10. Ces indicateurs couvrent les 6 domaines pour lesquels le plan de management fixe un seuil d’alerte :
+- les délais
+- les coûts
+- le périmètre
+- la qualité
+- les risques
+- les ressources
+
+Chaque indicateur est calculé à partir d’un document tenu à jour par le chef de projet DSI, lors des COPIL hebdomadaires, mensuels, ou encore des livraisons de jalons.
+
+Nous avons également fixé des bornes pour chaque indicateur : elles correspondent aux seuils d’alerte exposés dans le plan de management.
+
+En cas de dépassemement des bornes, deux niveaux de gravité sont fixés pour chaque indicateur. Un dépassement problématique mais qui ne met pas directement en péril le projet est considéré comme le seuil d’alerte. Un dépassement encore significativement au-delà du seuil d’alerte est considéré comme critique. La réponse aux éventuels dépasseemnt des bornes dépend de leur criticité. Le seuil d’alerte nécessite d’informer le Directeur de production et le DSI sous 48h, et de prendre une décision au plus tard au prochain COPIL. Le seuil critique nécessite une information dans les plus brefs délais (maximum 4h) du Directeur de production et du DSI, et de la mise en place d’une cellule de crise avec la PMO et si besoin le CODIR pour valider les décisions.
+
+Nous avons choisi de ne pas retenir d’indicateur de satisfaction utilisateurs, car elle ne pourra être mesurée qu’après la fin du projet (déploiement et mise en service). Néanmoins, cet aspect pourra être traité dans le bilan de projet.
+
+Le tableau en page suivante récapitule les différents indicateurs, leur source, et leurs différentes bornes (cible, alerte et critique).
 
 #figure(
   [#figure(
       align(center)[#block[
-        #set text(size: 9pt, hyphenate: false)
+        #set text(size: 10pt, hyphenate: false)
         #set par(justify: false)
         #table(
           columns: (1fr, 3.4fr, 1.2fr, 0.9fr, 0.9fr, 0.9fr),
@@ -33,66 +49,66 @@ Nous avons retenu 10 indicateurs, répartis sur les 6 domaines pour lesquels le 
           [#strong[Critique]],
 
           table.cell(rowspan: 3)[Délais],
-          [#strong[Avancement] : avancement réel moins avancement planifié à la date de situation, en points],
-          [Planning],
+          [#strong[Avancement] = réel - planifié à la date de situation (en points)],
+          [Gantt],
           [0],
-          [5 points de retard],
-          [10 points de retard],
+          [-5 pts],
+          [-10 pts],
 
-          [#strong[Date de fin] : date de fin prévue actuellement moins date de fin validée au jalon G1],
-          [Planning],
+          [#strong[Date de fin] = date de fin actuelle - date de fin initialement validée (G1)],
+          [Gantt],
           [0],
-          [1 semaine],
-          [4 semaines],
+          [1 sem.],
+          [4 sem.],
 
-          [#strong[Respect des jalons] : jalons franchis à la date prévue, divisés par les jalons échus],
-          [Planning],
+          [#strong[Respect des jalons] = jalons validés à la date prévue / jalons échus],
+          [Gantt],
           [100 %],
           [80 %],
           [60 %],
 
           table.cell(rowspan: 2)[Coûts],
-          [#strong[Écart budgétaire] : prévision à fin moins coût prévisionnel, divisé par le coût prévisionnel],
+          [#strong[Écart budgétaire] = (prévision ajustée - prévision initiale) / prévision initiale],
           [Budget],
           [0 %],
           [5 %],
           [10 %],
 
-          [#strong[Charge consommée] : jours homme internes consommés, divisés par les jours homme prévus à date],
+          [#strong[Ressources consommées] : j.h internes consommés / j.h prévus à date],
           [Budget],
           [100 %],
           [105 %],
           [115 %],
 
           table.cell(rowspan: 2)[Périmètre],
-          [#strong[Exigences validées] : exigences Must conformes en recette, divisées par les exigences Must du cahier des charges],
+          [#strong[Spécifications implémentées] : exigences Must recettées / exigences Must du cahier des charges],
           [Cahier de recette],
           [100 %],
           [95 %],
           [90 %],
 
-          [#strong[Demandes de changement] : demandes non instruites dans le délai prévu],
+          [#strong[Demandes de changement] : demandes non respectées dans le délai imparti],
           [Registre des décisions],
           [0],
           [2],
           [4],
 
           [Qualité],
-          [#strong[Anomalies bloquantes] : anomalies bloquantes non corrigées, tous environnements confondus],
+          [#strong[Anomalies bloquantes] : anomalies bloquantes non corrigées],
           [Cahier de recette],
           [0],
           [1],
           [2],
 
           [Risques],
-          [#strong[Risques non traités] : risques de niveau fort sans plan de réponse],
-          [Registre des risques],
+          [#strong[Risques sans réponse] : risques de niveau fort (> 26 AMDEC) sans plan de réponse],
+          [AMDEC],
           [0],
           [1],
           [2],
 
           [Ressources],
-          [#strong[Occupation] : charge affectée divisée par la capacité du profil le plus sollicité],
+          [#strong[Occupation] : charge affectée / capacité du profil le plus demandé],
           [Plan de charge],
           [80 %],
           [100 %],
@@ -103,19 +119,6 @@ Nous avons retenu 10 indicateurs, répartis sur les 6 domaines pour lesquels le 
     )
   ],
   caption: [
-    Indicateurs clés du projet P4, avec leurs cibles et leurs seuils.
+    Présentation des indicateurs clés du projet P4 avec source et différentes bornes.
   ],
 )
-
-Les seuils d’alerte reprennent ceux du plan de management : une semaine de retard, 5 % de dépassement budgétaire, 95 % du périmètre livré, une anomalie, un risque sans plan de réponse et une occupation des développeurs supérieure à 100 %. Nous leur avons ajouté un seuil critique, qui signale une dérive trop importante pour être traitée au niveau du seul projet.
-
-Nous n’avons pas retenu d’indicateur de satisfaction des parties prenantes : il ne peut être mesuré de manière fiable qu’après la mise en service, et il est donc traité dans le bilan de projet.
-
-#hidden-heading(level: 3, numbering: none)[Lecture des indicateurs]
-
-Les indicateurs sont mis à jour chaque semaine par le chef de projet DSI, à l’exception de ceux qui portent sur la recette, qui ne sont mesurés qu’à partir de juin 2027. Chacun reçoit un statut :
-- vert : l’indicateur reste dans les tolérances du plan de management
-- orange : le seuil d’alerte est atteint, le chef de projet DSI le signale sous 48 heures au commanditaire et au DSI, puis une réunion du COPIL est organisée
-- rouge : le seuil critique est atteint, la trajectoire du projet ou du portefeuille est en jeu et le CODIR est saisi
-
-Chaque indicateur est aussi comparé à sa valeur de la semaine précédente, pour savoir s’il s’améliore, se dégrade ou reste stable. Le statut d’un domaine correspond au plus mauvais statut de ses indicateurs, et le statut global du projet au plus mauvais statut de ses domaines.
