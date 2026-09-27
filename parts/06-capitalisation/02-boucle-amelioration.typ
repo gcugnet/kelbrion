@@ -6,7 +6,7 @@
 
 Pour que la capitalisation ne reste pas déclarative, chaque enseignement doit se traduire par une évolution concrète du référentiel documentaire ou des méthodes de gestion de projet.
 
-Nous proposons une boucle qui part des constats sur un projet pour améliorer la gestion de tous les futurs projets.
+Nous proposons une boucle qui part des constats sur un projet pour améliorer la gestion de tous les futurs projets. @roue-de-deming
 
 La boucle comporte 4 étapes :
 

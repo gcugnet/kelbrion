@@ -27,7 +27,7 @@ Le Plan de management projet est rédigé par le chef de projet après validatio
 
 #hidden-heading(level: 4, numbering: none)[D4 - Diagramme de Gantt]
 
-Dans la rubrique dédiée au pilotage, le diagramme de Gantt est réalisé par le chef de projet. Il se présente comme un macro-planning et a pour objectif de répartir dans le temps les tâches à réaliser pour répondre aux exigences fonctionnelles. Il permet de piloter l’évolution temporelle du projet, et de vérifier que son exécution ne prend pas de retard sur le planning. Il est mis à jour chaque semaine pour informer de ce qui a été réalisé et reste encore à réaliser. Voir #link("https://docs.google.com/spreadsheets/d/1AEiNdK-rAZUR_6B7Eljg-_0OfmMZQLqW/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[lien].
+Dans la rubrique dédiée au pilotage, le diagramme de Gantt est réalisé par le chef de projet. Il se présente comme un macro-planning et a pour objectif de répartir dans le temps les tâches à réaliser pour répondre aux exigences fonctionnelles. @diagramme-de-gantt Il permet de piloter l’évolution temporelle du projet, et de vérifier que son exécution ne prend pas de retard sur le planning. Il est mis à jour chaque semaine pour informer de ce qui a été réalisé et reste encore à réaliser. Voir #link("https://docs.google.com/spreadsheets/d/1AEiNdK-rAZUR_6B7Eljg-_0OfmMZQLqW/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[lien].
 
 #hidden-heading(level: 4, numbering: none)[D5 - Budget]
 
@@ -41,11 +41,11 @@ Le tableau de bord est un autre outil stratégique permettant de suivre l’évo
 
 #hidden-heading(level: 4, numbering: none)[D7 - Évaluation des risques (AMDEC)]
 
-L’ADMEC est une méthode permettant d’évaluer les risques pouvant affecter un projet : l’équipe projet va identifier les risques puis proposer des estimations sur leur gravité, fréquence et non-détection. Un score de criticité est ensuite calculé pour chaque risque, à partir des autres indicateurs : criticité = gravité x fréquence x non-détection. Plus ce score est élevé, plus il faut prendre des actions pour l’atténuer, le détecter ou l’éviter. Toutes ces informations peuvent se retrouver dans un même tableau, à maintenir à jour en fonction de l’évolution du projet. Il s’agit de la matrice des risques, disponible en suivant #link("https://docs.google.com/spreadsheets/d/1zpuNkogYicM-K8YB6WazEw9b8CTLzjDj/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+L’ADMEC est une méthode permettant d’évaluer les risques pouvant affecter un projet : l’équipe projet va identifier les risques puis proposer des estimations sur leur gravité, fréquence et non-détection. Un score de criticité est ensuite calculé pour chaque risque, à partir des autres indicateurs : criticité = gravité x fréquence x non-détection. @amdec Plus ce score est élevé, plus il faut prendre des actions pour l’atténuer, le détecter ou l’éviter. Toutes ces informations peuvent se retrouver dans un même tableau, à maintenir à jour en fonction de l’évolution du projet. Il s’agit de la matrice des risques, disponible en suivant #link("https://docs.google.com/spreadsheets/d/1zpuNkogYicM-K8YB6WazEw9b8CTLzjDj/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 4, numbering: none)[D8 - REX]
 
-Les fiches de retour d’exérience permettent de garder un témoignage structuré de ce qui a été réalisé durant le projet. Rédigées par les membres de l’équipe projet lorsque des situations importantes et peu documentées sont rencontrées, elles incluent les erreurs, les réussites et les enseignements. Elle sont utiles pour officialiser des retours sur le déroulé d’actions passées, et justifier des évolutions dans la gestion de projet (pour éviter de reproduire des erreurs par exemple). Ces fiches forment également une base intéressante pour le bilan de projet. Nous en proposons un exemple via #link("https://docs.google.com/document/d/1DyHyX9fjjEG1hREjc3HuzvrXIwKMR2ZR/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
+Les fiches de retour d’exérience permettent de garder un témoignage structuré de ce qui a été réalisé durant le projet. Rédigées par les membres de l’équipe projet lorsque des situations importantes et peu documentées sont rencontrées, elles incluent les erreurs, les réussites et les enseignements. @retour-d-experience Elle sont utiles pour officialiser des retours sur le déroulé d’actions passées, et justifier des évolutions dans la gestion de projet (pour éviter de reproduire des erreurs par exemple). Ces fiches forment également une base intéressante pour le bilan de projet. Nous en proposons un exemple via #link("https://docs.google.com/document/d/1DyHyX9fjjEG1hREjc3HuzvrXIwKMR2ZR/edit?usp=sharing&ouid=107621784256337600525&rtpof=true&sd=true")[ce lien].
 
 #hidden-heading(level: 3, numbering: none)[Fournisseurs et contrats]
 
@@ -53,7 +53,7 @@ Les documents relatifs aux consultations de fournisseurs (présentations, propos
 
 #hidden-heading(level: 3, numbering: none)[Technique]
 
-Cette rubrique permet de centraliser les documents techniques produits en lien avec le projet : document d’architecture technique (DAT), décisions d’architecture (ADR), dossiers d’installation, de paramétrage, de sécurité sur les équipements, etc. Cette rubrique peut parfois être vide également, pour de petits projets dont les réalisations ne recquièrent pas la rédaction de documents supplémentaires par rapport à la fiche projet et au cahier des charges fonctionnel pour bien comprendre ce qui a été produit.
+Cette rubrique permet de centraliser les documents techniques produits en lien avec le projet : document d’architecture technique (DAT), décisions d’architecture (ADR) @architecture-decision-records, dossiers d’installation, de paramétrage, de sécurité sur les équipements, etc. Cette rubrique peut parfois être vide également, pour de petits projets dont les réalisations ne recquièrent pas la rédaction de documents supplémentaires par rapport à la fiche projet et au cahier des charges fonctionnel pour bien comprendre ce qui a été produit.
 
 #hidden-heading(level: 3, numbering: none)[6 - Communication]
 

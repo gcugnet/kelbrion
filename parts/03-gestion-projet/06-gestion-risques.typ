@@ -8,7 +8,7 @@ Dans la partie 2, nous avons évalué la maîtrise des risques de chaque projet 
 
 #hidden-heading(level: 3, numbering: none)[Méthode de cotation]
 
-Nous utilisons la méthode AMDEC (analyse des modes de défaillance, de leurs effets et de leur criticité), largement répandue dans l’industrie, pour évaluer les risques. Cette méthode évalue non seulement la probabilité et l’impact de chaque risque identifié, mais également la capacité de l’organisation à le détecter avant qu’il ne survienne.
+Nous utilisons la méthode AMDEC (analyse des modes de défaillance, de leurs effets et de leur criticité), largement répandue dans l’industrie, pour évaluer les risques. @iec-60812 Cette méthode évalue non seulement la probabilité et l’impact de chaque risque identifié, mais également la capacité de l’organisation à le détecter avant qu’il ne survienne.
 
 Ce troisième critère vient du fait que plus un risque est découvert tard, plus il a le temps d’avoir un impact fort, car étiré dans le temps, et plus il sera difficile de palier à ses conséquences réelles.
 
@@ -50,7 +50,7 @@ Nous avons ensuite séparé les résultats en 3 catégories, en fonction du scor
 
 Le risque ayant été identifié comme le plus critique sur le projet est la complexité de l’interfaçage entre le MES et l’ERP (R01). Nous lui avons attribué un score de 4 en ce qui concerne gravité, car des données incohérentes entre les 2 systèmes pourrait causer des problèmes dans la chaîne de production, donc impacter directement la création de valeur de l’entreprise, en même tempps que sa réputation (si elle venait à ne pas honorer ses commandes en temps et en heure, ou que des produits étaient défectueux du fait de mauvaises valeurs transmises aux machines). Nous lui avons attribué une note de 3 en ce qui concerne la fréquence, car l’ERP du groupe est préexistant et ancien, et que l’éditeur ne fournit pas une documentation claire sur les API. Pour finir, nous lui avons attribué un score de 3 en ce qui concerne la non-détection, car il est difficile de tester tous les scénarios de communication entre les systèmes, et que les tests automatisés n’interviendront dans tous les cas qu’à la fin du jalon G3, et laisseront peu de temps pour apporter d’éventuelles corrections. Sa criticité atteint donc un score cumulé de `4 x 3 x 3 = 36`, ce qui correspond à un risque « fort ».
 
-En parallèle, la comparaison des risques « Retard sur le réseau du bâtiment » R06 et « Segmentation réseau insuffisante » R11 montre l’intérêt du critère de non-détection. Ces deux risques ont une gravité maximale (4) et une fréquence moyenne (2), mais un retard du réseau serait visible immédiatement en amont même du projet P4 (P2 étant une dépendance) d’où uu critère de non-détection évalué à 1, et une criticité totale qui plafonne alors à 8. Une segmentation réseau insuffisante entre les machines de l’atelier et le reste du SI peut en revanche rester invisible jusqu’à une attaque, à moins d’un audit de sécurité assez poussé. Nous avons donc attribué un score de 3 au critère de non-détection sur le risque R11, ce qui augmente sa criticité à 24 (risque moyen).
+En parallèle, la comparaison des risques « Retard sur le réseau du bâtiment » R06 et « Segmentation réseau insuffisante » R11 montre l’intérêt du critère de non-détection. Ces deux risques ont une gravité maximale (4) et une fréquence moyenne (2), mais un retard du réseau serait visible immédiatement en amont même du projet P4 (P2 étant une dépendance) d’où uu critère de non-détection évalué à 1, et une criticité totale qui plafonne alors à 8. Une segmentation réseau insuffisante entre les machines de l’atelier et le reste du SI peut en revanche rester invisible jusqu’à une attaque, à moins d’un audit de sécurité assez poussé. @anssi-systemes-industriels Nous avons donc attribué un score de 3 au critère de non-détection sur le risque R11, ce qui augmente sa criticité à 24 (risque moyen).
 
 #hidden-heading(level: 3, numbering: none)[Registre des risques]
 
@@ -226,7 +226,7 @@ Au total, 12 risques ont été identifiés. Le tableau suivant présente leur co
 
 #hidden-heading(level: 3, numbering: none)[Plans de réponse]
 
-Pour chaque risque moyen ou fort, une stratégie de réponse est choisie parmi 4 possibilités.
+Pour chaque risque moyen ou fort, une stratégie de réponse est choisie parmi 4 possibilités. @pmbok-guide
 
 #hidden-heading(level: 4, numbering: none)[Réduction de la probabilité ou de l’impact]
 

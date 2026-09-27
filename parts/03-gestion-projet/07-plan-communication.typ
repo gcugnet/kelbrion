@@ -11,7 +11,7 @@ La communication autour du projet poursuit 4 objectifs :
 
 - donner au Directeur de la production et au CODIR une visibilité régulière sur l’avancement des développements, l’évolution du budget et des risques
 - coordonner les parties prenantes responsables du développement du projet (équipes DSI, référents métiers et fournisseur du MES)
-- préparer les métiers (conduite du changement) et les informer sur l’usage de leurs données
+- préparer les métiers (conduite du changement @adkar-prosci) et les informer sur l’usage de leurs données
 - encadrer la relation avec les fournisseurs
 
 Les parties prenantes ont été classées selon leur intérêt pour le projet et leur influence sur celui-ci, en accord avec la matrice RACI déjà présentée. Le Directeur de la production et le DSI prennent les décisions. Le responsable PMO, les référents métiers, le référent ERP, les responsables de la sécurité et de la protection des données ainsi que l’éditeur sont consultés. Enfin, les opérateurs et les représentants du personnel sont informés.

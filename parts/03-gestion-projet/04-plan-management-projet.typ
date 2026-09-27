@@ -7,7 +7,7 @@ Le plan de management projet nous renseigne sur la manière de conduire le proje
 
 #hidden-heading(level: 3, numbering: none)[Matrice RACI]
 
-Il comporte une matrice RACI précisant le rôle des principales parties prenantes dans les différentes phases et actions à mener.
+Il comporte une matrice RACI précisant le rôle des principales parties prenantes dans les différentes phases et actions à mener. @raci
 
 On y voit notamment que le Chef de projet DSI est un élément central dans l’organisation du projet en amont puis en aval de sa réalisation : c’est lui qui va rédiger l’ensemble des documents projets demandés par la cellule PMO (de la fiche de projet jusqu’au bilan final). Il inverviendra également dans le choix du prestatire. Durant la phase de réalisation, c’est lui qui validera les différentes étapes : déploiement, paramétrage, reprise des données et formation.
 
@@ -254,7 +254,7 @@ Le plan de management nous informe également de l’organigramme à l’échell
 
 #hidden-heading(level: 3, numbering: none)[Pilotage]
 
-La méthodologie projet est également décrite dans le plan de management. C’est le cycle en V qui a été retenu, car les contraintes sont connues à l’avance, et l’attendu final lui aussi est bien défini.
+La méthodologie projet est également décrite dans le plan de management. C’est le cycle en V qui a été retenu, car les contraintes sont connues à l’avance, et l’attendu final lui aussi est bien défini. @cycle-en-v
 
 Au total, 5 jalons sont clairement définis :
 - le cadrage
@@ -263,7 +263,7 @@ Au total, 5 jalons sont clairement définis :
 - la recette et déploiement
 - la clôture
 
-Pour éviter les allers-retours à chaque changements mineurs dans l’organisation du projet, nous préférons adopter une méthode de  management prédictif par phases, avec gestion des exceptions.
+Pour éviter les allers-retours à chaque changements mineurs dans l’organisation du projet, nous préférons adopter une méthode de  management prédictif par phases, avec gestion des exceptions. @prince2-project-management
 
 Plus clairement, cela signifie que des réunions du COPIL (commité de pilotage projet), incluant le Directeur de production, le DSI, le responsable PMO et le chef de projet DSI, ont lieu après chaque jalon, pour valider ce qui a été fait et confirmer ce qui sera fait ensuite. Entre ces réunions de COPIL, le chef de projet DSI dispose d’une liberté de manœuvre pour faire avancer le projet dans la bonne direction.
 

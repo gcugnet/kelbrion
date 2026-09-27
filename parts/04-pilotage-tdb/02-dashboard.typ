@@ -45,7 +45,7 @@ Pour « faire vivre » le projet de différentes manières, nous proposons p
 - scénario intermédiaire
 - scénario favorable
 
-Cette méthode est souvent employée pour estimer les pertes en fonction des degrés de risques dans la finance. Cela peut également permettre à des inverstisseurs de tester les réponses et la résilience d’une organisation en cas de scénarios où rien ne se passe comme prévu. Il nous a semblé intéressant de transposer cette pratique à la gestion de projet, surtout dans les scénarios favorables et de tensions, pour éprouver l’organisation.
+Cette méthode est souvent employée pour estimer les pertes en fonction des degrés de risques dans la finance. @test-de-resistance-finance Cela peut également permettre à des inverstisseurs de tester les réponses et la résilience d’une organisation en cas de scénarios où rien ne se passe comme prévu. Il nous a semblé intéressant de transposer cette pratique à la gestion de projet, surtout dans les scénarios favorables et de tensions, pour éprouver l’organisation.
 
 Tous les scénarios partent du même planning et budgets de référence, et utilisent les mêmes seuils.
 
@@ -103,7 +103,7 @@ La recette est alors resserrée et les tests de charge supprimés. Le report du 
 La mise en service n’intervient que le 29/07, pour un coût final de 461 700 € (+8,5 %) qui dépasse l’enveloppe (avec provisions pour risques) de 14 925 €.
 
 Ce scénario aurait pu être moins problématique en changeant 3 leviers :
-- ne pas attendre avant d’envoyer du renfort
+- ne pas attendre avant d’envoyer du renfort @loi-de-brooks
 - une augmentation de la provision pour risques, sur un projet avec la maîtrise des risques la plus faible du portefeuille
 - ne pas sacrifier de tests pour tenir une date
 

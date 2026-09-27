@@ -26,7 +26,7 @@ La modernisation du bâtiment s’articule autour de 10 projets, numérotés de 
 
 #hidden-heading(level: 3, numbering: none)[Conception et déploiement des applications métiers]
 
-- P3 : Conception de l’architecture applicative cible et urbanisation du SI
+- P3 : Conception de l’architecture applicative cible et urbanisation du SI #footnote()[*Urbanisation du SI* : démarche qui consiste à organiser le système d’information en zones, quartiers et îlots, sur le modèle d’une ville, pour le faire évoluer de manière cohérente avec la stratégie de l’entreprise. @urbanisation-si]
 - P4 : Déploiement d’un système MES #footnote()[*MES (manufacturing executive system)* : en français logiciel de pilotage de la production, logiciel collectant en temps réel les données de production d'une usine ou d'un atelier, données qui sont analysées quant à la traçabilité, le contrôle de la qualité, le suivi de production, l'ordonnancement et la maintenance préventive et curative. @logiciel-pilotage-production] pour la nouvelle unité de production
 - P5 : Déploiement d’un outil PLM #footnote[*PLM (product lifecycle management)* : en français gestion du cycle de vie du produit, est un ensemble de concepts, de méthodes et d'outils logiciels permettant de créer et d'entretenir les produits industriels tout au long de leur cycle de vie, depuis l'établissement du cahier des charges et des services associés jusqu'à la fin de vie, en passant par le maintien en condition opérationnelle. @gestion-cycle-de-vie-produit] pour les équipes d’ingénierie et de R&D
 - P6 : Migration des applications métier, reprise des données et intégration

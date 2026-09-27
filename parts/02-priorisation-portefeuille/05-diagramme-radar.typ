@@ -3,7 +3,7 @@
 == Diagramme radar
 <diagramme-radar>
 
-L’intérête d’un diagramme radar est de pouvoir comparer visuellement, en un instant, le score d’un projet dans différents domaines grâce à sa « forme ».
+L’intérête d’un diagramme radar est de pouvoir comparer visuellement, en un instant, le score d’un projet dans différents domaines grâce à sa « forme ». @diagramme-de-kiviat
 
 À des fins de visualisation graphique du classement de chaque projet, nous proposons 2 diagramme radars différents :
 - un diagramme comparant le projet sélectionné à la moyenne du portefeuille, selon les 4 « méta-critères » qui servent la priorisation

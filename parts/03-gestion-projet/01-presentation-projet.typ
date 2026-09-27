@@ -4,14 +4,14 @@
 
 Le projet de déploiement d’un logiciel de gestion et de pilotage de la production (MES) nous intéresse particulièrement, car il s’agit d’un outil au cœur du métier.
 
-Il doit couvrir l’ordonancement, le suivi des ordres de fablication et la traçabilité, tout en étant interfacé avec l’ERP du groupe.
+Il doit couvrir l’ordonancement, le suivi des ordres de fablication et la traçabilité, tout en étant interfacé avec l’ERP #footnote()[*ERP (enterprise resource planning)* : en français progiciel de gestion intégré (PGI), logiciel qui regroupe les principales fonctions de gestion de l’entreprise (achats, stocks, production, comptabilité, ventes) autour d’une base de données unique. @progiciel-gestion-integre] du groupe.
 
 #figure(
   rotate(image("../../assets/schema-mes.png", width: 90%)),
   caption: "Schéma montrant la place du futur MES dans l’entreprise",
 )
 
-L’ERP pourra ainsi transmettre des ordres de fabrication au logiciel de pilotage de la production, qui sera ensuite capable de gérer les plannings et relayer les instructions aux opérateurs et aux machines.
+L’ERP pourra ainsi transmettre des ordres de fabrication au logiciel de pilotage de la production, qui sera ensuite capable de gérer les plannings et relayer les instructions aux opérateurs et aux machines. @isa-95
 
 Les opérateurs et les machines de l’atelier pourront ensuite remonter des informmations sur les temps de productions, quantités et qualité au MES, qui les transmettra à l’ERP.
 

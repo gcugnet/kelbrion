@@ -64,7 +64,7 @@ Au sein du portefeuille, le projet a été évalué à 425 500 €. Il est i
 
 Les resources disponibles de la DSI (50% de la capacité totale des effectifs) sont à partager entre tous les projets du portefeuille.
 
-Le projet doit également être aligné avec les exigences réglementaires (RGPD). Enfin, son intégration avec l’ERP ne doit pas causer d’interruption de service pour les utilisateurs.
+Le projet doit également être aligné avec les exigences réglementaires (RGPD). @rgpd-cnil Enfin, son intégration avec l’ERP ne doit pas causer d’interruption de service pour les utilisateurs.
 
 #hidden-heading(level: 3, numbering: none)[Critères de réussite]
 

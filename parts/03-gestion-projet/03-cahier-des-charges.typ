@@ -22,7 +22,7 @@ La typologie d’utilisateur les plus nombreux sont les opérateurs. Ce sont ég
 
 #hidden-heading(level: 3, numbering: none)[Exigences fonctionnelles]
 
-Les exigences fonctionnelles ont été recueillies lors d’ateliers organisés avec chaque métier, en janvier 2027. Elles sont rédigées sous forme de user stories pour refléter l’expérience réelle d’un utilisateur : « En tant qu’opérateur, je veux ... ». Elles sont ensuite priorisées selon la méthode MoSCoW : Must (doit absolument être implémenté), Should (devrait être implémenté), Could (pourrait être implémenté) et Won’t (ne fera pas partie des fonctionnalités).
+Les exigences fonctionnelles ont été recueillies lors d’ateliers organisés avec chaque métier, en janvier 2027. Elles sont rédigées sous forme de user stories pour refléter l’expérience réelle d’un utilisateur : « En tant qu’opérateur, je veux ... ». @user-stories Elles sont ensuite priorisées selon la méthode MoSCoW : Must (doit absolument être implémenté), Should (devrait être implémenté), Could (pourrait être implémenté) et Won’t (ne fera pas partie des fonctionnalités). @methode-moscow
 
 12 exigences ont finalement été retenues : 7 Must, 3 Should, 1 Could et 1 Won’t. Chacune possède un identifiant, qui sera repris dans le PV de recette. Le tableau ci-dessous en présente un extrait.
 
@@ -38,7 +38,7 @@ Les exigences fonctionnelles ont été recueillies lors d’ateliers organisés 
           [#strong[ID]], [#strong[Besoin]], [#strong[Priorité]], [#strong[Critère d’acceptation]],
 
           [EF-01],
-          [Recevoir automatiquement les OF #footnote()[*OF (Ordre de fabrication)* : document essentiel pour organiser et piloter la production industrielle. Il précise les quantités à produire, les opérations à réaliser, les ressources mobilisées et les délais de fabrication. @project-management-office] créés dans l’ERP],
+          [Recevoir automatiquement les OF #footnote()[*OF (Ordre de fabrication)* : document essentiel pour organiser et piloter la production industrielle. Il précise les quantités à produire, les opérations à réaliser, les ressources mobilisées et les délais de fabrication. @ordre-de-fabrication] créés dans l’ERP],
           [Must],
           [Un OF libéré apparaît dans le MES en moins de 15 minutes, avec toutes ses données],
 
@@ -58,7 +58,7 @@ Les exigences fonctionnelles ont été recueillies lors d’ateliers organisés 
           [Une déclaration validée est comptabilisée dans l’ERP en moins de 15 minutes ; les rejets sont listés et rejouables],
 
           [EF-09],
-          [Suivre le TRS et les arrêts de chaque poste en temps réel],
+          [Suivre le TRS #footnote()[*TRS (taux de rendement synthétique)* : indicateur de productivité qui rapporte le temps passé à produire des pièces conformes au temps d’ouverture du poste, en combinant la disponibilité, la performance et la qualité. @taux-rendement-synthetique] et les arrêts de chaque poste en temps réel],
           [Should],
           [Le TRS de l’équipe précédente est disponible au début de l’équipe suivante],
 

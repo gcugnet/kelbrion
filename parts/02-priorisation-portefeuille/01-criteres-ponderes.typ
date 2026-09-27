@@ -70,7 +70,7 @@ Un aperçu tronqué du tableau utilisé pour noter les projets sur le critère d
 
 #hidden-heading(level: 3, numbering: none)[Rentabilité]
 
-Ce critère est construit autour de la notion de retour sur investissement (ROI). Nous avons par conséquent estimé le coût prévisionnel projet, puis estimé combien la réalisation de ce projet rapporterait ou ferait économiser au budget de l’entreprise.
+Ce critère est construit autour de la notion de retour sur investissement (ROI). @retour-sur-investissement Nous avons par conséquent estimé le coût prévisionnel projet, puis estimé combien la réalisation de ce projet rapporterait ou ferait économiser au budget de l’entreprise.
 
 La note de rentabilité est directement calculée en fonction du ROI :
 

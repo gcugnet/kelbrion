@@ -3,7 +3,7 @@
 == Définition des KPI
 // ~0,5 page
 
-Les indicateurs de performance clés (KPI) résument en quelques chiffres les informations les plus pertinentes du diagramme de Gantt, du budget et de la matrice AMDEC. Ils permettent d’évaluer rapidement la bonne direction et évolution du projet.
+Les indicateurs de performance clés (KPI) résument en quelques chiffres les informations les plus pertinentes du diagramme de Gantt, du budget et de la matrice AMDEC. Ils permettent d’évaluer rapidement la bonne direction et évolution du projet. @indicateur-cle-performance
 
 #hidden-heading(level: 3, numbering: none)[Choix des indicateurs]
 

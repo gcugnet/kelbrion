@@ -84,3 +84,246 @@ ordre-de-fabrication:
     date: 2026-09-26
   note: "article de l’entreprise Deltic, spécialisée dans la dématérialisation
   des documents d’entreprises"
+
+urbanisation-si:
+  type: Web
+  title: "Urbanisation (informatique)"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Urbanisation_(informatique)"
+    date: 2026-09-27
+  note: "article Wikipédia définissant l’urbanisation du SI"
+
+diagramme-de-gantt:
+  type: Web
+  title: "Diagramme de Gantt"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Diagramme_de_Gantt"
+    date: 2026-09-27
+  note: "article Wikipédia présentant le diagramme de Gantt, outil de planification des tâches d’un projet"
+
+amdec:
+  type: Web
+  title: "Analyse des modes de défaillance, de leurs effets et de leur criticité"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Analyse_des_modes_de_d%C3%A9faillance,_de_leurs_effets_et_de_leur_criticit%C3%A9"
+    date: 2026-09-27
+  note: "article Wikipédia présentant la méthode AMDEC et le calcul de la criticité"
+
+retour-d-experience:
+  type: Web
+  title: "Retour d'expérience"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Retour_d%27exp%C3%A9rience"
+    date: 2026-09-27
+  note: "article Wikipédia définissant le retour d’expérience (REX)"
+
+architecture-decision-records:
+  type: Web
+  title: "Documenting Architecture Decisions"
+  author: "Michael Nygard (Cognitect)"
+  url:
+    value: "https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions"
+    date: 2026-09-27
+  note: "article fondateur de 2011 proposant le format des décisions d’architecture (ADR)"
+
+retour-sur-investissement:
+  type: Web
+  title: "Retour sur investissement"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Retour_sur_investissement"
+    date: 2026-09-27
+  note: "article Wikipédia définissant le retour sur investissement (ROI)"
+
+chemin-critique:
+  type: Web
+  title: "Chemin critique"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Chemin_critique"
+    date: 2026-09-27
+  note: "article Wikipédia définissant le chemin critique en gestion de projet"
+
+diagramme-de-kiviat:
+  type: Web
+  title: "Diagramme de Kiviat"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Diagramme_de_Kiviat"
+    date: 2026-09-27
+  note: "article Wikipédia présentant le diagramme de Kiviat, ou diagramme radar"
+
+progiciel-gestion-integre:
+  type: Web
+  title: "Progiciel de gestion intégré"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Progiciel_de_gestion_int%C3%A9gr%C3%A9"
+    date: 2026-09-27
+  note: "article Wikipédia définissant le progiciel de gestion intégré (ERP)"
+
+isa-95:
+  type: Web
+  title: "ISA-95 Series of Standards: Enterprise-Control System Integration"
+  author: "International Society of Automation"
+  url:
+    value: "https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard"
+    date: 2026-09-27
+  note: "norme ISA-95 (IEC 62264) décrivant l’intégration entre l’ERP et les systèmes de pilotage de la production comme le MES"
+
+rgpd-cnil:
+  type: Web
+  title: "Le règlement général sur la protection des données (RGPD)"
+  author: "CNIL"
+  url:
+    value: "https://www.cnil.fr/fr/reglement-europeen-protection-donnees"
+    date: 2026-09-27
+  note: "texte du RGPD publié par la CNIL"
+
+user-stories:
+  type: Web
+  title: "User Stories"
+  author: "Mike Cohn (Mountain Goat Software)"
+  url:
+    value: "https://www.mountaingoatsoftware.com/agile/user-stories"
+    date: 2026-09-27
+  note: "article présentant la rédaction des besoins sous forme de user stories"
+
+methode-moscow:
+  type: Web
+  title: "Méthode MoSCoW"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/M%C3%A9thode_MoSCoW"
+    date: 2026-09-27
+  note: "article Wikipédia présentant la méthode de priorisation MoSCoW"
+
+taux-rendement-synthetique:
+  type: Web
+  title: "Taux de rendement synthétique"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Taux_de_rendement_synth%C3%A9tique"
+    date: 2026-09-27
+  note: "article Wikipédia définissant le taux de rendement synthétique (TRS)"
+
+raci:
+  type: Web
+  title: "RACI"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/RACI"
+    date: 2026-09-27
+  note: "article Wikipédia présentant la matrice des responsabilités RACI"
+
+cycle-en-v:
+  type: Web
+  title: "Cycle en V"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Cycle_en_V"
+    date: 2026-09-27
+  note: "article Wikipédia présentant le cycle en V"
+
+iec-60812:
+  type: Web
+  title: "IEC 60812:2018 Failure modes and effects analysis (FMEA and FMECA)"
+  author: "Commission électrotechnique internationale"
+  url:
+    value: "https://webstore.iec.ch/en/publication/26359"
+    date: 2026-09-27
+  note: "norme internationale décrivant la méthode AMDE et AMDEC"
+
+anssi-systemes-industriels:
+  type: Web
+  title: "La cybersécurité des systèmes industriels : méthode de classification"
+  author: "ANSSI"
+  url:
+    value: "https://messervices.cyber.gouv.fr/guides/la-cybersecurite-des-systemes-industriels"
+    date: 2026-09-27
+  note: "guide de l’ANSSI pour classer et cloisonner les systèmes industriels"
+
+adkar-prosci:
+  type: Web
+  title: "The Prosci ADKAR Model"
+  author: "Prosci"
+  url:
+    value: "https://www.prosci.com/methodology/adkar"
+    date: 2026-09-27
+  note: "présentation du modèle ADKAR de conduite du changement"
+
+code-travail-l2312-38:
+  type: Web
+  title: "Article L2312-38 du Code du travail"
+  author: "Légifrance"
+  url:
+    value: "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000035610275/"
+    date: 2026-09-27
+  note: "article imposant l’information et la consultation du CSE avant la mise en place d’outils de contrôle de l’activité des salariés"
+
+indicateur-cle-performance:
+  type: Web
+  title: "Indicateur clé de performance"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Indicateur_cl%C3%A9_de_performance"
+    date: 2026-09-27
+  note: "article Wikipédia définissant les indicateurs clés de performance (KPI)"
+
+test-de-resistance-finance:
+  type: Web
+  title: "Test de résistance (finance)"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Test_de_r%C3%A9sistance_(finance)"
+    date: 2026-09-27
+  note: "article Wikipédia présentant les tests de résistance en finance"
+
+loi-de-brooks:
+  type: Web
+  title: "Loi de Brooks"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Loi_de_Brooks"
+    date: 2026-09-27
+  note: "article Wikipédia présentant la loi de Brooks sur les renforts tardifs dans un projet en retard"
+
+ninety-ninety-rule:
+  type: Web
+  title: "Ninety-ninety rule"
+  author: "Wikipedia"
+  url:
+    value: "https://en.wikipedia.org/wiki/Ninety%E2%80%93ninety_rule"
+    date: 2026-09-27
+  note: "article Wikipédia (en anglais) présentant la règle des 90-90 sur l’estimation de l’avancement"
+
+test-d-acceptation:
+  type: Web
+  title: "Test d'acceptation"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Test_d%27acceptation"
+    date: 2026-09-27
+  note: "article Wikipédia définissant la recette, ou test d’acceptation"
+
+test-de-regression:
+  type: Web
+  title: "Test de régression"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Test_de_r%C3%A9gression"
+    date: 2026-09-27
+  note: "article Wikipédia définissant le test de non-régression"
+
+roue-de-deming:
+  type: Web
+  title: "Roue de Deming"
+  author: "Wikipédia"
+  url:
+    value: "https://fr.wikipedia.org/wiki/Roue_de_Deming"
+    date: 2026-09-27
+  note: "article Wikipédia présentant la roue de Deming (PDCA), modèle d’amélioration continue"

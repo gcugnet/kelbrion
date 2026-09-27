@@ -4,7 +4,7 @@
 <plan-recette>
 // ~2 pages
 
-La recette doit permettre de vérifie que le MES répond bien au cahier des charges, avant son utilisation en production. Elle bloque le franchissement du dernier jalon du projet (mise en service approuvée par le Directeur de la production) ainsi que le paiement des 30 % restants au fournisseur.
+La recette doit permettre de vérifie que le MES répond bien au cahier des charges, avant son utilisation en production. Elle bloque le franchissement du dernier jalon du projet (mise en service approuvée par le Directeur de la production) ainsi que le paiement des 30 % restants au fournisseur. @test-d-acceptation
 
 La phase de recette se déroule en 2 temps, pour couvrir tous les éléments du cahier des charges :
 1. une recette technique pour vérifier les exigences non fonctionnelles
@@ -179,7 +179,7 @@ Le plan de management fixe les délais de correction :
 - 2 jours pour une anomalie bloquante
 - 5 jours pour une anomalie majeure
 
-Chaque correctif livré par l’éditeur est accompagné d’un test de non-régression sur les cas de test déjà validés.
+Chaque correctif livré par l’éditeur est accompagné d’un test de non-régression sur les cas de test déjà validés. @test-de-regression
 
 La recette est également suivie dans le tableau de bord du projet : le nombre d’anomalies bloquantes est relevé chaque semaine. La part des fonctionnalités « Must » déjà testés et validées alimente l’indicateur « Spécifications implémentées ».
 
