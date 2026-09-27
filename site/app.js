@@ -343,8 +343,35 @@ function renderBudget(m, sc, d) {
   }, true);
 }
 
+// Calendrier fixe : les 52 vendredis de l'année du projet (semaines ISO 1 à 52), identique pour tous les scénarios
+function yearWeeks(m) {
+  const y = new Date(m.finRef * DAY).getUTCFullYear();
+  const jan4 = Date.UTC(y, 0, 4) / DAY, dow = (new Date(jan4 * DAY).getUTCDay() + 6) % 7;
+  const fri = jan4 - dow + 4, out = [];
+  for (let i = 0; i < 53; i++) { const w = fri + 7 * i; if (isoWeek(w) === "S01" && i > 0) break; out.push(w); }
+  return out;
+}
+const weekIndex = (weeks, d) => { const i = weeks.findIndex(w => w >= d); return i < 0 ? weeks.length - 1 : i; };
+// État d'une semaine : avant lancement, à venir (après la date de situation), clôturé, ou statuts calculés
 function weekCells(m, sc, uptoDay) {
-  return m.weeks.filter(w => w <= Math.max(sc.end, m.weeks[0])).map(w => ({ w, st: w <= uptoDay ? situation(m, sc, w) : null }));
+  return yearWeeks(m).map(w => ({
+    w, phase: w < sc.start ? "avant" : w > uptoDay ? "futur" : w > sc.end ? "clos" : "actif",
+    st: w >= sc.start && w <= uptoDay && w <= sc.end ? situation(m, sc, w) : null,
+  }));
+}
+const phaseColor = ph => css(ph === "clos" ? "--heat-closed" : "--heat-future");
+const phaseLabel = { avant: "avant le lancement", futur: "à venir", clos: "projet clôturé" };
+function finLines(m, sc, d, weeks) {
+  const hit = asOf(sc, "DEL-FIN", d), k = m.kpis.find(x => x.code === "DEL-FIN");
+  const fin = hit ? m.finRef + 7 * hit.val : m.finRef, st = hit ? kpiStatus(k, hit.val) : "Vert";
+  const col = css({ Vert: "--fill-vert", Orange: "--fill-orange", Rouge: "--fill-rouge" }[st] || "--fill-none");
+  const iRef = weekIndex(weeks, m.finRef), iFin = weekIndex(weeks, fin);
+  const lbl = (text, color, align) => ({ show: true, position: "end", formatter: text, color, fontSize: 10, fontWeight: 700, fontFamily: FONT, align, padding: [0, 4] });
+  const data = [];
+  if (iFin !== iRef) data.push({ xAxis: iRef, lineStyle: { color: css("--muted"), width: 2, type: "solid" }, label: lbl(`RÉF. ${fshort(m.finRef)}`, css("--muted"), iFin > iRef ? "right" : "left") });
+  data.push({ xAxis: iFin, lineStyle: { color: col, width: 3, type: "solid" },
+    label: lbl(iFin === iRef ? `FIN ${fshort(fin)} · À L'HEURE` : `FIN RE-PRÉVUE ${fshort(fin)}`, col === css("--fill-orange") ? css("--st-orange") : col, iFin >= iRef ? "left" : "right") });
+  return { fin, st, markLine: { silent: true, symbol: "none", animation: false, data } };
 }
 function weekFact(sc, w) {
   const e = sc.jour.filter(j => j.dom === "Général" && j.date <= w && j.date > w - 7).pop();
@@ -353,29 +380,32 @@ function weekFact(sc, w) {
 
 function renderFrise(m, sc, d) {
   const b = base(), rows = ["Statut global", ...DOMAINS];
-  const cells = weekCells(m, sc, d);
+  const cells = weekCells(m, sc, d), fl = finLines(m, sc, d, cells.map(c => c.w));
   const data = [];
   cells.forEach((c, x) => rows.forEach((r, y) => {
     const s = c.st ? (y === 0 ? c.st.global : c.st.doms[r]) : undefined;
-    data.push({ value: [x, rows.length - 1 - y, RANK[s] || 0], status: s || "", itemStyle: { color: c.st ? heat(s) : css("--heat-future"), borderColor: css("--surface"), borderWidth: 1, borderRadius: 0 } });
+    data.push({ value: [x, rows.length - 1 - y, RANK[s] || 0], status: s || "", itemStyle: { color: c.st ? heat(s) : phaseColor(c.phase), borderColor: css("--surface"), borderWidth: 1, borderRadius: 0 } });
   }));
   chart("chart-frise").setOption({
-    ...b, grid: { left: 104, right: 8, top: 8, bottom: 24, containLabel: false },
+    ...b, grid: { left: 104, right: 8, top: 22, bottom: 24, containLabel: false },
     tooltip: { ...b.tooltip, trigger: "item", formatter: p => {
       const c = cells[p.value[0]], r = rows[rows.length - 1 - p.value[1]];
-      if (!c.st) return `${isoWeek(c.w)} · ${fdate(c.w)} : à venir`;
+      if (!c.st) return `${isoWeek(c.w)} · ${fdate(c.w)} : ${phaseLabel[c.phase]}`;
       const fact = weekFact(sc, c.w);
       return `<div style="max-width:300px;white-space:normal"><div style="color:${css("--muted")}">${isoWeek(c.w)} · ${fdate(c.w)}</div><b>${esc(r)} : ${esc(p.data.status || "Non mesuré")}</b>${fact ? `<div style="margin-top:4px">${fact}</div>` : ""}</div>`;
     } },
     xAxis: { type: "category", data: cells.map(c => isoWeek(c.w)), axisLine: { show: false }, axisTick: { show: false }, splitLine: { show: false },
-      axisLabel: { color: css("--muted"), fontSize: 10, interval: "auto", hideOverlap: true } },
+      axisLabel: { color: css("--muted"), fontSize: 10, interval: 3 } },
     yAxis: { type: "category", data: [...rows].reverse(), axisLine: { show: false }, axisTick: { show: false },
       axisLabel: { color: css("--ink-2"), fontSize: 10, width: 96, overflow: "truncate" } },
-    series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } } }],
+    series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } }, markLine: fl.markLine }],
   }, true);
   document.getElementById("legend-status").innerHTML = ["Vert", "Orange", "Rouge"].map(s =>
     `<span><span class="key-sw" style="background:${heat(s)}"></span>${s}</span>`).join("") +
-    `<span><span class="key-sw" style="background:${css("--heat-none")}"></span>N/M</span>`;
+    `<span><span class="key-sw" style="background:${css("--heat-none")}"></span>N/M</span>` +
+    `<span><span class="key-sw" style="background:${css("--heat-closed")}"></span>Clôturé</span>` +
+    `<span><span class="key-sw" style="background:${css("--muted")};width:3px"></span>Fin réf.</span>` +
+    `<span><span class="key-sw" style="background:${css({ Vert: "--fill-vert", Orange: "--fill-orange", Rouge: "--fill-rouge" }[fl.st])};width:3px"></span>Fin re-prévue</span>`;
 }
 
 function lastFridayOfMonth(y, mo) { let x = Date.UTC(y, mo + 1, 0) / DAY; while (new Date(x * DAY).getUTCDay() !== 5) x--; return x; }
@@ -591,24 +621,27 @@ function renderScenarios() {
   });
 
   // Frises globales empilées
-  const cols = m.weeks.filter(w => w <= end);
+  const cols = yearWeeks(m);
   const data = [];
   SCENARIOS.forEach((s, y) => cols.forEach((w, x) => {
-    const sc = m.scen[s];
-    const g = w <= sc.end ? situation(m, sc, w).global : null;
-    data.push({ value: [x, SCENARIOS.length - 1 - y, RANK[g] || 0], status: g || "", itemStyle: { color: w <= sc.end ? heat(g) : css("--heat-future"), borderColor: css("--surface"), borderWidth: 1, borderRadius: 0 } });
+    const sc = m.scen[s], active = w >= sc.start && w <= sc.end;
+    const g = active ? situation(m, sc, w).global : null;
+    data.push({ value: [x, SCENARIOS.length - 1 - y, RANK[g] || 0], status: g || "", itemStyle: { color: active ? heat(g) : phaseColor(w > sc.end ? "clos" : "avant"), borderColor: css("--surface"), borderWidth: 1, borderRadius: 0 } });
   }));
   chart("chart-frises").setOption({
-    ...b, grid: { left: 104, right: 8, top: 8, bottom: 24, containLabel: false },
+    ...b, grid: { left: 104, right: 8, top: 22, bottom: 24, containLabel: false },
     tooltip: { ...b.tooltip, trigger: "item", formatter: p => {
       const s = SCENARIOS[SCENARIOS.length - 1 - p.value[1]], w = cols[p.value[0]], sc = m.scen[s];
       if (w > sc.end) return `${esc(s)} : projet clôturé le ${fdate(sc.end)}`;
+      if (w < sc.start) return `${isoWeek(w)} · avant le lancement`;
       const fact = weekFact(sc, w);
       return `<div style="max-width:300px;white-space:normal"><div style="color:${css("--muted")}">${isoWeek(w)} · ${fdate(w)}</div><b>${esc(s)} : ${esc(p.data.status || "Non mesuré")}</b>${fact ? `<div style="margin-top:4px">${fact}</div>` : ""}</div>`;
     } },
-    xAxis: { type: "category", data: cols.map(isoWeek), axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: css("--muted"), fontSize: 10, hideOverlap: true } },
+    xAxis: { type: "category", data: cols.map(isoWeek), axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: css("--muted"), fontSize: 10, interval: 3 } },
     yAxis: { type: "category", data: [...SCENARIOS].reverse(), axisLine: { show: false }, axisTick: { show: false }, axisLabel: { color: css("--ink-2"), fontSize: 10, width: 96, overflow: "truncate" } },
-    series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } } }],
+    series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } },
+      markLine: { silent: true, symbol: "none", animation: false, data: [{ xAxis: weekIndex(cols, m.finRef), lineStyle: { color: css("--muted"), width: 2, type: "solid" },
+        label: { show: true, position: "end", formatter: `FIN RÉF. ${fshort(m.finRef)}`, color: css("--muted"), fontSize: 10, fontWeight: 700, fontFamily: FONT } }] } }],
   }, true);
 
   // Indice de tension

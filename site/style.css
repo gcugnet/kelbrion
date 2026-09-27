@@ -33,11 +33,13 @@
   --on-orange: #1a1300;
   --on-rouge: #ffffff;
   --on-none: #ffffff;
-  --heat-vert: #34a853;
-  --heat-orange: #f6bb2c;
-  --heat-rouge: #e0453a;
+  /* cases de frise : mêmes aplats que les cartes */
+  --heat-vert: var(--fill-vert);
+  --heat-orange: var(--fill-orange);
+  --heat-rouge: var(--fill-rouge);
   --heat-none: #d9dee4;
   --heat-future: #f1f3f5;
+  --heat-closed: #dfe5ee;
   --band-orange: rgba(242, 169, 0, 0.16);
   --band-rouge: rgba(217, 48, 37, 0.12);
   --choc: #d93025;
@@ -64,11 +66,9 @@
   --st-vert: #4cc26a;
   --st-orange: #f2a900;
   --st-rouge: #ff6b61;
-  --heat-vert: #1f7a3a;
-  --heat-orange: #b88100;
-  --heat-rouge: #a8322a;
   --heat-none: #222c3a;
   --heat-future: #111823;
+  --heat-closed: #1a2331;
   --band-orange: rgba(242, 169, 0, 0.12);
   --band-rouge: rgba(255, 107, 97, 0.12);
 }
