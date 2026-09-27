@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Boucle d’amélioration continue
+<boucle-amelioration>
 // ~1 page
 
 Pour que la capitalisation ne reste pas déclarative, chaque enseignement doit se traduire par une évolution concrète du référentiel documentaire ou des méthodes de gestion de projet.

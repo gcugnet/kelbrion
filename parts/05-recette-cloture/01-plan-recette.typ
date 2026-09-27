@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Plan de recette
+<plan-recette>
 // ~2 pages
 
 La recette doit permettre de vérifie que le MES répond bien au cahier des charges, avant son utilisation en production. Elle bloque le franchissement du dernier jalon du projet (mise en service approuvée par le Directeur de la production) ainsi que le paiement des 30 % restants au fournisseur.

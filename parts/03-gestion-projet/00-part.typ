@@ -1,4 +1,5 @@
 = Gestion du projet de déploiement d’un MES (P4)
+<gestion-projet-p4>
 // ~7 pages
 
 Dans cette partie, nous allons appliquer le référentiel PMO à un projet choisi parmi les 10 du portefeuille de la DSI.

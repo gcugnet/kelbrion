@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Retour d’expérience
+<retour-experience>
 // ~1,5 page
 
 Le retour d’expérience ne se limite pas au bilan de fin de projet. Le plan de management prévoit que des fiches de retour d’expérience (D8) soient rédigées au fur et à mesure de l’exécution du, au minimum à chaque jalon, par le chef de projet DSI, puis revues par le PMO. Chaque fiche décrit le contexte, les faits datés, l’analyse des causes, ce qui a fonctionné, ce qui a posé problème, ainsi que les enseignements.

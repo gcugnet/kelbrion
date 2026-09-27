@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Tableau de bord
+<tableau-de-bord>
 // ~2,5 pages
 
 Le tableau de bord condense les indicateurs issus de plusieurs documents PMO sur une seule page. Sa version interactive est consultable en ligne à l’adresse suivante : #link("https://gcugnet.github.io/kelbrion/")[https://gcugnet.github.io/kelbrion/]. Toutes les données qu’elle affiche sont directement récupérées depuis le fichier source, accessible et modifiable sur #link("https://docs.google.com/spreadsheets/d/17EzyZrrci5NL7l5BvhtKIF3yEpbwtrha/edit")[Google Drive].

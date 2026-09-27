@@ -1,6 +1,7 @@
 #import "../../helpers.typ": hidden-heading
 
 == Gestion des risques
+<gestion-risques>
 // ~1 page
 
 Dans la partie 2, nous avons évalué la maîtrise des risques de chaque projet à l’aide d’une matrice simplifiée, en précisant que chaque risque noté à 3 devrait faire l’objet d’une évaluation plus poussée, et surtout d’une proposition de réponse, via une matrice AMDEC par projet. Concernant la maîtrise des risques, projet P4 a obtenu la note de 1,8/5. Il s’agit du projet avec les risques les moins maîtrisés du portefeuille, à égalité avec la migration des applications métiers. Cela justifie un suivi particulièrement poussé.
