@@ -255,9 +255,9 @@ function renderSituation() {
 
   const nbAlert = Object.values(st.doms).filter(x => x === "Orange" || x === "Rouge").length;
   const note = closed ? `Clôturé le ${fshort(sc.end)}` : `${nbAlert}/6 hors tolérance`;
-  document.getElementById("meteo").innerHTML =
-    `<li class="global ${statusClass(st.global)}"><span class="dom-name">Statut global</span><span class="dom-state">${esc(st.global || "N/M")}</span><span class="trend">${note}</span></li>` +
-    DOMAINS.map(dom => `<li class="${statusClass(st.doms[dom])}"><span class="dom-name">${dom}</span><span class="dom-state">${esc(st.doms[dom] || "N/M")}</span><span class="trend">${trendArrow(st.domTrend[dom]) || "&nbsp;"}</span></li>`).join("");
+  const card = (cls, name, status, sub) => `<li class="${cls} ${statusClass(status)}"><span class="dom-name">${esc(name)}</span><span class="trend">${sub}</span></li>`;
+  document.getElementById("meteo").innerHTML = card("global", "Statut global", st.global, note) +
+    DOMAINS.map(dom => card("", dom, st.doms[dom], trendArrow(st.domTrend[dom]) || "Non mesuré")).join("");
 
   renderTiles(m, sc, d, st);
   renderAvancement(m, sc, d);
@@ -402,20 +402,19 @@ function spark(k, pts, color) {
   const pad = (hi - lo) * 0.08; lo -= pad; hi += pad;
   const t0 = state.model.weeks[0], t1 = Math.max(pts[pts.length - 1].date, t0 + 7);
   const X = t => P + (W - 2 * P) * (t - t0) / (t1 - t0), Y = v => H - P - (H - 2 * P) * (v - lo) / (hi - lo);
-  const band = (a, b2, fill) => { const ya = Y(a), yb = Y(b2); return `<rect x="0" y="${Math.min(ya, yb)}" width="${W}" height="${Math.abs(yb - ya)}" fill="${fill}"/>`; };
-  let bands = "";
-  if (k.sens === HIGH) { bands = band(k.alerte, k.critique, css("--band-orange")) + band(k.critique, lo, css("--band-rouge")); }
-  else { bands = band(k.alerte, k.critique, css("--band-orange")) + band(k.critique, hi, css("--band-rouge")); }
+  // Sur fond coloré : seuils d'alerte et critique en filets, courbe dans la couleur du texte de la carte
+  const rule = (v, op) => `<line x1="0" x2="${W}" y1="${Y(v)}" y2="${Y(v)}" stroke="currentColor" stroke-opacity="${op}" stroke-width="1" vector-effect="non-scaling-stroke"/>`;
+  const bands = rule(k.alerte, 0.35) + rule(k.critique, 0.6);
   let path = `M${X(pts[0].date)},${Y(pts[0].val)}`;
   for (let i = 1; i < pts.length; i++) path += `H${X(pts[i].date)}V${Y(pts[i].val)}`;
   const lp = pts[pts.length - 1];
   return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true">${bands}
     <path d="${path}" fill="none" stroke="${color}" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/>
-    <circle cx="${X(lp.date)}" cy="${Y(lp.val)}" r="4" fill="${color}" stroke="${css("--surface")}" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+    <circle cx="${X(lp.date)}" cy="${Y(lp.val)}" r="3" fill="${color}"/></svg>`;
 }
 
 function renderKpis(m, sc, d, st) {
-  const col = scenColor(sc.name);
+  const col = "currentColor";
   document.getElementById("kpis").innerHTML = m.kpis.map(k => {
     const s = st.kp[k.code], last = s.last;
     const pts = (sc.byCode[k.code] || []).filter(r => r.date <= d);
@@ -424,12 +423,12 @@ function renderKpis(m, sc, d, st) {
     else {
       const nxt = d <= sc.end ? nextExpected(m, sc, k, last) : null;
       const late = nxt != null && d > nxt;
-      meta = `<p class="meta${late ? " late" : ""}">MAJ ${fshort(last.date)}${nxt ? ` · ${late ? "EN RETARD" : "PROCH."} ${fshort(nxt)}` : ""}</p>`;
+      meta = `<p class="meta${late ? " late" : ""}">MAJ ${fshort(last.date)}${nxt ? ` · ${late ? "⚠ EN RETARD" : "PROCH."} ${fshort(nxt)}` : ""}</p>`;
     }
     const prev = s.prev ? `<span class="trend">${esc(trendArrow(s.trend).split(" ")[0] || "")} ${esc(fval(k.code, s.prev.val))}</span>` : "";
     const title = [k.def, last && last.com].filter(Boolean).join(" · ");
-    return `<article class="kpi" title="${esc(title)}">
-      <div class="kpi-head"><span class="kpi-code">${esc(k.code)}</span>${chipHTML(s.status)}</div>
+    return `<article class="kpi ${statusClass(s.status)}" title="${esc(title)}">
+      <div class="kpi-head"><span class="kpi-code">${esc(k.code)}</span></div>
       <span class="kpi-name">${esc(k.name.replace(/ \((%|points|semaines)\)$/, ""))}</span>
       <div class="kpi-value"><span class="big">${last ? esc(fval(k.code, last.val)) : "—"}</span>${prev}</div>
       ${spark(k, pts, col)}
