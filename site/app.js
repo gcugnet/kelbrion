@@ -7,6 +7,7 @@ const SCEN_VAR = { Tensions: "--scen-tensions", "Défavorable": "--scen-defavora
 const DOMAINS = ["Délais", "Coûts", "Périmètre", "Qualité", "Risques", "Ressources"];
 const RANK = { Vert: 1, Orange: 2, Rouge: 3 };
 const HIGH = "Plus haut est mieux";
+const RUBRIQUES = ["Récit", "Vulnérabilité", "Choc", "Levier", "Jalon", "Issue"];
 const DAY = 86400000;
 
 const state = { model: null, scenario: "Intermédiaire", dayIndex: 0, view: "situation", charts: {}, playing: null };
@@ -73,7 +74,10 @@ function buildModel(res) {
   const ctx = t("ctx").filter(r => str(r[0])).map(r => ({ code: str(r[0]), domaine: str(r[1]), name: str(r[2]), def: str(r[3]) }));
   const scen = {};
   for (const s of SCENARIOS) {
-    const hyp = t(`hyp:${s}`).filter(r => str(r[0])).map(r => ({
+    const hypRows = t(`hyp:${s}`).filter(r => str(r[0]));
+    const bad = hypRows.map(r => str(r[0])).filter(x => !RUBRIQUES.includes(x));
+    if (bad.length) throw new Error(`structure inattendue dans l'onglet Relevés ${s} (${bad[0]}) : classeur d'une autre version`);
+    const hyp = hypRows.map(r => ({
       rub: str(r[0]), date: day(r[1]), code: str(r[2]), lib: str(r[3]), montant: num(r[5]), effet: str(r[6]),
     }));
     const rel = t(`rel:${s}`).filter(r => day(r[0]) != null && str(r[2]) && num(r[5]) != null).map(r => ({
@@ -253,7 +257,7 @@ function renderSituation() {
     ? `Projet clôturé le ${fdate(sc.end)} dans ce scénario : statut à la clôture.`
     : `${nbAlert ? `${nbAlert} domaine${nbAlert > 1 ? "s" : ""} hors tolérance` : "Tous les domaines dans les tolérances"} au ${fdate(d)}.`;
   document.getElementById("meteo").innerHTML = DOMAINS.map(dom =>
-    `<li class="${statusClass(st.doms[dom])}"><div class="dom"><span>${dom}</span><span class="trend">${trendArrow(st.domTrend[dom])}</span></div>${statusHTML(st.doms[dom])}</li>`).join("");
+    `<li class="${statusClass(st.doms[dom])}"><span class="dom-name">${dom}</span>${statusHTML(st.doms[dom])}<span class="trend">${trendArrow(st.domTrend[dom])}</span></li>`).join("");
 
   renderTiles(m, sc, d, st);
   renderAvancement(m, sc, d);
@@ -530,7 +534,11 @@ function scenarioStats(m, sc) {
   const leviers = sc.hyp.filter(h => h.rub === "Levier");
   const firstLever = firstAlert != null ? leviers.filter(l => l.date >= firstAlert).sort((a, b) => a.date - b.date)[0] : null;
   const issue = Object.fromEntries(sc.hyp.filter(h => h.rub === "Issue").map(h => [h.code, h]));
+  const redCounts = weeks.map(w => Object.values(situation(m, sc, w).doms).filter(x => x === "Rouge").length);
+  const peak = Math.max(0, ...redCounts);
   return {
+    redCounts, peak, peakWeek: peak ? weeks[redCounts.indexOf(peak)] : null, weeksList: weeks,
+    vulns: sc.hyp.filter(h => h.rub === "Vulnérabilité"),
     reds: glob.filter(g => g === "Rouge").length, weeks: weeks.length, firstAlert, firstLever,
     leverCost: leviers.reduce((s, l) => s + (l.montant || 0), 0), leviers, issue,
   };
@@ -546,6 +554,8 @@ function renderScenarios() {
     ["Coût final", s => { const i = stats[s].issue.COUT; return i ? `${eur(i.montant)}<br><span class="note">${esc(i.effet || "")}</span>` : ""; }],
     ["Statut à la clôture", s => { const i = stats[s].issue.STAT; return i ? `${statusHTML(i.lib)}<br><span class="note">${esc(i.effet || "")}</span>` : ""; }],
     ["Semaines en rouge", s => `${stats[s].reds} sur ${stats[s].weeks}`],
+    ["Pic de tension", s => stats[s].peak ? `${stats[s].peak} domaine${stats[s].peak > 1 ? "s" : ""} sur 6 au rouge<br><span class="note">le ${fdate(stats[s].peakWeek)}</span>` : "Aucun domaine au rouge"],
+    ["Vulnérabilités révélées", s => stats[s].vulns.length ? `<b>${stats[s].vulns.length}</b><br><span class="note">${stats[s].vulns.slice(0, 3).map(v => esc(v.lib)).join(" ; ")}${stats[s].vulns.length > 3 ? " ; …" : ""}</span>` : "Aucune"],
     ["Délai de réaction", s => {
       const st = stats[s];
       if (st.firstAlert == null) return "Aucune alerte";
@@ -605,6 +615,23 @@ function renderScenarios() {
     series: [{ type: "heatmap", data, emphasis: { itemStyle: { borderColor: css("--ink"), borderWidth: 2 } } }],
   }, true);
 
+  // Indice de tension
+  chart("chart-tension").setOption({
+    ...b, grid: { ...b.grid, right: 16 },
+    xAxis: { ...b.xAxisTime, min: ms(m.weeks[0]), max: ms(end) },
+    yAxis: { ...b.yAxis, type: "value", min: 0, max: 6, interval: 1 },
+    tooltip: { ...b.tooltip, formatter: axisTooltip(v => `${v} sur 6`) },
+    legend: { ...b.legend, data: SCENARIOS },
+    series: SCENARIOS.map((s, i) => lineSeries(s, stats[s].weeksList.map((w, j) => [ms(w), stats[s].redCounts[j]]), scenColor(s), {
+      step: "end", lineStyle: { width: s === state.scenario ? 3 : 2, color: scenColor(s) },
+      areaStyle: s === "Tensions" ? { color: scenColor(s), opacity: 0.12 } : undefined,
+      markLine: i === 0 ? situationLine(d) : undefined,
+      markPoint: stats[s].peak >= 4 ? { symbol: "circle", symbolSize: 10, itemStyle: { color: scenColor(s), borderColor: css("--surface"), borderWidth: 2 },
+        label: { show: true, position: "top", formatter: `${s} : ${stats[s].peak}/6 le ${fshort(stats[s].peakWeek)}`, color: css("--ink"), fontSize: 11 },
+        data: [{ coord: [ms(stats[s].peakWeek), stats[s].peak] }] } : undefined,
+    })),
+  }, true);
+
   // Chocs et leviers
   const maxAmt = Math.max(1, ...SCENARIOS.flatMap(s => m.scen[s].hyp.map(h => Math.abs(h.montant || 0))));
   const pts = kind => SCENARIOS.flatMap((s, i) => m.scen[s].hyp.filter(h => h.rub === kind && h.date != null).map(h => ({
@@ -632,7 +659,10 @@ function renderScenarios() {
   document.getElementById("recits").innerHTML = SCENARIOS.map(s => {
     const sc = m.scen[s], recit = sc.hyp.find(h => h.rub === "Récit");
     const items = sc.hyp.filter(h => h.rub === "Levier").map(h => `<li>${fdate(h.date)} : ${esc(h.lib)}${h.montant ? ` (${h.montant > 0 ? "+" : ""}${eur(h.montant)})` : ""}</li>`).join("");
-    return `<article class="recit" style="--c:${scenColor(s)}"><p class="tag">Scénario</p><h3>${esc(s)}</h3><p>${esc(recit ? recit.lib : "")}</p><ul>${items}</ul></article>`;
+    const vulns = sc.hyp.filter(h => h.rub === "Vulnérabilité").map(h => `<li><b>${esc(h.lib)}</b>${h.effet ? `<br><span class="note">${esc(h.effet)}</span>` : ""}</li>`).join("");
+    return `<article class="recit" style="--c:${scenColor(s)}"><p class="tag">Scénario</p><h3>${esc(s)}</h3><p>${esc(recit ? recit.lib : "")}</p>
+      ${vulns ? `<p class="tag vuln">Vulnérabilités révélées</p><ul class="vulns">${vulns}</ul>` : `<p class="tag">Aucune vulnérabilité révélée</p>`}
+      <p class="tag">Leviers engagés</p><ul>${items}</ul></article>`;
   }).join("");
 }
 

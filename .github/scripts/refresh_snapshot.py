@@ -11,6 +11,7 @@ import urllib.request
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parents[2] / "site" / "data"
+RUBRIQUES = {"Récit", "Vulnérabilité", "Choc", "Levier", "Jalon", "Issue"}
 
 
 def main():
@@ -26,8 +27,14 @@ def main():
         responses[key] = text
     # gviz répond « ok » avec une table vide pour un onglet absent : on vérifie la structure attendue
     missing = [k for k in sources["queries"] if k.startswith("rel:") and '"CTX-AVR"' not in responses[k]]
+    for k in sources["queries"]:
+        if k.startswith("hyp:"):
+            body = json.loads(responses[k][responses[k].index("(") + 1:responses[k].rindex(")")])
+            rubriques = {(r["c"][0] or {}).get("v") for r in body["table"]["rows"]} - {None, ""}
+            if not rubriques <= RUBRIQUES:
+                missing.append(k)
     if "Scénario actif" not in responses["params"] or missing:
-        print(f"Classeur publié dans une ancienne version (onglets manquants : {missing or 'paramètres'}) : copie conservée.")
+        print(f"Classeur publié dans une ancienne version (plages non conformes : {missing or 'paramètres'}) : copie conservée.")
         return
     snapshot = {"generated": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "origin": "gviz",
                 "responses": responses}
