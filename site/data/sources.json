@@ -1,0 +1,24 @@
+{
+  "sheetId": "17EzyZrrci5NL7l5BvhtKIF3yEpbwtrha",
+  "queries": {
+    "params": ["Parametres", "A8:B17"],
+    "jalons": ["Parametres", "A21:C28"],
+    "kpi": ["KPI", "A8:J22"],
+    "ctx": ["KPI", "A26:F35"],
+    "attention": ["Synthese", "A26:A28"],
+    "risques": ["Synthese", "A32:E34"],
+    "actions": ["Synthese", "A38:E41"],
+    "hyp:Tensions": ["Relevés Tensions", "A8:I31"],
+    "rel:Tensions": ["Relevés Tensions", "A35:H1034"],
+    "jour:Tensions": ["Relevés Tensions", "K35:N1034"],
+    "hyp:Défavorable": ["Relevés Défavorable", "A8:I31"],
+    "rel:Défavorable": ["Relevés Défavorable", "A35:H1034"],
+    "jour:Défavorable": ["Relevés Défavorable", "K35:N1034"],
+    "hyp:Intermédiaire": ["Relevés Intermédiaire", "A8:I31"],
+    "rel:Intermédiaire": ["Relevés Intermédiaire", "A35:H1034"],
+    "jour:Intermédiaire": ["Relevés Intermédiaire", "K35:N1034"],
+    "hyp:Favorable": ["Relevés Favorable", "A8:I31"],
+    "rel:Favorable": ["Relevés Favorable", "A35:H1034"],
+    "jour:Favorable": ["Relevés Favorable", "K35:N1034"]
+  }
+}

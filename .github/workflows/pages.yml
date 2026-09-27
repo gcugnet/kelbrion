@@ -1,0 +1,39 @@
+# Publie le tableau de bord web (site/) sur GitHub Pages.
+# La page lit le classeur D6 en direct ; la copie de secours site/data/snapshot.json est rafraîchie à chaque
+# déploiement et chaque jour, au cas où Google Sheets ne répondrait pas.
+name: Tableau de bord web
+
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", ".github/workflows/pages.yml", ".github/scripts/**"]
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rafraîchir la copie de secours depuis Google Sheets
+        run: python3 .github/scripts/refresh_snapshot.py
+        continue-on-error: true
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4
